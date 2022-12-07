@@ -1,8 +1,8 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
-
-#include <unistd.h>//delete
+#include <unistd.h>
+#include <iomanip>
 
 int	main(void)
 {
@@ -22,6 +22,9 @@ int	main(void)
 
 		if (buff.compare("ADD") == 0)
 			pb.add_contact();
+		
+		if (buff.compare("SEARCH") == 0)
+			pb.print_contacts();
 
 	}
 

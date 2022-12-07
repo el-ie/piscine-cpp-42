@@ -14,12 +14,15 @@ class PhoneBook {
 			~PhoneBook(void);
 
 			void		add_contact(void); //add const? passer en private?
-			int			get_contact_nb(void);
+			int			get_contact_nb(void) const;
+
+			void	print_contacts(void) const;
 			Contacts	persons[8]; //passer en private ?
 
 		private:
 
 			int			_number_of_contacts;
+			int			_index;
 };
 
 #endif
