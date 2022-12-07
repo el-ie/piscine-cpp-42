@@ -25,6 +25,9 @@ int	main(void)
 
 	}
 
+	std::cout << std::endl << "last contact name = " << pb.persons[pb.get_contact_nb()].first_name;
+
+
 	return (0);
 }
 

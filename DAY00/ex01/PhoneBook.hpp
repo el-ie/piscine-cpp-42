@@ -9,17 +9,17 @@
 class PhoneBook {
 
  		public:
-		
-		PhoneBook(void);
-		~PhoneBook(void);
 
-		void		add_contact(void); //add const? passer en private?
+			PhoneBook(void);
+			~PhoneBook(void);
 
-		Contacts	persons[8]; //passer en private ?
+			void		add_contact(void); //add const? passer en private?
+			int			get_contact_nb(void);
+			Contacts	persons[8]; //passer en private ?
 
 		private:
 
-		static int			_number_of_contacts;
+			int			_number_of_contacts;
 };
 
 #endif

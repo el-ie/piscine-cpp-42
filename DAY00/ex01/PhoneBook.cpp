@@ -3,8 +3,6 @@
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
 
-int	PhoneBook::_number_of_contacts = 0;
-
 PhoneBook::PhoneBook(void) {
 	return;
 }
@@ -15,9 +13,24 @@ PhoneBook::~PhoneBook(void) {
 
 void	PhoneBook::add_contact(void) {
 
-	std::cout << "You choose ADD" << std::endl;
-	PhoneBook::_number_of_contacts++;
+	this->_number_of_contacts++;
 
-	persons[_number_of_contacts].name = "hello";
+	std::cout << "Enter informations :" << std::endl;
+	std::cout << "first name :" << std::endl;
+	std::getline(std::cin, persons[_number_of_contacts].first_name);
+	std::cout << "Last name :" << std::endl;
+	std::getline(std::cin, persons[_number_of_contacts].last_name);
+	std::cout << "Nickname :" << std::endl;
+	std::getline(std::cin, persons[_number_of_contacts].nickname);
+	std::cout << "Phone number :" << std::endl;
+	std::getline(std::cin, persons[_number_of_contacts].phone_number);
+	std::cout << "Darkest secret :" << std::endl;
+	std::getline(std::cin, persons[_number_of_contacts].darkest_secret);
+	//protect?
 
+}
+
+int	PhoneBook::get_contact_nb(void) {
+	
+	return (this->_number_of_contacts);
 }
