@@ -1,11 +1,19 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
-#include <unistd.h>
 #include <iomanip>
 
 int	main(void)
 {
+//	int test = 0;
+//
+//	std::cin >> test;
+//	if (std::cin.fail())
+//		std::cout << "Failed" << std::endl;
+//	else
+//		std::cout << test << std::endl;
+//
+//	return (1);
 
 	PhoneBook pb;
 
@@ -22,14 +30,17 @@ int	main(void)
 
 		if (buff.compare("ADD") == 0)
 			pb.add_contact();
-		
+
 		if (buff.compare("SEARCH") == 0)
 			pb.print_contacts();
 
+		if (buff.compare("EXIT") == 0)
+			return 1;
+
+		if (std::cin.fail())
+			break;
+
 	}
-
-	std::cout << std::endl << "last contact name = " << pb.persons[pb.get_contact_nb()].first_name;
-
 
 	return (0);
 }
