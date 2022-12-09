@@ -14,6 +14,16 @@ PhoneBook::~PhoneBook(void) {
 	return;
 }
 
+int		check_if_cin_fail(void) {
+	if (std::cin.fail()) {
+		std::cout << "Contact entry stopped, back to menu.";
+		std::cin.clear();
+
+		return (-1);
+	}
+	return (0);
+}
+
 void	PhoneBook::add_contact(void) {
 
 	_number_of_contacts++;
@@ -25,21 +35,26 @@ void	PhoneBook::add_contact(void) {
 	std::cout << "Enter informations :" << std::endl;
 	std::cout << "first name :" << std::endl;
 	std::getline(std::cin, persons[_index].first_name);
+	if (std::cin.eof()) { return ;}
 	std::cout << "Last name :" << std::endl;
 	std::getline(std::cin, persons[_index].last_name);
+	if (std::cin.eof()) { return ;}
 	std::cout << "Nickname :" << std::endl;
 	std::getline(std::cin, persons[_index].nickname);
+	if (std::cin.eof()) { return ;}
 	std::cout << "Phone number :" << std::endl;
 	std::getline(std::cin, persons[_index].phone_number);
+	if (std::cin.eof()) { return ;}
 	std::cout << "Darkest secret :" << std::endl;
 	std::getline(std::cin, persons[_index].darkest_secret);
-	
+	if (std::cin.eof()) { return ;}
+
 	persons[_index].contact_index = _index;
 	persons[_index].entered = 1;
 	//protect?
 }
 
-void	PhoneBook::print_contacts(void) const {
+void	PhoneBook::search_contact(void) const {
 
 	std::cout << '|' << std::setw(10) << "index" << '|' << std::setw(10)
 		<< "first name" << '|' << std::setw(10) << "last name" << '|'
@@ -65,8 +80,9 @@ void	PhoneBook::print_contacts(void) const {
 			std::cout << "|" << std::endl;
 		}
 	}
-	std::cout << std::endl << "Wich index would you like to see ?" << std::endl;
 
+	std::cout << std::endl << "Wich index would you like to see ?" << std::endl;
+	
 	int choice = 0;
 	std::cin >> choice;
 

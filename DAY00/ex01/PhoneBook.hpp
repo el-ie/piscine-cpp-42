@@ -16,7 +16,7 @@ class PhoneBook {
 			void		add_contact(void); //add const? passer en private?
 			int			get_contact_nb(void) const;
 
-			void	print_contacts(void) const;
+			void	search_contact(void) const;
 			Contacts	persons[8]; //passer en private ?
 
 		private:

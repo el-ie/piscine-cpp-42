@@ -5,43 +5,41 @@
 
 int	main(void)
 {
-//	int test = 0;
+
+//	std::string bufff;
+//	std::getline(std::cin, bufff);
 //
-//	std::cin >> test;
-//	if (std::cin.fail())
-//		std::cout << "Failed" << std::endl;
-//	else
-//		std::cout << test << std::endl;
+//	if (std::cin.eof())
+//	{
+//		std::cout << "END OF FILE \n";
+//		//return 1;
+//	}
 //
-//	return (1);
+//	std::cout << "FIN DE LA PAGE \n";
+//	return 1;
+
 
 	PhoneBook pb;
 
 	std::string buff;
 
-	while (1) {
+	while (std::getline(std::cin, buff)) {
 
-		std::getline(std::cin, buff);
-
-		if (std::cin.eof())
-			break;
-
-		//std::cout << "buf = [" << buff << ']' << std::endl;
+		//std::cout << "-----------------TOUR------------------\n";
 
 		if (buff.compare("ADD") == 0)
 			pb.add_contact();
+		else if (buff.compare("SEARCH") == 0)
+			pb.search_contact();
+		else if (buff == "EXIT")
+		{ std::cout << "Exiting program" << std::endl; return 1; }
+		else
+			std::cout << "Incorrect entry, you can ADD, SEARCH or EXIT" << std::endl;
 
-		if (buff.compare("SEARCH") == 0)
-			pb.print_contacts();
-
-		if (buff.compare("EXIT") == 0)
-			return 1;
-
-		if (std::cin.fail())
-			break;
+		std::cin.clear();
 
 	}
 
-	return (0);
+	return 0;
 }
 
