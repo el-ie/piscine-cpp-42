@@ -13,8 +13,11 @@ public:
 		std::string	nickname;
 		std::string	phone_number;
 		std::string	darkest_secret;
-		bool	entered;
+		//bool	entered;
 		int		contact_index;
+
+		Contacts	create_new(void);
+
 private:
 
 

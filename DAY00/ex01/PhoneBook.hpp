@@ -21,7 +21,7 @@ class PhoneBook {
 
 		private:
 
-			int			_number_of_contacts;
+			int			_number_of_contacts; // utilite
 			int			_index;
 };
 

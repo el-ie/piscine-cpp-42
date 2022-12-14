@@ -32,37 +32,26 @@ void	PhoneBook::add_contact(void) {
 	if (_index == 8)
 		_index = 0;
 
-	std::cout << "Enter informations :" << std::endl;
-	std::cout << "first name :" << std::endl;
-	std::getline(std::cin, persons[_index].first_name);
-	if (std::cin.eof()) { return ;}
-	std::cout << "Last name :" << std::endl;
-	std::getline(std::cin, persons[_index].last_name);
-	if (std::cin.eof()) { return ;}
-	std::cout << "Nickname :" << std::endl;
-	std::getline(std::cin, persons[_index].nickname);
-	if (std::cin.eof()) { return ;}
-	std::cout << "Phone number :" << std::endl;
-	std::getline(std::cin, persons[_index].phone_number);
-	if (std::cin.eof()) { return ;}
-	std::cout << "Darkest secret :" << std::endl;
-	std::getline(std::cin, persons[_index].darkest_secret);
-	if (std::cin.eof()) { return ;}
-
+	persons[_index] = persons[_index].create_new();
 	persons[_index].contact_index = _index;
-	persons[_index].entered = 1;
 	//protect?
 }
 
+#include <cstdlib> //remove
+
 void	PhoneBook::search_contact(void) const {
+
+	if (_number_of_contacts < 1)
+	{
+		std::cout << std::endl << "No contact to see yet, add a contact with ADD." << std::endl;
+		return ;
+	}
 
 	std::cout << '|' << std::setw(10) << "index" << '|' << std::setw(10)
 		<< "first name" << '|' << std::setw(10) << "last name" << '|'
 		<< std::setw(10) << "Nickname" << '|' << std::endl;
 
-
-	for (int	i = 0; i < 8; i++) {
-		if (_index > -1 && persons[i].entered == 1) {
+	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
 
 			std::cout << '|' << std::setw(10) << i;
 			if (persons[i].first_name.length() > 10)
@@ -78,23 +67,28 @@ void	PhoneBook::search_contact(void) const {
 			else
 				std::cout << '|' << std::setw(10) << persons[i].nickname;
 			std::cout << "|" << std::endl;
-		}
 	}
 
 	std::cout << std::endl << "Wich index would you like to see ?" << std::endl;
-	
-	int choice = 0;
-	std::cin >> choice;
+
+	int choice;
+	std::string number;
+	std::getline(std::cin, number);
 
 	if (std::cin.fail()) {
 		std::cout << "Bad selection, back to menu." << std::endl;
 		return ;
 	}
+
+	//check number mauvais input, overflow...
+	choice = atoi(number.c_str());
+
 	if (!(choice >= 0 && choice <= 8)) {
 		std::cout << "Selection out of range, back to menu." << std::endl;
 		return ;	
 	}
-	if (persons[choice].entered == 0) {
+
+	if (choice >= _number_of_contacts) {
 		std::cout << "Choice isn't available yet, back to menu." << std::endl;
 		return ;
 	}
