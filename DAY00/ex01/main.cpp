@@ -1,17 +1,36 @@
-#include <iostream>
+
+#include "source.hpp"
+
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
-#include <iomanip>
+#include "Input.hpp"
+
+
 
 int	main(void)
 {
+//	std::string test;
+//	std::getline(std::cin, test);
+
+	//std::cout << "[" << test << "]" << std::endl;
+
+	//Input::check_input();
+
+	while (1)
+	{
+		std::cout << "Result = " << Input::check_input() << std::endl;
+	}
+	sleep(100);
+
+	return (0);
 	PhoneBook pb; //checker si cela doit s appeller repertoire ?
 
 	std::string buff;
 
 	while (std::getline(std::cin, buff)) {
-	
-		std::cout << "-----------------TOUR----------------- [" << buff << "]\n";
+
+		//std::cout << "-----------------TOUR----------------- [" << buff << "]\n";
+		std::cout << "-----\n";
 
 		if (buff.compare("ADD") == 0)
 			pb.add_contact();
@@ -24,7 +43,7 @@ int	main(void)
 
 		//std::cin.clear(); //continuer le programme apres ctrl d
 		//std::cin.ignore();
-	//faire avec fonction fail eof string vide
+		//faire avec fonction fail eof string vide
 	}
 
 	return 0;

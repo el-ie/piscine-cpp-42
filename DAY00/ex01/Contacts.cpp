@@ -1,6 +1,4 @@
 
-#include <iostream>
-#include "PhoneBook.hpp"
 #include "Contacts.hpp"
 
 Contacts::Contacts(void) {

@@ -1,3 +1,5 @@
+#include "source.hpp"
+
 #ifndef CONTACTS_CLASS_H //check
 # define CONTACTS_CLASS_H
 

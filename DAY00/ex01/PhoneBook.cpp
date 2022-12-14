@@ -1,8 +1,5 @@
 
-#include <iostream>
-#include <iomanip>
 #include "PhoneBook.hpp"
-#include "Contacts.hpp"
 
 PhoneBook::PhoneBook(void) {
 	_number_of_contacts = 0;
@@ -83,7 +80,7 @@ void	PhoneBook::search_contact(void) const {
 	//check number mauvais input, overflow...
 	choice = atoi(number.c_str());
 
-	if (!(choice >= 0 && choice <= 8)) {
+	if (!(choice >= 0 && choice < 8)) {
 		std::cout << "Selection out of range, back to menu." << std::endl;
 		return ;	
 	}
