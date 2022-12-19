@@ -36,63 +36,28 @@ void	PhoneBook::add_contact(void) {
 
 #include <cstdlib> //remove
 
-void	PhoneBook::search_contact(void) const {
-
-	if (_number_of_contacts < 1)
-	{
-		std::cout << std::endl << "No contact to see yet, add a contact with ADD." << std::endl;
-		return ;
-	}
-
+void	PhoneBook::display_fields_headers(void) const{
 	std::cout << '|' << std::setw(10) << "index" << '|' << std::setw(10)
 		<< "first name" << '|' << std::setw(10) << "last name" << '|'
 		<< std::setw(10) << "Nickname" << '|' << std::endl;
+}
 
-//	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
-//
-//			std::cout << '|' << std::setw(10) << i;
-//			if (persons[i].first_name.length() > 10)
-//				std::cout << '|' << std::setw(9) << persons[i].first_name.substr(0,9) << ".";
-//			else
-//				std::cout << '|' << std::setw(10) << persons[i].first_name;
-//			if (persons[i].last_name.length() > 10)
-//				std::cout << '|' << std::setw(9) << persons[i].last_name.substr(0,9) << ".";
-//			else
-//				std::cout << '|' << std::setw(10) << persons[i].last_name;
-//			if (persons[i].nickname.length() > 10)
-//				std::cout << '|' << std::setw(9) << persons[i].nickname.substr(0,9) << ".";
-//			else
-//				std::cout << '|' << std::setw(10) << persons[i].nickname;
-//			std::cout << "|" << std::endl;
-//	}
+void	PhoneBook::search_contact(void) const {
 
-//	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
-//
-//			std::cout << '|' << std::setw(10) << i;
-//			if (persons[i].informations[FIRST_NAME].length() > 10)
-//				std::cout << '|' << std::setw(9) << persons[i].informations[FIRST_NAME].substr(0,9) << ".";
-//			else
-//				std::cout << '|' << std::setw(10) << persons[i].informations[FIRST_NAME];
-//			if (persons[i].informations[LAST_NAME].length() > 10)
-//				std::cout << '|' << std::setw(9) << persons[i].informations[LAST_NAME].substr(0,9) << ".";
-//			else
-//				std::cout << '|' << std::setw(10) << persons[i].informations[LAST_NAME];
-//			if (persons[i].informations[NICKNAME].length() > 10)
-//				std::cout << '|' << std::setw(9) << persons[i].informations[NICKNAME].substr(0,9) << ".";
-//			else
-//				std::cout << '|' << std::setw(10) << persons[i].informations[NICKNAME];
-//			std::cout << "|" << std::endl;
-//	}
+	if (_number_of_contacts < 1)
+		{ std::cout << std::endl << "No contact to see yet, add a contact with ADD." << std::endl; return ; }
+
+	display_fields_headers();
 
 	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
-			std::cout << '|' << std::setw(10) << i;
-		for (int field = 0; field < 4; field++) {
+		std::cout << '|' << std::setw(10) << i;
+		for (int field = 0; field < 3; field++) {
 			if (persons[i].informations[field].length() > 10)
 				std::cout << '|' << std::setw(9) << persons[i].informations[field].substr(0,9) << ".";
 			else
 				std::cout << '|' << std::setw(10) << persons[i].informations[field];
 		}
-			std::cout << "|" << std::endl;
+		std::cout << "|" << std::endl;
 	}
 
 	std::cout << std::endl << "Wich index would you like to see ?" << std::endl;
@@ -120,10 +85,9 @@ void	PhoneBook::search_contact(void) const {
 	}
 
 	std::cout << "Index : " << choice << std::endl;
-	std::cout << "First name : " << persons[choice].first_name << std::endl;
-	std::cout << "Nickname : " << persons[choice].nickname << std::endl;
-	std::cout << "Phone number : " << persons[choice].phone_number << std::endl;
-	std::cout << "Darkest secret : " << persons[choice].darkest_secret << std::endl;
+
+	for (int i = 0; i < 5; i++)
+		std::cout << Contacts::labels[i] << persons[choice].informations[i] << std::endl;
 
 	return ;
 }
