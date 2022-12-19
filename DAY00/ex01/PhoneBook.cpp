@@ -48,21 +48,50 @@ void	PhoneBook::search_contact(void) const {
 		<< "first name" << '|' << std::setw(10) << "last name" << '|'
 		<< std::setw(10) << "Nickname" << '|' << std::endl;
 
-	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
+//	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
+//
+//			std::cout << '|' << std::setw(10) << i;
+//			if (persons[i].first_name.length() > 10)
+//				std::cout << '|' << std::setw(9) << persons[i].first_name.substr(0,9) << ".";
+//			else
+//				std::cout << '|' << std::setw(10) << persons[i].first_name;
+//			if (persons[i].last_name.length() > 10)
+//				std::cout << '|' << std::setw(9) << persons[i].last_name.substr(0,9) << ".";
+//			else
+//				std::cout << '|' << std::setw(10) << persons[i].last_name;
+//			if (persons[i].nickname.length() > 10)
+//				std::cout << '|' << std::setw(9) << persons[i].nickname.substr(0,9) << ".";
+//			else
+//				std::cout << '|' << std::setw(10) << persons[i].nickname;
+//			std::cout << "|" << std::endl;
+//	}
 
+//	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
+//
+//			std::cout << '|' << std::setw(10) << i;
+//			if (persons[i].informations[FIRST_NAME].length() > 10)
+//				std::cout << '|' << std::setw(9) << persons[i].informations[FIRST_NAME].substr(0,9) << ".";
+//			else
+//				std::cout << '|' << std::setw(10) << persons[i].informations[FIRST_NAME];
+//			if (persons[i].informations[LAST_NAME].length() > 10)
+//				std::cout << '|' << std::setw(9) << persons[i].informations[LAST_NAME].substr(0,9) << ".";
+//			else
+//				std::cout << '|' << std::setw(10) << persons[i].informations[LAST_NAME];
+//			if (persons[i].informations[NICKNAME].length() > 10)
+//				std::cout << '|' << std::setw(9) << persons[i].informations[NICKNAME].substr(0,9) << ".";
+//			else
+//				std::cout << '|' << std::setw(10) << persons[i].informations[NICKNAME];
+//			std::cout << "|" << std::endl;
+//	}
+
+	for (int i = 0; i < 8 && i < _number_of_contacts; i++) {
 			std::cout << '|' << std::setw(10) << i;
-			if (persons[i].first_name.length() > 10)
-				std::cout << '|' << std::setw(9) << persons[i].first_name.substr(0,9) << ".";
+		for (int field = 0; field < 4; field++) {
+			if (persons[i].informations[field].length() > 10)
+				std::cout << '|' << std::setw(9) << persons[i].informations[field].substr(0,9) << ".";
 			else
-				std::cout << '|' << std::setw(10) << persons[i].first_name;
-			if (persons[i].last_name.length() > 10)
-				std::cout << '|' << std::setw(9) << persons[i].last_name.substr(0,9) << ".";
-			else
-				std::cout << '|' << std::setw(10) << persons[i].last_name;
-			if (persons[i].nickname.length() > 10)
-				std::cout << '|' << std::setw(9) << persons[i].nickname.substr(0,9) << ".";
-			else
-				std::cout << '|' << std::setw(10) << persons[i].nickname;
+				std::cout << '|' << std::setw(10) << persons[i].informations[field];
+		}
 			std::cout << "|" << std::endl;
 	}
 

@@ -9,20 +9,23 @@
 
 int	main(void)
 {
+
 //	std::string test;
 //	std::getline(std::cin, test);
+//	std::cout << "[" << test << "]" << std::endl;
+//	while (1)
+//	{
+//		std::cout << Input::check_input() << std::endl;
+//
+//		Input::check_input();
+//		std::cout << "->" << Input::get_input() << std::endl;
+//		Input::testest();	
+//		Input::get_input();
+//		std::cout << "input = ["  << Input::get_input() << "]" << std::endl;
+//	}
+//	sleep(100);
+//	return (0);
 
-	//std::cout << "[" << test << "]" << std::endl;
-
-	//Input::check_input();
-
-	while (1)
-	{
-		std::cout << "Result = " << Input::check_input() << std::endl;
-	}
-	sleep(100);
-
-	return (0);
 	PhoneBook pb; //checker si cela doit s appeller repertoire ?
 
 	std::string buff;

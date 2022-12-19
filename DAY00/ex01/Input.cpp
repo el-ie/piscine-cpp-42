@@ -46,3 +46,11 @@ int	Input::check_input(void) {
 		return (CODE_NON_PRINTABLE);
 	return (CODE_GOOD_INPUT);
 }
+
+std::string Input::get_input(void) {
+	return (Input::_input);
+}
+
+void	Input::testest(void) {
+	return ;
+}

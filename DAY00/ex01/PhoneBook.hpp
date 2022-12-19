@@ -2,7 +2,7 @@
 
 #include "Contacts.hpp"//bien ?
 		
-#ifndef PHONEBOOK_CLASS_H //check
+#ifndef PHONEBOOK_CASS_H //check
 # define PHONEBOOK_CLASS_H
 
 class PhoneBook {
