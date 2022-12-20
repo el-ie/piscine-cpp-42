@@ -33,7 +33,6 @@ bool Input::contain_non_printable() {
 	return (false);
 }
 
-
 int	Input::check_input(void) {
 
 	_input.clear();
@@ -42,6 +41,8 @@ int	Input::check_input(void) {
 
 	if (contain_eof())
 		return (CODE_EOF);
+	if (std::cin.fail())
+		return (CODE_FAIL);
 	if (contain_non_printable()) //comment pourrait il y a voir un non printable ?
 		return (CODE_NON_PRINTABLE);
 	return (CODE_GOOD_INPUT);

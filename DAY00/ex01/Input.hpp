@@ -7,6 +7,7 @@
 enum	e_code_error_input
 {
 	CODE_GOOD_INPUT,
+	CODE_FAIL,
 	CODE_EOF,
 	CODE_NON_PRINTABLE,
 };

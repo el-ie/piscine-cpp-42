@@ -1,5 +1,7 @@
 #include "source.hpp"
 
+#include "Input.hpp"
+
 #ifndef CONTACTS_CLASS_H //check
 # define CONTACTS_CLASS_H
 
