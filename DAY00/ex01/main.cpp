@@ -5,10 +5,14 @@
 #include "Contacts.hpp"
 #include "Input.hpp"
 
-
+#include <cctype>
+#include <ctype.h>
+#include <stdio.h>
+#include <ctype.h>
 
 int	main(void)
 {
+
 
 //	std::string test;
 //	std::getline(std::cin, test);

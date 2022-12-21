@@ -18,6 +18,7 @@ class PhoneBook {
 			void	search_contact(void) const;
 			Contacts	persons[8]; //passer en private ?
 			void	display_fields_headers(void) const;
+			void	display_fields_contacts(void) const;
 
 
 		private:

@@ -1,4 +1,5 @@
 #include "Input.hpp"
+#include <ctype.h>
 
 //#include <iostream>
 //#include <cstdio>
@@ -45,6 +46,30 @@ int	Input::check_input(void) {
 		return (CODE_FAIL);
 	if (contain_non_printable()) //comment pourrait il y a voir un non printable ?
 		return (CODE_NON_PRINTABLE);
+	return (CODE_GOOD_INPUT);
+}
+
+bool	Input::is_only_numeric() {
+
+	for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++)
+		if (!(*ite >= '0' && *ite <= '9'))
+			return (false);
+	return (true);
+}
+
+int Input::check_input_index(void) {
+
+	int	return_code = check_input();
+
+	if (return_code != CODE_GOOD_INPUT)
+		return (return_code);
+
+	if (!is_only_numeric())
+		return (CODE_CONTAIN_NON_NUMERIC);
+
+	if (_input.length() != 1)
+		return (CODE_BAD_INDEX_LEN);
+
 	return (CODE_GOOD_INPUT);
 }
 
