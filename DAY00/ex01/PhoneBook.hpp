@@ -16,10 +16,12 @@ class PhoneBook {
 			static int			get_contact_nb(void);
 
 			void	search_contact(void) const;
-			 Contacts	persons[8];
+			
 
 
 		private:
+
+			static Contacts	persons[8];
 
 			static int			_number_of_contacts;
 			static int			_index;

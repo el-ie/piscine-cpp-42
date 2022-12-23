@@ -2,8 +2,9 @@
 #include "PhoneBook.hpp"
 #include <cstdlib> //keep or not
 
-int	PhoneBook::_number_of_contacts = 0;
-int	PhoneBook::_index = -1;
+int			PhoneBook::_number_of_contacts = 0;
+int			PhoneBook::_index = -1;
+Contacts	PhoneBook::persons[8];
 
 PhoneBook::PhoneBook(void) {
 	//_number_of_contacts = 0;
@@ -59,9 +60,11 @@ void	PhoneBook::_display_fields_contacts(void) const{
 
 void	PhoneBook::_display_fields_one_contact(int choice) const{
 
+	std::cout << "Informations of contact " << choice << ":" << std::endl;
 	std::cout << "Index : " << choice << std::endl;
 	for (int i = 0; i < 5; i++)
 		std::cout << Contacts::labels[i] << persons[choice].informations[i] << std::endl;
+	std::cout << std::endl;
 }
 
 void	PhoneBook::search_contact(void) const {
