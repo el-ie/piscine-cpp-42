@@ -17,22 +17,22 @@ enum	e_labels
 
 class Contacts {
 
-public:
-		
+	public:
+
 		Contacts(void);
 		~Contacts(void);
 
+		//functions
+		static 			Contacts	create_new(void);
+		std::string		get_information(int field); 
 
+		//variables
+		static const char*	labels[FIELD_NBR];
 
-		Contacts	create_new(void);
+	private:
 
-		static std::string	labels[FIELD_NBR];
-		
-		std::string	informations[FIELD_NBR];
+		std::string	_informations[FIELD_NBR];
 
-private:
-
-		
 };
 
 #endif

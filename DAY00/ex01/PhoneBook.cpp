@@ -22,7 +22,8 @@ void	PhoneBook::add_contact(void) {
 	if (_index == CONTACT_MAX)
 		_index = 0;
 
-	persons[_index] = persons[_index].create_new();
+	//persons[_index] = persons[_index].create_new();
+	persons[_index] = Contacts::create_new();
 	std::cout << "	Contact added with success." << std::endl;
 }
 
@@ -36,10 +37,10 @@ void	PhoneBook::_display_fields_contacts(void) const{
 	for (int i = 0; i < CONTACT_MAX && i < PhoneBook::_number_of_contacts; i++) {
 		std::cout << '|' << std::setw(10) << i;
 		for (int field = 0; field < 3; field++) {
-			if (persons[i].informations[field].length() > 10)
-				std::cout << '|' << std::setw(9) << persons[i].informations[field].substr(0,9) << ".";
+			if (persons[i].get_information(field).length() > 10)
+				std::cout << '|' << std::setw(9) << persons[i].get_information(field).substr(0,9) << ".";
 			else
-				std::cout << '|' << std::setw(10) << persons[i].informations[field];
+				std::cout << '|' << std::setw(10) << persons[i].get_information(field);
 		}
 		std::cout << "|" << std::endl;
 	}
@@ -50,7 +51,7 @@ void	PhoneBook::_display_fields_one_contact(int choice) const{
 	std::cout << "Informations of contact " << choice << ":" << std::endl;
 	std::cout << "Index : " << choice << std::endl;
 	for (int i = 0; i < 5; i++)
-		std::cout << Contacts::labels[i] << persons[choice].informations[i] << std::endl;
+		std::cout << Contacts::labels[i] << persons[choice].get_information(i) << std::endl;
 	std::cout << std::endl;
 }
 

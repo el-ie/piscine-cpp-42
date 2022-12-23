@@ -7,7 +7,7 @@ Contacts::Contacts(void) {
 Contacts::~Contacts(void) {
 }
 
-std::string	Contacts::labels[FIELD_NBR] = {
+const char*	Contacts::labels[FIELD_NBR] = {
 	"First name :",
 	"Last name :",
 	"Nickname :",
@@ -26,9 +26,13 @@ Contacts	Contacts::create_new(void) {
 			std::cout << "Pleas enter alphanumeric character only" << std::endl;
 		}
 		else {
-			new_contact.informations[i] = Input::get_input();
+			new_contact._informations[i] = Input::get_input();
 			i++;
 		}
 	}
 	return (new_contact);
+}
+
+std::string	Contacts::get_information(int field) {
+	return (this->_informations[field]);
 }

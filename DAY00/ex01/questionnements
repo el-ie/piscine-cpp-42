@@ -2,5 +2,7 @@
 Quand il n y a pas forcement besoin de creer une instance d'une classe est il mieux
 de tout mettre en statique et de l utiliser sans instance ?
 
+faut il mettre les fonctions en static des que cela est possible ?
+
 input :
 cin ou getline ?
