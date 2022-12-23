@@ -1,5 +1,6 @@
 #include "Input.hpp"
-#include <ctype.h>
+#include "PhoneBook.hpp"
+#include <cstdlib>
 
 //#include <iostream>
 //#include <cstdio>
@@ -64,19 +65,31 @@ int Input::check_input_index(void) {
 	if (return_code != CODE_GOOD_INPUT)
 		return (return_code);
 
-	if (!is_only_numeric())
+	if (!is_only_numeric()) {
+		std::cout << "Index is in incorrect format." << std::endl;
 		return (CODE_CONTAIN_NON_NUMERIC);
+	}
 
-	if (_input.length() != 1)
+	int	choice = atoi(_input.c_str());
+
+	if (!(choice >= 0 && choice < 8)) {
+		std::cout << "Selection out of range." << std::endl;
+		return (CODE_INDEX_OUT_OF_RANGE);	
+	}
+
+	if (_input.length() != 1) {
+		std::cout << "Bad input." << std::endl;
 		return (CODE_BAD_INDEX_LEN);
+	}
+
+	if (choice >= PhoneBook::get_contact_nb()) {
+		std::cout << "Choice isn't available yet." << std::endl;
+		return (CODE_INDEX_UNAVAILABLE);
+	}
 
 	return (CODE_GOOD_INPUT);
 }
 
 std::string Input::get_input(void) {
 	return (Input::_input);
-}
-
-void	Input::testest(void) {
-	return ;
 }

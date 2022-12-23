@@ -12,6 +12,8 @@ enum	e_code_error_input
 	CODE_NON_PRINTABLE,
 	CODE_CONTAIN_NON_NUMERIC,
 	CODE_BAD_INDEX_LEN,
+	CODE_INDEX_OUT_OF_RANGE,
+	CODE_INDEX_UNAVAILABLE,
 };
 
 class Input {
@@ -22,15 +24,17 @@ class Input {
 		static bool			contain_non_printable(void);
 		static bool			contain_eof(void);
 		static bool			is_only_numeric(void);
-		static std::string 	_input;
-		static std::string	get_input(void);
 
-		void	testest(void);
+
+
+		static std::string	get_input(void);
 
 	private:
 
 		Input();
 		~Input();
+
+		static std::string 	_input;
 };
 
 #endif

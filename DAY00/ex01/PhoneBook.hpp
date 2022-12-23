@@ -13,17 +13,17 @@ class PhoneBook {
 			~PhoneBook(void);
 
 			void		add_contact(void); //add const? passer en private?
-			int			get_contact_nb(void) const;
+			static int			get_contact_nb(void);
 
 			void	search_contact(void) const;
 			Contacts	persons[8]; //passer en private ?
 			void	display_fields_headers(void) const;
 			void	display_fields_contacts(void) const;
-
+			void	display_fields_one_contact(int choice) const;
 
 		private:
 
-			int			_number_of_contacts; // utilite
+			static int			_number_of_contacts;
 			int			_index;
 };
 
