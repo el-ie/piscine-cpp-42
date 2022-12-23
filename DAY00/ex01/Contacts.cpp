@@ -2,7 +2,6 @@
 #include "Contacts.hpp"
 
 Contacts::Contacts(void) {
-	//this->entered = 0;
 }
 
 Contacts::~Contacts(void) {
@@ -31,6 +30,5 @@ Contacts	Contacts::create_new(void) {
 			i++;
 		}
 	}
-	//new_contact.entered = 1; // ce n est pas initialise a 0, le faire ??
 	return (new_contact);
 }

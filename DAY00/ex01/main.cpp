@@ -13,7 +13,7 @@
 int	main(void)
 {
 
-	PhoneBook pb; //checker si cela doit s appeller repertoire ?
+	PhoneBook pb; //repertoire ?
 
 	std::string buff;
 

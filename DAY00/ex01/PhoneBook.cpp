@@ -4,11 +4,9 @@
 
 int			PhoneBook::_number_of_contacts = 0;
 int			PhoneBook::_index = -1;
-Contacts	PhoneBook::persons[8];
+Contacts	PhoneBook::persons[CONTACT_MAX];
 
 PhoneBook::PhoneBook(void) {
-	//_number_of_contacts = 0;
-	//_index = -1;
 	return;
 }
 
@@ -16,26 +14,15 @@ PhoneBook::~PhoneBook(void) {
 	return;
 }
 
-int		check_if_cin_fail(void) {
-	if (std::cin.fail()) {
-		std::cout << "Contact entry stopped, back to menu.";
-		std::cin.clear();
-
-		return (-1);
-	}
-	return (0);
-}
-
 void	PhoneBook::add_contact(void) {
 
 	_number_of_contacts++;
 	_index++;
 
-	if (_index == 8)
+	if (_index == CONTACT_MAX)
 		_index = 0;
 
 	persons[_index] = persons[_index].create_new();
-	persons[_index].contact_index = _index;
 	std::cout << "	Contact added with success." << std::endl;
 }
 
@@ -46,7 +33,7 @@ void	PhoneBook::_display_fields_headers(void) const{
 }
 
 void	PhoneBook::_display_fields_contacts(void) const{
-	for (int i = 0; i < 8 && i < PhoneBook::_number_of_contacts; i++) {
+	for (int i = 0; i < CONTACT_MAX && i < PhoneBook::_number_of_contacts; i++) {
 		std::cout << '|' << std::setw(10) << i;
 		for (int field = 0; field < 3; field++) {
 			if (persons[i].informations[field].length() > 10)

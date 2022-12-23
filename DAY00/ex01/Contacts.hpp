@@ -22,22 +22,16 @@ public:
 		Contacts(void);
 		~Contacts(void);
 
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
-		//bool	entered;
-		int		contact_index;
+
 
 		Contacts	create_new(void);
 
 		static std::string	labels[FIELD_NBR];
 		
 		std::string	informations[FIELD_NBR];
+
 private:
 
-		//std::string	informations[FIELD_NBR];
 		
 };
 
