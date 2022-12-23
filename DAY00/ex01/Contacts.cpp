@@ -20,10 +20,11 @@ Contacts	Contacts::create_new(void) {
 	Contacts	new_contact;
 	int	i = 0;
 
+	std::cout << std::endl;
 	while (i < FIELD_NBR){
 		std::cout << labels[i] << std::endl;
 		if (Input::check_input() != CODE_GOOD_INPUT) {
-			std::cout << "Pleas enter alphanumeric character only" << std::endl;
+			std::cout << "Pleas enter alphanumeric character." << std::endl;
 		}
 		else {
 			new_contact._informations[i] = Input::get_input();
@@ -33,6 +34,6 @@ Contacts	Contacts::create_new(void) {
 	return (new_contact);
 }
 
-std::string	Contacts::get_information(int field) {
+std::string	Contacts::get_information(int field) const{
 	return (this->_informations[field]);
 }

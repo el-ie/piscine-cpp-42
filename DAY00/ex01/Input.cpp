@@ -13,7 +13,7 @@ Input::Input(void) {
 Input::~Input(void) {
 }
 
-bool Input::contain_eof(void) {
+bool Input::_contain_eof(void) {
 	
 	if (std::cin.eof())
 	{
@@ -26,7 +26,7 @@ bool Input::contain_eof(void) {
 		return (false);
 }
 
-bool Input::contain_non_printable() {
+bool Input::_contain_non_printable() {
 	
 	for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++) {
 		if (!std::isprint(*ite) && !std::isspace(*ite))
@@ -41,16 +41,16 @@ int	Input::check_input(void) {
 
 	getline(std::cin, _input);
 
-	if (contain_eof())
+	if (_contain_eof())
 		return (CODE_EOF);
 	if (std::cin.fail())
 		return (CODE_FAIL);
-	if (contain_non_printable()) //comment pourrait il y a voir un non printable ?
+	if (_contain_non_printable()) //comment pourrait il y a voir un non printable ?
 		return (CODE_NON_PRINTABLE);
 	return (CODE_GOOD_INPUT);
 }
 
-bool	Input::is_only_numeric() {
+bool	Input::_is_only_numeric() {
 
 	for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++)
 		if (!(*ite >= '0' && *ite <= '9'))
@@ -65,7 +65,7 @@ int Input::check_input_index(void) {
 	if (return_code != CODE_GOOD_INPUT)
 		return (return_code);
 
-	if (!is_only_numeric()) {
+	if (!_is_only_numeric()) {
 		std::cout << "Index is in incorrect format." << std::endl;
 		return (CODE_CONTAIN_NON_NUMERIC);
 	}

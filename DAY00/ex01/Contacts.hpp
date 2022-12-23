@@ -24,7 +24,7 @@ class Contacts {
 
 		//functions
 		static 			Contacts	create_new(void);
-		std::string		get_information(int field); 
+		std::string		get_information(int field) const; 
 
 		//variables
 		static const char*	labels[FIELD_NBR];

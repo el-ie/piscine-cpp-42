@@ -24,7 +24,7 @@ void	PhoneBook::add_contact(void) {
 
 	//persons[_index] = persons[_index].create_new();
 	persons[_index] = Contacts::create_new();
-	std::cout << "	Contact added with success." << std::endl;
+	std::cout << "	Contact added with success." << std::endl << std::endl;
 }
 
 void	PhoneBook::_display_fields_headers(void) const{
@@ -57,8 +57,9 @@ void	PhoneBook::_display_fields_one_contact(int choice) const{
 
 void	PhoneBook::search_contact(void) const {
 
+	std::cout << std::endl;
 	if (PhoneBook::_number_of_contacts < 1)
-	{ std::cout << std::endl << "No contact to see yet, add a contact with ADD." << std::endl; return ; }
+	{ std::cout << "No contact to see yet, add a contact with ADD." << std::endl; return ; }
 
 	_display_fields_headers();
 

@@ -21,11 +21,6 @@ class Input {
 	public:
 		static int			check_input(void);
 		static int			check_input_index(void);
-		static bool			contain_non_printable(void);
-		static bool			contain_eof(void);
-		static bool			is_only_numeric(void);
-
-
 
 		static std::string	get_input(void);
 
@@ -33,6 +28,10 @@ class Input {
 
 		Input();
 		~Input();
+
+		static bool			_contain_non_printable(void);
+		static bool			_contain_eof(void);
+		static bool			_is_only_numeric(void);
 
 		static std::string 	_input;
 };
