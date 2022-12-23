@@ -1,9 +1,7 @@
-#include "source.hpp"
-
 #include "Contacts.hpp"//bien ?
+#include <iomanip>
+#include <cstdlib>
 
-#define CONTACT_MAX 2
-		
 #ifndef PHONEBOOK_CASS_H //check
 # define PHONEBOOK_CLASS_H
 
@@ -20,6 +18,7 @@ class PhoneBook {
 
 		private:
 			
+			enum { CONTACT_MAX = 8 };
 			//variables
 			static Contacts		_persons[CONTACT_MAX];
 			static int			_number_of_contacts;

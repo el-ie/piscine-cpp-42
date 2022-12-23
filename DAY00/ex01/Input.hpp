@@ -1,5 +1,6 @@
-
-#include "source.hpp"
+#include <string>
+#include <iostream>
+#include <cstdio>
 
 #ifndef INPUT_CLASS_H
 # define INPUT_CLASS_H

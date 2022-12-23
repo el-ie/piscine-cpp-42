@@ -1,8 +1,6 @@
-#include "source.hpp"
-
 #include "Input.hpp"
 
-#ifndef CONTACTS_CLASS_H //check
+#ifndef CONTACTS_CLASS_H
 # define CONTACTS_CLASS_H
 
 enum	e_labels
@@ -23,7 +21,7 @@ class Contacts {
 		~Contacts(void);
 
 		//functions
-		static 			Contacts	create_new(void);
+		void			edit_new_contact(void);
 		std::string		get_information(int field) const; 
 
 		//variables
@@ -32,7 +30,6 @@ class Contacts {
 	private:
 
 		std::string	_informations[FIELD_NBR];
-
 };
 
 #endif

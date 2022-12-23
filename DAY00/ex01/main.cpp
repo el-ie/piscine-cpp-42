@@ -1,14 +1,8 @@
 
-#include "source.hpp"
-
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
 #include "Input.hpp"
-
-#include <cctype>
-#include <ctype.h>
-#include <stdio.h>
-#include <ctype.h>
+#include <cstdio>
 
 int	main(void)
 {
@@ -20,7 +14,7 @@ int	main(void)
 		std::cout << "What do you want to do ?" << std::endl << std::endl;
 
 		while (Input::check_input() != 0)
-			std::cout << "Bad input, pleas enter a valid entry." << std::endl;
+			std::cout << "Bad input, please enter a valid entry." << std::endl;
 		
 		if (Input::get_input().compare("ADD") == 0)
 			pb.add_contact();

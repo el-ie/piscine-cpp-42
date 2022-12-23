@@ -1,6 +1,4 @@
-
 #include "PhoneBook.hpp"
-#include <cstdlib> //keep or not
 
 int			PhoneBook::_number_of_contacts = 0;
 int			PhoneBook::_index = -1;
@@ -23,7 +21,7 @@ void	PhoneBook::add_contact(void) {
 		_index = 0;
 
 	std::cout << "		Creating a new contact" << std::endl;
-	_persons[_index] = Contacts::create_new();
+	_persons[_index].edit_new_contact();
 	std::cout << "	Contact added with success." << std::endl << std::endl;
 }
 
@@ -48,8 +46,8 @@ void	PhoneBook::_display_fields_contacts(void) const{
 
 void	PhoneBook::_display_fields_one_contact(int choice) const{
 
-	std::cout << "Informations of contact " << choice << ":" << std::endl;
-	std::cout << "Index : " << choice << std::endl;
+	std::cout << "Informations of contact " << choice << ":" << std::endl << std::endl;
+	std::cout << "         Index :  " << choice << std::endl;
 	for (int i = 0; i < 5; i++)
 		std::cout << Contacts::labels[i] << _persons[choice].get_information(i) << std::endl;
 	std::cout << std::endl;
@@ -72,6 +70,7 @@ void	PhoneBook::search_contact(void) const {
 	while (Input::check_input_index() != CODE_GOOD_INPUT) {
 		std::cout << "Pleas enter a valid index." << std::endl;
 	}
+	std::cout << std::endl;
 
 	int choice = atoi(Input::get_input().c_str());
 

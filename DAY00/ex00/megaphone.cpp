@@ -2,9 +2,9 @@
 
 int	main(int argc, char**	argv)
 {
-	std::string bertrand;
+	std::string str;
 
-	bertrand.reserve(1024);
+	str.reserve(1024);
 
 	if (!argv[1]) {
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
@@ -12,14 +12,14 @@ int	main(int argc, char**	argv)
 	}
 
 	for (int i = 1; argv[i]; ++i) {
-		bertrand.append(argv[i]);
+		str.append(argv[i]);
 	}
 
-	for (int i = 0; i < bertrand.size(); ++i) {
-		bertrand.at(i) = std::toupper(bertrand.at(i));
+	for (int i = 0; i < str.size(); ++i) {
+		str.at(i) = std::toupper(str.at(i));
 	}
 
-	std::cout << bertrand << std::endl;
+	std::cout << str << std::endl;
 
 	return (0);
 }
