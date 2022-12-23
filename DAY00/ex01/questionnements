@@ -4,5 +4,8 @@ de tout mettre en statique et de l utiliser sans instance ?
 
 faut il mettre les fonctions en static des que cela est possible ?
 
+organisation des .h ?
+source.h?
+
 input :
 cin ou getline ?

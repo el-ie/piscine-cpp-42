@@ -2,7 +2,7 @@
 
 #include "Contacts.hpp"//bien ?
 
-#define CONTACT_MAX 3
+#define CONTACT_MAX 2
 		
 #ifndef PHONEBOOK_CASS_H //check
 # define PHONEBOOK_CLASS_H
@@ -21,7 +21,7 @@ class PhoneBook {
 		private:
 			
 			//variables
-			static				Contacts	persons[CONTACT_MAX];
+			static Contacts		_persons[CONTACT_MAX];
 			static int			_number_of_contacts;
 			static int			_index;	
 			//functions

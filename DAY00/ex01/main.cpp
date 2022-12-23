@@ -17,11 +17,11 @@ int	main(void)
 
 	while (1) {
 
-		std::cout << "What do you want to do ?" << std::endl;
-		while (Input::check_input() != 0) {
-			std::cout << "Bad input, pleas enter a correct input." << std::endl;
-			continue;
-		}
+		std::cout << "What do you want to do ?" << std::endl << std::endl;
+
+		while (Input::check_input() != 0)
+			std::cout << "Bad input, pleas enter a valid entry." << std::endl;
+		
 		if (Input::get_input().compare("ADD") == 0)
 			pb.add_contact();
 		else if (Input::get_input().compare("SEARCH") == 0)

@@ -26,13 +26,29 @@ bool Input::_contain_eof(void) {
 		return (false);
 }
 
-bool Input::_contain_non_printable() {
+bool Input::_contain_non_printable(){
 	
 	for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++) {
 		if (!std::isprint(*ite) && !std::isspace(*ite))
 			return (true);
 	}
 	return (false);
+}
+
+bool   Input::_is_only_numeric() {
+
+       for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++)
+               if (!(*ite >= '0' && *ite <= '9'))
+                       return (false);
+       return (true);
+}
+
+bool	Input::_is_only_white() {
+
+	for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++)
+		if (*ite != ' ')
+			return (false);
+	return (true);
 }
 
 int	Input::check_input(void) {
@@ -45,17 +61,13 @@ int	Input::check_input(void) {
 		return (CODE_EOF);
 	if (std::cin.fail())
 		return (CODE_FAIL);
+	if (_input.length() == 0)
+		return (CODE_NOTHING_ENTERED);
 	if (_contain_non_printable()) //comment pourrait il y a voir un non printable ?
 		return (CODE_NON_PRINTABLE);
+	if (_is_only_white())
+		return (CODE_ONLY_WHITE);
 	return (CODE_GOOD_INPUT);
-}
-
-bool	Input::_is_only_numeric() {
-
-	for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++)
-		if (!(*ite >= '0' && *ite <= '9'))
-			return (false);
-	return (true);
 }
 
 int Input::check_input_index(void) {

@@ -7,12 +7,14 @@
 enum	e_code_error_input
 {
 	CODE_GOOD_INPUT,
-	CODE_FAIL,
 	CODE_EOF,
+	CODE_FAIL,
+	CODE_NOTHING_ENTERED,
 	CODE_NON_PRINTABLE,
+	CODE_ONLY_WHITE,
 	CODE_CONTAIN_NON_NUMERIC,
-	CODE_BAD_INDEX_LEN,
 	CODE_INDEX_OUT_OF_RANGE,
+	CODE_BAD_INDEX_LEN,
 	CODE_INDEX_UNAVAILABLE,
 };
 
@@ -32,6 +34,7 @@ class Input {
 		static bool			_contain_non_printable(void);
 		static bool			_contain_eof(void);
 		static bool			_is_only_numeric(void);
+		static bool			_is_only_white(void);
 
 		static std::string 	_input;
 };

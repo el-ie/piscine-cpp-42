@@ -26,6 +26,7 @@ Contacts	Contacts::create_new(void) {
 		if (Input::check_input() != CODE_GOOD_INPUT) {
 			std::cout << "Pleas enter alphanumeric character." << std::endl;
 		}
+		//else if (Input::get_input() )
 		else {
 			new_contact._informations[i] = Input::get_input();
 			i++;
