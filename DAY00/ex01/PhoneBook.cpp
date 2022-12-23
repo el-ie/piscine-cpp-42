@@ -3,10 +3,11 @@
 #include <cstdlib> //keep or not
 
 int	PhoneBook::_number_of_contacts = 0;
+int	PhoneBook::_index = -1;
 
 PhoneBook::PhoneBook(void) {
 	//_number_of_contacts = 0;
-	_index = -1;
+	//_index = -1;
 	return;
 }
 
@@ -26,7 +27,7 @@ int		check_if_cin_fail(void) {
 
 void	PhoneBook::add_contact(void) {
 
-	PhoneBook::_number_of_contacts++;
+	_number_of_contacts++;
 	_index++;
 
 	if (_index == 8)
@@ -34,16 +35,16 @@ void	PhoneBook::add_contact(void) {
 
 	persons[_index] = persons[_index].create_new();
 	persons[_index].contact_index = _index;
-	//protect?
+	std::cout << "	Contact added with success." << std::endl;
 }
 
-void	PhoneBook::display_fields_headers(void) const{
+void	PhoneBook::_display_fields_headers(void) const{
 	std::cout << '|' << std::setw(10) << "index" << '|' << std::setw(10)
 		<< "first name" << '|' << std::setw(10) << "last name" << '|'
 		<< std::setw(10) << "Nickname" << '|' << std::endl;
 }
 
-void	PhoneBook::display_fields_contacts(void) const{
+void	PhoneBook::_display_fields_contacts(void) const{
 	for (int i = 0; i < 8 && i < PhoneBook::_number_of_contacts; i++) {
 		std::cout << '|' << std::setw(10) << i;
 		for (int field = 0; field < 3; field++) {
@@ -56,7 +57,7 @@ void	PhoneBook::display_fields_contacts(void) const{
 	}
 }
 
-void	PhoneBook::display_fields_one_contact(int choice) const{
+void	PhoneBook::_display_fields_one_contact(int choice) const{
 
 	std::cout << "Index : " << choice << std::endl;
 	for (int i = 0; i < 5; i++)
@@ -68,9 +69,9 @@ void	PhoneBook::search_contact(void) const {
 	if (PhoneBook::_number_of_contacts < 1)
 	{ std::cout << std::endl << "No contact to see yet, add a contact with ADD." << std::endl; return ; }
 
-	display_fields_headers();
+	_display_fields_headers();
 
-	display_fields_contacts();
+	_display_fields_contacts();
 
 	std::cout << std::endl << "Wich index would you like to see ?" << std::endl;
 
@@ -80,7 +81,7 @@ void	PhoneBook::search_contact(void) const {
 
 	int choice = atoi(Input::get_input().c_str());
 
-	display_fields_one_contact(choice);
+	_display_fields_one_contact(choice);
 
 	return ;
 }
