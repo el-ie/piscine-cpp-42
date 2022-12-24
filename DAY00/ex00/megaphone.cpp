@@ -1,7 +1,8 @@
 #include <iostream>
 
-int	main(int argc, char**	argv)
+int	main(int argc, char** argv)
 {
+	(void)argc;
 	std::string str;
 
 	str.reserve(1024);
@@ -15,7 +16,7 @@ int	main(int argc, char**	argv)
 		str.append(argv[i]);
 	}
 
-	for (int i = 0; i < str.size(); ++i) {
+	for (int i = 0; i < (int)str.size(); ++i) {
 		str.at(i) = std::toupper(str.at(i));
 	}
 
