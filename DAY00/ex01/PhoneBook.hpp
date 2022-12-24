@@ -1,8 +1,8 @@
-#include "Contacts.hpp"//bien ?
+#include "Contacts.hpp"
 #include <iomanip>
 #include <cstdlib>
 
-#ifndef PHONEBOOK_CASS_H //check
+#ifndef PHONEBOOK_CASS_H
 # define PHONEBOOK_CLASS_H
 
 class PhoneBook {
@@ -12,7 +12,7 @@ class PhoneBook {
 			PhoneBook(void);
 			~PhoneBook(void);
 
-			void				add_contact(void); //add const? passer en private?
+			void				add_contact(void);
 			void				search_contact(void) const;
 			static int			get_contact_nb(void);
 

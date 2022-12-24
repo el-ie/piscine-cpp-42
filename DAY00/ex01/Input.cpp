@@ -2,9 +2,6 @@
 #include "PhoneBook.hpp"
 #include <cstdlib>
 
-//#include <iostream>
-//#include <cstdio>
-
 std::string Input::_input;
 
 Input::Input(void) {
@@ -46,7 +43,7 @@ bool   Input::_is_only_numeric() {
 bool	Input::_is_only_white() {
 
 	for (std::string::iterator ite = _input.begin(); ite != _input.end(); ite++)
-		if (*ite != ' ')
+		if (*ite != ' ' && *ite != '\t')
 			return (false);
 	return (true);
 }
@@ -63,7 +60,7 @@ int	Input::check_input(void) {
 		return (CODE_FAIL);
 	if (_input.length() == 0)
 		return (CODE_NOTHING_ENTERED);
-	if (_contain_non_printable()) //comment pourrait il y a voir un non printable ?
+	if (_contain_non_printable())
 		return (CODE_NON_PRINTABLE);
 	if (_is_only_white())
 		return (CODE_ONLY_WHITE);

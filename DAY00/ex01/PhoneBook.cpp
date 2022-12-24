@@ -12,6 +12,8 @@ PhoneBook::~PhoneBook(void) {
 	return;
 }
 
+/// ADD CONTACT ///
+
 void	PhoneBook::add_contact(void) {
 
 	_number_of_contacts++;
@@ -24,6 +26,8 @@ void	PhoneBook::add_contact(void) {
 	_persons[_index].edit_new_contact();
 	std::cout << "	Contact added with success." << std::endl << std::endl;
 }
+
+/// SEARCH CONTACT ///
 
 void	PhoneBook::_display_fields_headers(void) const{
 	std::cout << '|' << std::setw(10) << "index" << '|' << std::setw(10)
