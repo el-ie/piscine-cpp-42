@@ -18,11 +18,15 @@ class FileManagement
 		FileManagement (void);
    	   ~FileManagement (void);
 
-	   bool	is_valid_file(const char *path) const;
+	   bool	file_to_string(const char* path);
+	   std::string	get_content(void);
 
+	   
 	private:
 
 	std::string _content;
+
+	bool	is_valid_file(const char *path) const;
 };
 
 #endif
