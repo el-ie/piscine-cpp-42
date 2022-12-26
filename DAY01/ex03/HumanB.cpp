@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-HumanB::HumanB(std::string name) : _name(name) {
+HumanB::HumanB(const std::string name) : _name(name) {
 	_weap = NULL;
 }
 
@@ -15,7 +15,7 @@ void	HumanB::setWeapon(Weapon& weap) {
 	_weap = &weap;
 }
 
-void	HumanB::attack() {
+void	HumanB::attack() const {
 	if (_weap == NULL)
 		std::cout << _name << " has no weapon yet, he hides behin a bush for the moment" << std::endl;
 	else

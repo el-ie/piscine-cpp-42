@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-Weapon::Weapon(std::string type) : _type(type) {
+Weapon::Weapon(const std::string type) : _type(type) {
 }
 
 Weapon::~Weapon(void)
@@ -15,6 +15,6 @@ std::string&	Weapon::getType() {
 	return (str);
 }
 
-void	Weapon::setType( std::string new_type ) {
+void	Weapon::setType( const std::string new_type ) {
 	_type = new_type;
 }
