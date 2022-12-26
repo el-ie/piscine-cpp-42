@@ -2,9 +2,19 @@
 #include <fstream>
 #include <string>
 
+#include "FileManagement.hpp"
 
 int	main(int argc, char **argv)
 {
+
+
+	FileManagement f;
+
+	std::cout << "result = " << f.isValidFile(argv[1]) << std::endl;
+
+	return (1);
+
+
 	std::ifstream input_file(argv[1]);
 
 	if (!input_file.is_open()) {
