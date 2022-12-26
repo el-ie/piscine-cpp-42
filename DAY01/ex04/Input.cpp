@@ -17,7 +17,7 @@ Input::~Input(void)
 {
 }
 
-std::string	Input::get_content(void) {
+std::string	Input::get_content(void) const{
 	return (_content);
 }
 

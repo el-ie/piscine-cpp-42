@@ -18,7 +18,7 @@ class Input
    	   ~Input (void);
 
 	   bool			file_to_string(const char* path);
-	   std::string	get_content(void);
+	   std::string	get_content(void) const;
 	   
 	private:
 
