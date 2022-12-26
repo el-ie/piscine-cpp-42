@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-#include "FileManagement.hpp"
+#include "Input.hpp"
 
 int	main(int argc, char **argv)
 {
@@ -12,15 +12,15 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
-	FileManagement input;
+	Input input;
+	std::string find_str = argv[2];
+	std::string replace_str = argv[3];
+	std::string output_filename = argv[1];
 	
 	if (input.file_to_string(argv[1]) == false)
 		return (1);
 
 	std::string content = input.get_content();
-
-	std::string find_str = argv[2];
-	std::string replace_str = argv[3];
 
 	int	pos = content.find(find_str);
 
@@ -30,8 +30,7 @@ int	main(int argc, char **argv)
 			+ content.substr(pos + find_str.length(), pos + content.length());
 		pos = content.find(find_str);
 	}
-
-	std::string output_filename = argv[1];
+	
 	output_filename += ".replace";
 	std::ofstream	output_file(output_filename.c_str());
 
@@ -40,29 +39,7 @@ int	main(int argc, char **argv)
 	}
 
 	output_file << content;
+	output_file.close();
 
 	return (1);
-
-
-
-
-//	std::ifstream input_file(argv[1]);
-//
-//	std::string output_filename = argv[1];
-//	output_filename += ".replace";
-//	std::ofstream	output_file(output_filename.c_str());
-//
-//	if (!output_file.is_open()) {
-//		std::cerr << "Output file couldn't be open" << std::endl; return (1);
-//	}
-//	
-//	std::string buff;
-//
-//	while (std::getline(input_file, buff))
-//	{
-//		if (buff.compare(argv[2]) == 0)
-//			output_file << argv[3] << std::endl;
-//		else
-//			output_file << buff << std::endl;
-//	}
 }
