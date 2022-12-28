@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 
 	std::string content = input.get_content();
 
-	int	pos = content.find(find_str);
+	std::basic_string<char>::size_type pos = content.find(find_str);
 
 	while (pos != std::string::npos) {
 			
@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 
 	if (!output_file.is_open()) {
 		std::cerr << "Error with output file" << std::endl;
+		return (1);
 	}
 
 	output_file << content;
