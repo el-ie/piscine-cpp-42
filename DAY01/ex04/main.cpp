@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 			
 		content = content.substr(0, pos) + replace_str
 			+ content.substr(pos + find_str.length(), pos + content.length());
-		pos = content.find(find_str);
+		pos = content.find(find_str, pos + replace_str.length());
 	}
 	
 	output_filename += ".replace";
