@@ -6,19 +6,21 @@ std::ostream &	operator<<( std::ostream & ite , const Fixed & obj) {
 	return (ite << obj.toFloat());
 }
 
-#define x(test) std::cout << test << std::endl
+#define print(test) std::cout << test << std::endl
 
 #include <stdlib.h>
-int	main(int argc, char **argv)
-{	
-	Fixed	a((float)atof(argv[1]));
-	Fixed	b((float)atof(argv[2]));
 
-	//std::cout << (a > b) << std::endl;
-	
-	Fixed c(a / b);
-
-	std::cout << c << std::endl;
+int main( void ) {
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	//std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
 }
 
 //int main( void ) {
