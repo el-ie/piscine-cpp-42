@@ -16,11 +16,11 @@ class Fixed
 	   int	getRawBits( void ) const;
 	   void	setRawBits( int const raw );
 
-	   Fixed& operator=( const Fixed & rhs );
-	   Fixed	operator+( const Fixed & rhs );
-	   Fixed	operator-( const Fixed & rhs );
-	   Fixed	operator*( const Fixed & rhs );
-	   Fixed	operator/( const Fixed & rhs );
+	   Fixed&	operator=( const Fixed & rhs );
+	   Fixed	operator+( const Fixed & rhs ) const ;
+	   Fixed	operator-( const Fixed & rhs ) const ;
+	   Fixed	operator*( const Fixed & rhs ) const ;
+	   Fixed	operator/( const Fixed & rhs ) const ;
 
 
 	   bool	operator>( const Fixed & rhs ) const;

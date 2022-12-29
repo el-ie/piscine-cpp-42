@@ -82,26 +82,26 @@ Fixed&	Fixed::operator=( const Fixed & rhs ) {
 	return (*this);
 }
 
-Fixed	Fixed::operator+( const Fixed & rhs ) {
+Fixed	Fixed::operator+( const Fixed & rhs ) const {
 
 	Fixed resultat;
 	resultat.setRawBits(this->_number + rhs._number);
 	return (resultat);
 }
 
-Fixed	Fixed::operator-( const Fixed & rhs ) {
+Fixed	Fixed::operator-( const Fixed & rhs ) const {
 
 	Fixed resultat;
 	resultat.setRawBits(this->_number - rhs._number);
 	return (resultat);
 }
 
-Fixed	Fixed::operator*( const Fixed & rhs ) {
+Fixed	Fixed::operator*( const Fixed & rhs ) const {
 	Fixed resultat(this->toFloat() * rhs.toFloat());
 	return (resultat);
 }
 
-Fixed	Fixed::operator/( const Fixed & rhs ) {
+Fixed	Fixed::operator/( const Fixed & rhs ) const {
 
 	Fixed resultat(this->toFloat() / rhs.toFloat());
 	return (resultat);
