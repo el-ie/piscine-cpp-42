@@ -1,8 +1,6 @@
 #include "Fixed.hpp"
-
 #include <iostream>
 #include <string>
-
 #include <cmath>
 
 Fixed::Fixed(void) {

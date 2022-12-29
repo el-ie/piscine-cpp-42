@@ -1,8 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-//std::ostream &	operator<<( std::ostream & ite , const Fixed & obj);
-
 std::ostream &	operator<<( std::ostream & ite , const Fixed & obj) {
 	return (ite << obj.toFloat());
 }
