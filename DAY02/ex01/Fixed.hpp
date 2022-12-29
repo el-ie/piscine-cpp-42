@@ -18,6 +18,9 @@ class Fixed
 
 	   Fixed & operator=( const Fixed & rhs );
 
+	   float	toFloat( void ) const;
+	   int		toInt( void ) const;
+
 	private:
 
 	   int				_number;

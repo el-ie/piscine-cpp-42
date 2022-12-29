@@ -16,15 +16,13 @@ Fixed::Fixed( const Fixed & copy ) {
 }
 
 Fixed::Fixed( const int nb ) {
-	std::cout << "CONVERTION VIRGULE FIXE constructor called" << std::endl;
-	nb *=  256;
+	std::cout << "Int constructor called" << std::endl;
 	_number = nb << _fractional_part;
 }
 
 Fixed::Fixed( const float nb ) {
-	std::cout << "CONVERTION VIRGULE FIXE constructor called" << std::endl;
-	nb = math::roundf(nb * 256);
-	_number = nb << _fractional_part;
+	std::cout << "Float constructor called" << std::endl;
+	_number = (int)roundf(nb * (1 << _fractional_part));
 }
 
 Fixed::~Fixed(void) {
@@ -33,9 +31,17 @@ Fixed::~Fixed(void) {
 
 Fixed &	Fixed::operator=( const Fixed & rhs ) {
 
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	this->_number = rhs.getRawBits();
 	return (*this);
+}
+
+float	Fixed::toFloat( void ) const {
+	return (float(_number) / (1 << _fractional_part));
+}
+
+int		Fixed::toInt( void ) const {
+	return (_number >> _fractional_part);
 }
 
 int	Fixed::getRawBits( void ) const {
