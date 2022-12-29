@@ -11,11 +11,14 @@ std::ostream &	operator<<( std::ostream & ite , const Fixed & obj) {
 #include <stdlib.h>
 int	main(int argc, char **argv)
 {	
-	Fixed	a(atoi(argv[1]));
-	Fixed	b(atoi(argv[2]));
+	Fixed	a((float)atof(argv[1]));
+	Fixed	b((float)atof(argv[2]));
 
 	//std::cout << (a > b) << std::endl;
-	x((a != b));
+	
+	Fixed c(a / b);
+
+	std::cout << c << std::endl;
 }
 
 //int main( void ) {

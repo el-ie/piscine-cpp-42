@@ -31,9 +31,43 @@ Fixed::~Fixed(void) {
 
 Fixed &	Fixed::operator=( const Fixed & rhs ) {
 
-	//std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	this->_number = rhs.getRawBits();
 	return (*this);
+}
+
+Fixed	Fixed::operator+( const Fixed & rhs ) {
+
+	std::cout << "+ constructor" << std::endl;
+	Fixed resultat;
+	resultat.setRawBits(this->_number + rhs._number);
+	return (resultat);
+}
+
+Fixed	Fixed::operator-( const Fixed & rhs ) {
+
+	std::cout << "- constructor" << std::endl;
+	Fixed resultat;
+	resultat.setRawBits(this->_number - rhs._number);
+	return (resultat);
+}
+
+Fixed	Fixed::operator*( const Fixed & rhs ) {
+
+	std::cout << "* constructor" << std::endl;
+
+	//Fixed resultat;
+	//resultat.setRawBits(this->_number * rhs._number / (1 << _fractional_part));
+	
+	Fixed resultat(this->toFloat() * rhs.toFloat());
+	return (resultat);
+}
+
+Fixed	Fixed::operator/( const Fixed & rhs ) {
+
+	std::cout << "/ constructor" << std::endl;
+	Fixed resultat(this->toFloat() / rhs.toFloat());
+	return (resultat);
 }
 
 bool	Fixed::operator>( const Fixed & rhs ) {
