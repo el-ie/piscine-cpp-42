@@ -24,6 +24,10 @@ Fixed::Fixed( const float nb ) {
 Fixed::~Fixed(void) {
 }
 
+void	Fixed::assign_float( const float nb ) {
+	_number = (int)roundf(nb * (1 << _fractional_part));
+}
+
 Fixed&	Fixed::min(Fixed& a, Fixed& b) {
 	if (a < b)
 		return (a);
@@ -103,7 +107,12 @@ Fixed	Fixed::operator*( const Fixed & rhs ) const {
 
 Fixed	Fixed::operator/( const Fixed & rhs ) const {
 
-	Fixed resultat(this->toFloat() / rhs.toFloat());
+	Fixed resultat;
+	if (rhs.toFloat() == 0) {
+		std::cerr << "Can't divide by 0" << std::endl;
+	}
+	else
+		resultat.assign_float(this->toFloat() / rhs.toFloat());
 	return (resultat);
 }
 

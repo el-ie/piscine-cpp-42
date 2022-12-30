@@ -49,6 +49,9 @@ class Fixed
 	   int				_number;
 	   static const int	_fractional_part = 8;
 
+	   void				assign_float( const float nb );
+
+
 };
 
 #endif
