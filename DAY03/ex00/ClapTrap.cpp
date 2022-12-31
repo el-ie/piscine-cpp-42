@@ -4,10 +4,19 @@
 #include <iostream>
 #include <string>
 
-ClapTrap::ClapTrap(void) // faut il garder ce constructeur pour la forme canonique et donner un nom aleatoire comme ca ?
+ClapTrap&	ClapTrap::operator=( const ClapTrap& rhs ) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_name = rhs.get_name();
+	this->_hit_points = rhs.get_hit_points();
+	this->_energy_points = rhs.get_energy_points();
+	this->_attack_damages = rhs.get_attack_damages();
+	return (*this);
+}
+
+ClapTrap::ClapTrap( const ClapTrap& copy) // faut il garder ce constructeur pour la forme canonique et donner un nom aleatoire comme ca ?
 {
-	std::cout << "[CONSTRUCTOR] A ClapTrap come to life." << std::endl;
-	this->_name = "ClapTraper";
+	*this = copy;
+	std::cout << "[COPY CONSTRUCTOR] ClapTrap " << _name << " come to life." << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ) : _name(name)
@@ -16,7 +25,7 @@ ClapTrap::ClapTrap( std::string name ) : _name(name)
 	_energy_points = 10;
 	_attack_damages = 0;
 
-	std::cout << "[CONSTRUCTOR] " << name << " come to life." << std::endl;
+	std::cout << "[CONSTRUCTOR] ClapTrap " << name << " come to life." << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
@@ -109,4 +118,20 @@ void	ClapTrap::add_points(const int points , const int points_type) {
 
 void	ClapTrap::display_points(void) const {
 	std::cout << "  [energy = " << _energy_points << " HP = " << _hit_points  << "]"<< std::endl;
+}
+
+std::string	ClapTrap::get_name(void) const {
+	return (_name);
+}
+
+int	ClapTrap::get_hit_points(void) const {
+	return (_hit_points);
+}
+
+int	ClapTrap::get_energy_points(void) const {
+	return (_energy_points);
+}
+
+int	ClapTrap::get_attack_damages(void) const {
+	return (_attack_damages);
 }

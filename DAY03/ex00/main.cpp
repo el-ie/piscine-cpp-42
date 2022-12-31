@@ -5,8 +5,7 @@
 
 int	main(void)
 {
-	ClapTrap instance("tobi");
-
+	ClapTrap instance("bob");
 
 	LOOP(11)
 	{
