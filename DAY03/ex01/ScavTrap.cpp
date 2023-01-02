@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 
-
 ScavTrap&	ScavTrap::operator=( const ScavTrap& rhs ) {
 	std::cout << "S[COPY] ScavTrap Copy assignment operator called" << std::endl;
 	this->_name = rhs.get_name();
@@ -16,8 +15,7 @@ ScavTrap&	ScavTrap::operator=( const ScavTrap& rhs ) {
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	//ScavTrap("default constructor");
-	_name = "undetermined name";
+	_name = "default";
 	_hit_points = 100;
 	_energy_points = 50;
 	_attack_damages = 100;
@@ -31,7 +29,6 @@ ScavTrap::ScavTrap( const ScavTrap& copy) : ClapTrap()
 	std::cout << "S[CONSTRUCTOR COPY] ScavTrap " << _name << " come to life." << std::endl;
 }
 
-//ScavTrap::ScavTrap( std::string name ) : _name(name)
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 {
 	_hit_points = 100;
@@ -48,7 +45,11 @@ ScavTrap::~ScavTrap(void)
 }
 
 void	ScavTrap::guardGate(void) const {
-	std::cout << "ScavTrap " << _name << " is now in gate keeper mod" << std::endl;
+
+	if (_incapacity())
+		return (_exhausted("guard gates"));
+
+	std::cout << "S[GATE KEEPER] ScavTrap " << _name << " is now in gate keeper mod" << std::endl;
 }
 
 void	ScavTrap::attack( const std::string& target ) {

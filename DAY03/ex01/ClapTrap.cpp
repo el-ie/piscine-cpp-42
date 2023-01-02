@@ -14,12 +14,11 @@ ClapTrap&	ClapTrap::operator=( const ClapTrap& rhs ) {
 }
 
 ClapTrap::ClapTrap(void) {
-	//ClapTrap("default constuctor");
-	_name = "undertermined name";
+
+	_name = "default";
 	_hit_points = 10;
 	_energy_points = 10;
 	_attack_damages = 0;
-
 	std::cout << "C[CONSTRUCTOR DEFAULT] ClapTrap " << _name << " come to life.";
 	display_points();
 }
@@ -87,7 +86,7 @@ void	ClapTrap::beRepaired( unsigned int amount ) {
 
 	_energy_points--;
 	_hit_points += amount;
-	std::cout << "C[REPAIRED] " << _name << " is being repaired, he gain " << amount << " hit points.";
+	std::cout << "[REPAIRED] " << _name << " is being repaired, he gain " << amount << " hit points.";
 	display_points();
 	return ;
 }
@@ -95,7 +94,7 @@ void	ClapTrap::beRepaired( unsigned int amount ) {
 void	ClapTrap::takeDamage( unsigned int amount ) {
 
 	if (_hit_points <= 0) {
-		std::cout << "C[TAKE DAMAGES] " << _name << " is already dead and burried, he can't take more damages." ;
+		std::cout << "[TAKE DAMAGES] " << _name << " is already dead and burried, he can't take more damages." ;
 	}
 	else {
 		_hit_points -= amount;
