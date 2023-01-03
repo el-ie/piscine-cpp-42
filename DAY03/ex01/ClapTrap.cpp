@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(void) {
 	display_points();
 }
 
-ClapTrap::ClapTrap( const ClapTrap& copy) // faut il garder ce constructeur pour la forme canonique et donner un nom aleatoire comme ca ?
+ClapTrap::ClapTrap( const ClapTrap& copy)
 {
 	*this = copy;
 	std::cout << "C[CONSTRUCTOR COPY] ClapTrap " << _name << " come to life." << std::endl;

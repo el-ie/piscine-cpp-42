@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	_name = "default";
 	_hit_points = 100;
 	_energy_points = 50;
-	_attack_damages = 100;
+	_attack_damages = 20;
 	std::cout << "S[CONSTRUCTOR DEFAULT] ScavTrap " << _name << " come to life."; 
 	display_points();
 }
@@ -33,7 +33,7 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 {
 	_hit_points = 100;
 	_energy_points = 50;
-	_attack_damages = 100;
+	_attack_damages = 20;
 	std::cout << "S[CONSTRUCTOR NAME] ScavTrap " << name << " come to life."; 
 	display_points();
 }

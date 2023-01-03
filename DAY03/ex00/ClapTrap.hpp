@@ -8,9 +8,10 @@
 class ClapTrap
 {
 	public:
+		ClapTrap (void);
 		ClapTrap ( std::string name );
 		ClapTrap ( const ClapTrap& copy );
-   	   ~ClapTrap (void); //virtual??
+   	   ~ClapTrap (void);
 
 	   ClapTrap&	operator=( const ClapTrap& rhs);
 

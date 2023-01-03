@@ -12,7 +12,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap (void);
 		ScavTrap ( std::string name );
 		ScavTrap ( const ScavTrap& copy );
-   	   ~ScavTrap (void); //virtual??
+   	   ~ScavTrap (void);
 
 	   ScavTrap&	operator=( const ScavTrap& rhs);
 

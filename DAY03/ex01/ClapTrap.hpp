@@ -11,7 +11,7 @@ class ClapTrap
 		ClapTrap (void);
 		ClapTrap ( std::string name );
 		ClapTrap ( const ClapTrap& copy );
-   	   ~ClapTrap (void); //virtual??
+   	   ~ClapTrap (void);
 
 	   ClapTrap&	operator=( const ClapTrap& rhs);
 
@@ -29,7 +29,7 @@ class ClapTrap
 	   int			get_attack_damages(void) const;
 	   std::string	get_name(void) const;
 
-	protected: // laisser protected ?? @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	protected:
 
 	   std::string	_name;
 	   int			_hit_points;
