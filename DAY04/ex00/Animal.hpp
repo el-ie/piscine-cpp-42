@@ -7,14 +7,16 @@
 class Animal
 {
 	public:
-		Animal ();
-		Animal (const std::string type);
-		Animal (const Animal &other);
-   	   	virtual ~Animal (); //virtual ?? dans le fichier cpp?
+		Animal();
+		Animal(const std::string &type);
+		Animal(const Animal &other);
 		Animal & operator=(const Animal &other);
+   	    virtual	~Animal ();
+
+		virtual	void	makeSound(void);
 
 	protected:
-		std::string	_type;
+		std::string	type;
 };
 
 #endif /* ANIMAL_CLASS_HPP */

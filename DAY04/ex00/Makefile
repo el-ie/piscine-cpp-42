@@ -1,4 +1,4 @@
-#-mkup-auto-sources-###############################################260003040123#
+#-mkup-auto-sources-###############################################250134040123#
 SRC_DIR		=	.
 
 EXTENSION	=	".cpp"
@@ -6,11 +6,12 @@ SRC_LIST	=	$(addsuffix $(EXTENSION), \
 				Dog \
 				Animal \
 				Cat \
+				main \
 				WrongCat \
 				WrongAnimal \
 				)
 SRC			=	$(addprefix $(SRC_DIR)/, $(SRC_LIST))
-#-mkup-auto-sources-###############################################260003040123#
+#-mkup-auto-sources-###############################################250134040123#
 
 INC_DIR		= 	.
 OBJ_DIR		=	obj

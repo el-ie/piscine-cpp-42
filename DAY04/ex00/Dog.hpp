@@ -4,18 +4,18 @@
 #include <iostream>
 #include <string>
 
-class Dog
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
 	public:
-		Dog ();
-		Dog (const std::string &name);
-		Dog (const Dog &other);
+		Dog();
+		Dog(const std::string &type);
+		Dog(const Dog &other);
    	   ~Dog ();
 		Dog & operator=(const Dog &other);
 
-	private:
-		std::string	_name;
-	protected:
+		void	makeSound(void);
 };
 
 #endif /* DOG_CLASS_HPP */

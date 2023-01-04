@@ -1,31 +1,40 @@
 #include "Dog.hpp"
+#include "Animal.hpp"
 
-Dog::Dog() : _name("default")
+Dog::Dog() : Animal()
 {
-	std::cout << "Dog default constructor" << std::endl;
+	type = "dog";
+	std::cout << "D[CONSTRUCTOR DEF] Dog is created." << std::endl;
 }
 
-Dog::Dog(const std::string &name) : _name(name)
+Dog::Dog(const std::string &type) : Animal(type)
 {
-	std::cout << "Dog constructor" << std::endl;
+	std::cout << "D[CONSTRUCTOR STR] Dog is created." << std::endl;
 }
 
-Dog::Dog(const Dog &other)
+Dog::Dog(const Dog &other) : Animal()
 {
-	std::cout << "Dog copy constructor from " << other._name << std::endl;
 	*this = other;
+
+	std::cout << "D[CONSTRUCTOR CPY] Dog is created." << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog destructor" << std::endl;
+	std::cout << "D[DESCTRUCTOR] Dog is destroyed."<< std::endl;
 }
 
 Dog&	Dog::operator=(const Dog &other)
 {
-	std::cout << "Dog assignation operator from " << other._name << std::endl;
-	this->_name = other._name;
+	this->type = other.type;
+
+	std::cout << "D[ASSIGNATION] Dog assignated." << std::endl;
 	return *this;
+}
+
+void	Dog::makeSound(void) {
+	std::cout << "Wouf wouf im a fucing dog" << std::endl;
+	return ;
 }
 
 //void	Dog::set_()

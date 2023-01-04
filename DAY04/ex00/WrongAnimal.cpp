@@ -1,31 +1,36 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : _name("default")
+WrongAnimal::WrongAnimal(void) : type("wrong animal")
 {
-	std::cout << "WrongAnimal default constructor" << std::endl;
+	std::cout << "@WrongAnimal default constructor" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const std::string &name) : _name(name)
+WrongAnimal::WrongAnimal(const std::string &type) : type(type)
 {
-	std::cout << "WrongAnimal constructor" << std::endl;
+	std::cout << "@WrongAnimal constructor" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other)
 {
-	std::cout << "WrongAnimal copy constructor from " << other._name << std::endl;
+	std::cout << "@WrongAnimal copy constructor" << std::endl;
 	*this = other;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal destructor" << std::endl;
+	std::cout << "@WrongAnimal destructor" << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &other)
 {
-	std::cout << "WrongAnimal assignation operator from " << other._name << std::endl;
-	this->_name = other._name;
+	std::cout << "@WrongAnimal assignation operator" << std::endl;
+	this->type = other.type;
 	return *this;
+}
+
+void	WrongAnimal::makeSound(void) {
+	std::cout << "@WrongAnimal making sound" << std::endl;
+	return ;
 }
 
 //void	WrongAnimal::set_()

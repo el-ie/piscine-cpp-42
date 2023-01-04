@@ -1,31 +1,40 @@
 #include "Cat.hpp"
+#include "Animal.hpp"
 
-Cat::Cat() : _name("default")
+Cat::Cat() : Animal()
 {
-	std::cout << "Cat default constructor" << std::endl;
+	type = "cat";
+	std::cout << "C[CONSTRUCTOR DEF] Cat is created." << std::endl;
 }
 
-Cat::Cat(const std::string &name) : _name(name)
+Cat::Cat(const std::string &type) : Animal(type)
 {
-	std::cout << "Cat constructor" << std::endl;
+	std::cout << "C[CONSTRUCTOR STR] Cat is created." << std::endl;
 }
 
-Cat::Cat(const Cat &other)
+Cat::Cat(const Cat &other) : Animal()
 {
-	std::cout << "Cat copy constructor from " << other._name << std::endl;
 	*this = other;
+
+	std::cout << "C[CONSTRUCTOR CPY] Cat is created." << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat destructor" << std::endl;
+	std::cout << "C[DESCTRUCTOR] Cat is destroyed."<< std::endl;
 }
 
 Cat&	Cat::operator=(const Cat &other)
 {
-	std::cout << "Cat assignation operator from " << other._name << std::endl;
-	this->_name = other._name;
+	this->type = other.type;
+
+	std::cout << "C[ASSIGNATION] Cat assignated." << std::endl;
 	return *this;
+}
+
+void	Cat::makeSound(void) {
+	std::cout << "Miaw Miaw i want tuna." << std::endl;
+	return ;
 }
 
 //void	Cat::set_()

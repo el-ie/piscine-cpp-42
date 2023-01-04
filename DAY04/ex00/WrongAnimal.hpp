@@ -1,5 +1,5 @@
-#ifndef WRONGANIMAL_CLASS_HPP
-# define WRONGANIMAL_CLASS_HPP
+#ifndef WRONG_ANIMAL_CLASS_HPP
+# define WRONG_ANIMAL_CLASS_HPP
 
 #include <iostream>
 #include <string>
@@ -7,15 +7,16 @@
 class WrongAnimal
 {
 	public:
-		WrongAnimal ();
-		WrongAnimal (const std::string &name);
-		WrongAnimal (const WrongAnimal &other);
-   	   ~WrongAnimal ();
+		WrongAnimal();
+		WrongAnimal(const std::string &type);
+		WrongAnimal(const WrongAnimal &other);
 		WrongAnimal & operator=(const WrongAnimal &other);
+   	    virtual	~WrongAnimal ();
 
-	private:
-		std::string	_name;
+		void	makeSound(void);
+
 	protected:
+		std::string	type;
 };
 
-#endif /* WRONGANIMAL_CLASS_HPP */
+#endif /* WRONG_ANIMAL_CLASS_HPP */

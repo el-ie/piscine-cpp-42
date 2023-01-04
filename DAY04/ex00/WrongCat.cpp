@@ -1,31 +1,40 @@
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
-WrongCat::WrongCat() : _name("default")
+WrongCat::WrongCat() : WrongAnimal()
 {
-	std::cout << "WrongCat default constructor" << std::endl;
+	type = "wrong cat";
+	std::cout << "WC[CONSTRUCTOR DEF] WrongCat is created." << std::endl;
 }
 
-WrongCat::WrongCat(const std::string &name) : _name(name)
+WrongCat::WrongCat(const std::string &type) : WrongAnimal(type)
 {
-	std::cout << "WrongCat constructor" << std::endl;
+	std::cout << "WC[CONSTRUCTOR STR] WrongCat is created." << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &other)
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal()
 {
-	std::cout << "WrongCat copy constructor from " << other._name << std::endl;
 	*this = other;
+
+	std::cout << "WC[CONSTRUCTOR CPY] WrongCat is created." << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat destructor" << std::endl;
+	std::cout << "WC[DESCTRUCTOR] WrongCat is destroyed."<< std::endl;
 }
 
 WrongCat&	WrongCat::operator=(const WrongCat &other)
 {
-	std::cout << "WrongCat assignation operator from " << other._name << std::endl;
-	this->_name = other._name;
+	this->type = other.type;
+
+	std::cout << "WC[ASSIGNATION] WrongCat assignated." << std::endl;
 	return *this;
+}
+
+void	WrongCat::makeSound(void) {
+	std::cout << "Miaw Miaw i want tuna." << std::endl;
+	return ;
 }
 
 //void	WrongCat::set_()
