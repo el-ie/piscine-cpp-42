@@ -37,6 +37,10 @@ void	WrongCat::makeSound(void) {
 	return ;
 }
 
+std::string	WrongCat::getType(void) const {
+	return (type);
+}
+
 //void	WrongCat::set_()
 //void	WrongCat::get_()
 //void	WrongCat::()

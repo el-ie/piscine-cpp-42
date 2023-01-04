@@ -37,6 +37,10 @@ void	Dog::makeSound(void) {
 	return ;
 }
 
+std::string	Dog::getType(void) const {
+	return (type);
+}
+
 //void	Dog::set_()
 //void	Dog::get_()
 //void	Dog::()

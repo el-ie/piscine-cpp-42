@@ -33,6 +33,10 @@ void	Animal::makeSound(void) {
 	return ;
 }
 
+std::string	Animal::getType(void) const {
+	return (type);
+}
+
 //void	Animal::set_()
 //void	Animal::get_()
 //void	Animal::()

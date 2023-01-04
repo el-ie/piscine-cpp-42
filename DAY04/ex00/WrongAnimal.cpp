@@ -33,6 +33,10 @@ void	WrongAnimal::makeSound(void) {
 	return ;
 }
 
+std::string	WrongAnimal::getType(void) const {
+	return (type);
+}
+
 //void	WrongAnimal::set_()
 //void	WrongAnimal::get_()
 //void	WrongAnimal::()

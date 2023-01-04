@@ -37,6 +37,10 @@ void	Cat::makeSound(void) {
 	return ;
 }
 
+std::string	Cat::getType(void) const {
+	return (type);
+}
+
 //void	Cat::set_()
 //void	Cat::get_()
 //void	Cat::()
