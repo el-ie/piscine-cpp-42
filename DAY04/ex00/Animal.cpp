@@ -28,7 +28,7 @@ Animal&	Animal::operator=(const Animal &other)
 	return *this;
 }
 
-void	Animal::makeSound(void) {
+void	Animal::makeSound(void) const {
 	std::cout << "@Animal making sound" << std::endl;
 	return ;
 }

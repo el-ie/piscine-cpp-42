@@ -32,7 +32,7 @@ WrongCat&	WrongCat::operator=(const WrongCat &other)
 	return *this;
 }
 
-void	WrongCat::makeSound(void) {
+void	WrongCat::makeSound(void) const {
 	std::cout << "Miaw Miaw i want tuna." << std::endl;
 	return ;
 }
