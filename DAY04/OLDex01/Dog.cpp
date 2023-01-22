@@ -16,7 +16,7 @@ Dog::Dog(const Dog &other) : Animal()
 {
 	*this = other;
 
-	std::cout << "D[CONSTRUCTOR CPY] Dog " << type << " is created." << std::endl;
+	std::cout << "D[CONSTRUCTOR CPY] Dog is created." << std::endl;
 }
 
 Dog::~Dog()
@@ -33,7 +33,7 @@ Dog&	Dog::operator=(const Dog &other)
 }
 
 void	Dog::makeSound(void) const {
-	std::cout << type << ": Wouf wouf im a fuging dog" << std::endl;
+	std::cout << "Wouf wouf im a fuging dog" << std::endl;
 	return ;
 }
 

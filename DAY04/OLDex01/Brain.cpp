@@ -1,18 +1,19 @@
 #include "Brain.hpp"
 
-Brain::Brain() 
+//Brain::Brain() : _name("default")
+//{
+//	std::cout << "Brain default constructor" << std::endl;
+//}
+Brain::Brain()
 {
 	std::cout << "Brain default constructor" << std::endl;
-	createIdeas();
 }
 
-void	Brain::createIdeas(void) {
-
-	for (int i = 0; i < 100; i++) {
-		ideas[i] = (i % 26) + 65;
-		i++;
-	}
-}
+//Brain::Brain(const std::string &name) : _name(name)
+//{
+//	std::cout << "Brain constructor" << std::endl;
+//}
+// DELETED
 
 Brain::Brain(const Brain &other)
 {
@@ -28,7 +29,12 @@ Brain::~Brain()
 Brain&	Brain::operator=(const Brain &other)
 {
 	std::cout << "Brain assignation operator" << std::endl;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = other.ideas[i];
+	//this.ideas = &other.ideas; // ??unsure
+	(void)other;
 	return *this;
 }
+
+//void	Brain::set_()
+//void	Brain::get_()
+//void	Brain::()
+//void	Brain::_()

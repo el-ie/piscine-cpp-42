@@ -4,31 +4,44 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+#include "Brain.hpp"
+
+#include <cstdio> // delete
 int	main(void)
 {
-	Cat* chat = new Cat();
-	/*
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
+	Brain* tete = new Brain;
+
+	std::cout << "idea = [" << tete->ideas[0] << "] <--" << std::endl;
+
+	//printf("%s", tete->ideas[0].c_str());
+}
+
+/*
+int	main(void)
+{
+	const Animal* egg = new Animal();
+	const Animal* milou = new Dog();
+	const Animal* garfield = new Cat();
+	std::cout << "milou type = " << milou->getType() << " " << std::endl;
+	std::cout << "garfield type = " << garfield->getType() << " " << std::endl;
+	garfield->makeSound();
+	milou->makeSound();
+	egg->makeSound();
 
 	std::cout << "------------------------------------------------" << std::endl;
 
-	const WrongAnimal* meta2 = new WrongAnimal();
-	const WrongAnimal* i2 = new WrongCat();
-	std::cout << i2->getType() << " " << std::endl;
-	i2->makeSound();
-	meta2->makeSound();
-	*/
+	const WrongAnimal* pikachu = new WrongAnimal();
+	const WrongAnimal* batman = new WrongCat();
+	std::cout << "WrongCat type = " <<  batman->getType() << " " << std::endl;
+	batman->makeSound();
+	pikachu->makeSound();
 
-	chat->makeSound();
-	
-	delete chat;
+	delete egg;
+	delete milou;
+	delete garfield;
+	delete pikachu;
+	delete batman;
 
 	return (0);
 }
+*/

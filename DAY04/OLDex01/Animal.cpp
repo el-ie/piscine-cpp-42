@@ -29,7 +29,7 @@ Animal&	Animal::operator=(const Animal &other)
 }
 
 void	Animal::makeSound(void) const {
-	std::cout << "@" << type << ": Animal making sound" << std::endl;
+	std::cout << "@Animal making sound" << std::endl;
 	return ;
 }
 

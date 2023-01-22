@@ -1,9 +1,11 @@
 #include "Cat.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 Cat::Cat() : Animal()
 {
 	type = "cat";
+	head = new Brain(); // ADD TO OTHER CONSTRUCTORS
 	std::cout << "C[CONSTRUCTOR DEF] Cat is created." << std::endl;
 }
 
@@ -22,6 +24,7 @@ Cat::Cat(const Cat &other) : Animal()
 Cat::~Cat()
 {
 	std::cout << "C[DESCTRUCTOR] Cat is destroyed."<< std::endl;
+	delete head;
 }
 
 Cat&	Cat::operator=(const Cat &other)
@@ -33,7 +36,7 @@ Cat&	Cat::operator=(const Cat &other)
 }
 
 void	Cat::makeSound(void) const {
-	std::cout << type << ": Miaw Miaw i want tuna." << std::endl;
+	std::cout << "Miaw Miaw i want tuna." << std::endl;
 	return ;
 }
 

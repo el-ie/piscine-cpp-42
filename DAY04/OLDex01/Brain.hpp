@@ -8,14 +8,13 @@ class Brain
 {
 	public:
 		Brain();
+		Brain(const std::string &name);
 		Brain(const Brain &other);
-		~Brain ();
+   	   ~Brain ();
 		Brain & operator=(const Brain &other);
 
-	//private:
+	private:
 		std::string	ideas[100];
-
-		void	createIdeas(void);
 };
 
 #endif /* BRAIN_CLASS_HPP */
