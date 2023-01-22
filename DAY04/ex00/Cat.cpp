@@ -33,7 +33,7 @@ Cat&	Cat::operator=(const Cat &other)
 }
 
 void	Cat::makeSound(void) const {
-	std::cout << "Miaw Miaw i want tuna." << std::endl;
+	std::cout << type << ": Miaw Miaw i want tuna." << std::endl;
 	return ;
 }
 
