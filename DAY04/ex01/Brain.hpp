@@ -12,9 +12,10 @@ class Brain
 		~Brain ();
 		Brain & operator=(const Brain &other);
 
-	//private:
-		std::string	ideas[100];
+		std::string	get_idea(int index) const;
 
+	private:
+		std::string	ideas[100]; //const ?
 		void	createIdeas(void);
 };
 

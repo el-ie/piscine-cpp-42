@@ -7,14 +7,31 @@
 #include "Brain.hpp"
 
 #include <cstdio> // delete
+#include <cstdlib> // delete
 int	main(void)
 {
 	Brain* tete = new Brain;
 
 	//std::cout << "idea = [" << tete->ideas[0] << "] <--" << std::endl;
 
-	for (int i = 0; i < 10; i++)
-		std::cout << "[" << tete->ideas[i] << "]"  << std::endl;
+
+	std::cout << "-------- TETE ---------" << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << "[" << tete->get_idea(i) << "]"  << std::endl;
+	std::cout << std::endl;
+	
+	Brain* ballon = new Brain;
+	*ballon = *tete;
+
+	delete tete;
+
+	std::cout << std::endl << "-------- BALLON ---------" << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << "[" << ballon->get_idea(i) << "]"  << std::endl;
+	std::cout << std::endl;
+
+	delete ballon;
+	
 
 	//printf("%s", tete->ideas[0].c_str());
 }
