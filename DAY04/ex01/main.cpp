@@ -6,7 +6,12 @@
 
 #include "Brain.hpp"
 
+#include <cstdio> // delete
+#include <cstdlib> // delete
+
 #define LINE std::cout << std::endl;
+
+//PUT BACK WERROR IN MAKEFILE
 
 int	main(void)
 {
