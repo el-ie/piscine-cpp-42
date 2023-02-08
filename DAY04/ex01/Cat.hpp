@@ -5,6 +5,7 @@
 #include <string>
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -17,6 +18,11 @@ class Cat : public Animal
 
 		void			makeSound(void) const;
 		std::string		getType(void) const ;
+
+		std::string	get_brain_idea(int index);
+	
+	private:
+		Brain*	head; //private???
 
 };
 

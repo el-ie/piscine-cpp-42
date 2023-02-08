@@ -1,47 +1,52 @@
 #include "Cat.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 Cat::Cat() : Animal()
 {
 	type = "cat";
-	std::cout << "C[CONSTRUCTOR DEF] Cat is created." << std::endl;
+	std::cout << "D[CONSTRUCTOR DEF] Cat is created." << std::endl;
+	head = new Brain;
 }
 
 Cat::Cat(const std::string &type) : Animal(type)
 {
-	std::cout << "C[CONSTRUCTOR STR] Cat is created." << std::endl;
+	std::cout << "D[CONSTRUCTOR STR] Cat is created." << std::endl;
+	head = new Brain;
 }
 
 Cat::Cat(const Cat &other) : Animal()
 {
+	std::cout << "D[CONSTRUCTOR CPY] Cat is created." << std::endl;
+	head = new Brain;
 	*this = other;
-
-	std::cout << "C[CONSTRUCTOR CPY] Cat is created." << std::endl;
-}
-
-Cat::~Cat()
-{
-	std::cout << "C[DESCTRUCTOR] Cat is destroyed."<< std::endl;
 }
 
 Cat&	Cat::operator=(const Cat &other)
 {
-	this->type = other.type;
+	std::cout << "D[=] Cat assignated." << std::endl;
 
-	std::cout << "C[ASSIGNATION] Cat assignated." << std::endl;
+	type = other.type;
+	*head = *(other.head);
+
 	return *this;
 }
 
+Cat::~Cat()
+{
+	delete head;
+	std::cout << "D[DESCTRUCTOR] Cat is destroyed."<< std::endl;
+}
+
+std::string	Cat::get_brain_idea(int index) {
+	return (head->get_idea(index));
+	}
+
 void	Cat::makeSound(void) const {
-	std::cout << type << ": Miaw Miaw i want tuna." << std::endl;
+	std::cout << type << ": miaw i like tuna" << std::endl;
 	return ;
 }
 
 std::string	Cat::getType(void) const {
 	return (type);
 }
-
-//void	Cat::set_()
-//void	Cat::get_()
-//void	Cat::()
-//void	Cat::_()
