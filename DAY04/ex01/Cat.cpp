@@ -38,7 +38,7 @@ Cat::~Cat()
 	std::cout << "C[DESCTRUCTOR] Cat is destroyed."<< std::endl;
 }
 
-std::string	Cat::get_brain_idea(int index) {
+std::string	Cat::get_brain_idea(int index) const {
 	return (head->get_idea(index));
 	}
 

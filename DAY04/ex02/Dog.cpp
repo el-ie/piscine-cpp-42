@@ -38,7 +38,7 @@ Dog::~Dog()
 	std::cout << "D[DESCTRUCTOR] Dog is destroyed."<< std::endl;
 }
 
-std::string	Dog::get_brain_idea(int index) {
+std::string	Dog::get_brain_idea(int index) const {
 	return (head->get_idea(index));
 	}
 
