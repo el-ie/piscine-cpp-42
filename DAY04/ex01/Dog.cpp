@@ -2,8 +2,6 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-#include <typeinfo> // remove
-
 Dog::Dog() : Animal()
 {
 	type = "dog";

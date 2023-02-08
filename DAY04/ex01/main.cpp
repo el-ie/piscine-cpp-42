@@ -6,62 +6,48 @@
 
 #include "Brain.hpp"
 
-#include <cstdio> // delete
-#include <cstdlib> // delete
+#define LINE std::cout << std::endl;
+
 int	main(void)
 {
-	Brain* tete = new Brain;
+	std::cout << "------------------------" << std::endl;
+	LINE
 
-	//std::cout << "idea = [" << tete->ideas[0] << "] <--" << std::endl;
-
-
-	std::cout << "-------- TETE ---------" << std::endl;
-	for (int i = 0; i < 5; i++)
-		std::cout << "[" << tete->get_idea(i) << "]"  << std::endl;
-	std::cout << std::endl;
+	//demande de l'enonce : creation du tableaux d'objets Animal moitie Dog moitiee Cat:
+	const Animal*	tab[10];
 	
-	Brain* ballon = new Brain;
-	*ballon = *tete;
+	//remplissage du tableau
+	for (int i = 0; i < 10; i++) {
+		if (i % 2 == 0)
+			tab[i] = new Dog();
+		else
+			tab[i] = new Cat();
+		}
+		
+	//deletion du tableau
+	for (int i = 0; i < 10; i++)
+		delete tab[i];
 
-	delete tete;
+	//demonstration de l'application d'une copie profonde
+	//des idees par le constructeur par copie :
 
-	std::cout << std::endl << "-------- BALLON ---------" << std::endl;
-	for (int i = 0; i < 5; i++)
-		std::cout << "[" << ballon->get_idea(i) << "]"  << std::endl;
-	std::cout << std::endl;
+	Dog*	milou = new Dog; //creation de milou
 
-	delete ballon;
-	
+	LINE LINE
 
-	//printf("%s", tete->ideas[0].c_str());
+	for (int i = 0; i < 4; i++) //idees de milou
+		std::cout << milou->get_brain_idea(i) << std::endl;
+
+	LINE LINE
+	Dog*	dingo = new Dog(*milou); //creation de dingo
+
+	LINE LINE
+	delete milou; //milou est detruit
+	LINE LINE
+
+	for (int i = 0; i < 4; i++) //dingo peut toujours acceder a ses idees copiees sur milou (copie profonde)
+		std::cout << dingo->get_brain_idea(i) << std::endl;
+
+	LINE LINE
+	delete dingo;
 }
-
-/*
-   int	main(void)
-   {
-   const Animal* egg = new Animal();
-   const Animal* milou = new Dog();
-   const Animal* garfield = new Cat();
-   std::cout << "milou type = " << milou->getType() << " " << std::endl;
-   std::cout << "garfield type = " << garfield->getType() << " " << std::endl;
-   garfield->makeSound();
-   milou->makeSound();
-   egg->makeSound();
-
-   std::cout << "------------------------------------------------" << std::endl;
-
-   const WrongAnimal* pikachu = new WrongAnimal();
-   const WrongAnimal* batman = new WrongCat();
-   std::cout << "WrongCat type = " <<  batman->getType() << " " << std::endl;
-   batman->makeSound();
-   pikachu->makeSound();
-
-   delete egg;
-   delete milou;
-   delete garfield;
-   delete pikachu;
-   delete batman;
-
-   return (0);
-   }
- */

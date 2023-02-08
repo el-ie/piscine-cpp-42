@@ -5,26 +5,26 @@
 Cat::Cat() : Animal()
 {
 	type = "cat";
-	std::cout << "D[CONSTRUCTOR DEF] Cat is created." << std::endl;
+	std::cout << "C[CONSTRUCTOR DEF] Cat is created." << std::endl;
 	head = new Brain;
 }
 
 Cat::Cat(const std::string &type) : Animal(type)
 {
-	std::cout << "D[CONSTRUCTOR STR] Cat is created." << std::endl;
+	std::cout << "C[CONSTRUCTOR STR] Cat is created." << std::endl;
 	head = new Brain;
 }
 
 Cat::Cat(const Cat &other) : Animal()
 {
-	std::cout << "D[CONSTRUCTOR CPY] Cat is created." << std::endl;
+	std::cout << "C[CONSTRUCTOR CPY] Cat is created." << std::endl;
 	head = new Brain;
 	*this = other;
 }
 
 Cat&	Cat::operator=(const Cat &other)
 {
-	std::cout << "D[=] Cat assignated." << std::endl;
+	std::cout << "C[=] Cat assignated." << std::endl;
 
 	type = other.type;
 	*head = *(other.head);
@@ -35,7 +35,7 @@ Cat&	Cat::operator=(const Cat &other)
 Cat::~Cat()
 {
 	delete head;
-	std::cout << "D[DESCTRUCTOR] Cat is destroyed."<< std::endl;
+	std::cout << "C[DESCTRUCTOR] Cat is destroyed."<< std::endl;
 }
 
 std::string	Cat::get_brain_idea(int index) {
