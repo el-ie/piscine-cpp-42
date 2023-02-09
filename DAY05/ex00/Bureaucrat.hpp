@@ -2,7 +2,9 @@
 # define BUREAUCRAT_CLASS_HPP
 
 #include <iostream>
-#include <string>
+#include <string> //let ?
+
+#include <stdexcept>
 
 class Bureaucrat
 {
@@ -22,11 +24,21 @@ class Bureaucrat
 		void		promotion();
 		void		regression();
 
+		//nested class, bonne maniere ?
+		class GradeTooHighException : public std::exception {
+			public:
+			virtual const char *	what(void) const throw();
+		};
+		class GradeTooLowException : public std::exception {
+			public:
+			virtual const char *	what(void) const throw();
+		};
+
 	private:
 		std::string	name;
 		int		grade;
 
-		void	adjust_incorrect_grade(void);
+		void	check_grade(void) const;
 };
 
 #endif /* BUREAUCRAT_CLASS_HPP */

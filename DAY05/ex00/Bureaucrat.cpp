@@ -1,14 +1,32 @@
 #include "Bureaucrat.hpp"
+#include <stdexcept> //
 
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
 	std::cout << "Bureaucrat default constructor" << std::endl;
+
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
 	std::cout << "Bureaucrat constructor" << std::endl;
-	adjust_incorrect_grade();
+	check_grade();
+}
+
+void	Bureaucrat::check_grade(void) const{
+
+	if (grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
+	if (grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+}
+
+const char * Bureaucrat::GradeTooLowException::what(void) const throw() {
+	return ("GradeTooLowException : the grade can't go below grade 150");
+}
+
+const char * Bureaucrat::GradeTooHighException::what(void) const throw(){
+	return ("GradeTooHighException : the grade can't go above grade 1");
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
@@ -36,14 +54,8 @@ std::ostream&	Bureaucrat::operator<<(std::ostream &output) {
 }
 */
 
-void		Bureaucrat::adjust_incorrect_grade() {
-	if (grade < 1)
-		grade = 1;
-	else if (grade > 150)
-		grade = 150;
-}
 
-void		Bureaucrat::promotion(void) {
+void		Bureaucrat::promotion(void) { // use try catch ?
 	if (grade == 1) {
 		std::cout << name << " is already at the top of the food chain, can't get higher than that." << std::endl;
 		return;
