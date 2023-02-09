@@ -12,7 +12,8 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &other);
    	   ~Bureaucrat ();
 		Bureaucrat & operator=(const Bureaucrat &other);
-		void	operator<<(); //const?
+
+		//std::ostream&	operator<<(std::ostream &output); //probleme
 
 	//accessors
 		std::string	get_name() const;	

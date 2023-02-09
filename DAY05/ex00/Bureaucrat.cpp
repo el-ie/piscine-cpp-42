@@ -29,11 +29,12 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 	this->grade = other.grade;
 	return *this;
 }
-
-void	operator<<() {
-	std::cout << name << ", bureaucrat grade " << grade << std::endl;
-	return (*this)
+/*	POURQUOI NE COMPILE PAS ?
+std::ostream&	Bureaucrat::operator<<(std::ostream &output) {
+	output << name << ", bureaucrat grade " << grade << std::endl;
+	return (output);
 }
+*/
 
 void		Bureaucrat::adjust_incorrect_grade() {
 	if (grade < 1)
