@@ -6,6 +6,8 @@
 #include <string> //let ?
 #include <stdexcept> //?
 
+class Form;
+
 class Bureaucrat
 {
 	public:
@@ -14,6 +16,8 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &other);
    	   ~Bureaucrat ();
 		Bureaucrat & operator=(const Bureaucrat &other); // const ???
+
+		void	signForm(Form & page) const ;
 
 	//accessors
 		const std::string&	get_name() const; //put back

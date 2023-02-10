@@ -20,3 +20,8 @@ on ne se sert pas du grade de l execution
 
 form constructor : laisser grade_sign et grade_execute a 150 a la construction ?
 
+Questionnement:
+
+$$ annonce d'une classe dans une autre avec un simple 
+class Form;
+se renseigner d avantage sur cette methode

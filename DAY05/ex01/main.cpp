@@ -9,10 +9,12 @@ int	main(void)
 
 	Form formulaire("fofo", 15, 15);
 
-	Bureaucrat	ted("tedy", 16);
+	Bureaucrat	ted("tedy", 15);
 
 	std::cout << formulaire << std::endl << ted << std::endl;
 
+	formulaire.beSigned(ted);
+	formulaire.beSigned(ted);
 	formulaire.beSigned(ted);
 
 	}
@@ -27,6 +29,7 @@ int	main(void)
 	}
 
 
+	std::cout << std::endl;
 
 
 }

@@ -1,6 +1,8 @@
 #include "Bureaucrat.hpp"
 #include <stdexcept> //
 
+#include "Form.hpp"
+
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
 	//std::cout << "Bureaucrat default constructor" << std::endl;
@@ -38,6 +40,22 @@ std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
 }
 
 //////////////////////////////////////////////////////////////////
+
+///*
+void	Bureaucrat::signForm(Form & page) const {
+
+	try  {
+		page.beSigned(*this);
+		std::cout << this->get_name() << " signed " << page.get_name() << std::endl;
+	} catch (Form::AlreadySignedException & e) {
+		std::cout << this->get_name() << " couldn't signed " << page.get_name() << " because the form was already signed." << std::endl;
+	} catch (Form::GradeTooLowException & e) {
+		std::cout << this->get_name() << " couldn't signed " << page.get_name() << " because he didn't have a high enough grade." << std::endl;
+	} catch (...) {
+		std::cout << this->get_name() << " couldn't signed " << page.get_name() << std::endl;
+	}
+}
+//*/
 
 void	Bureaucrat::check_grade(void) const{
 
