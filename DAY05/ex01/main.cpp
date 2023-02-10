@@ -5,8 +5,16 @@
 
 int	main(void)
 {
-	Form formulaire;
+	try {
 
+	Form formulaire("fofo", 150, 15);
 	std::cout << formulaire << std::endl;
+
+	} catch(...) {
+
+	std::cout << "Catched" << std::endl;
+
+	}
+
 
 }

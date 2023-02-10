@@ -9,8 +9,6 @@ exception grades toolow et toohigh et rajout d'une exception dans le cas ou le f
 verifier le grade du bureaucrat et que le formulaire n est pas deja signe dans la fonction pour 
 verifier les formulaires, premiere ligne de la page 8
 
-attention le grade plus petit plus eleve
-
 Le bureaucrat ne va pas changer il y aura juste signe form a rajouter, cette fonction la prend en
 parametre un formulaire par reference et sylvain a utiliser un try catch directement dedans
 

@@ -11,7 +11,7 @@ class Form
 		Form(const std::string &name);
 		Form(const std::string &name, const long int grade_sign, const long int grade_execute);
 		Form(const Form &other);
-   	   ~Form ();
+		~Form ();
 		Form & operator=(const Form &other);
 
 		class GradeTooHighException : public std::exception {
@@ -22,14 +22,18 @@ class Form
 			public:
 				virtual const char *	what(void) const throw();
 		};
+		class AlreadySignedException : public std::exception {
+			public:
+				virtual const char *	what(void) const throw();
+		};
 
 		//accessors
 		const std::string &	get_name() const;
-		bool		get_signed_status() const;
-		long int	get_grade_sign() const;
-		long int	get_grade_execute() const;
+		bool			get_signed_status() const;
+		long int		get_grade_sign() const;
+		long int		get_grade_execute() const;
 		// (ajout de const pour pouvoir envoyer par reference)
-		
+
 
 	private:
 
@@ -38,7 +42,7 @@ class Form
 		const long int		grade_sign;
 		const long int		grade_execute;
 
-		//void	check_form_grade
+		void	check_form_grade() const;
 
 };
 

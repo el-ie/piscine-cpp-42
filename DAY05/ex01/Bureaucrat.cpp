@@ -48,11 +48,11 @@ void	Bureaucrat::check_grade(void) const{
 }
 
 const char * Bureaucrat::GradeTooLowException::what(void) const throw() {
-	return ("GradeTooLowException : the grade can't go below grade 150");
+	return ("Bureaucrat GradeTooLowException : the grade can't go below grade 150");
 }
 
 const char * Bureaucrat::GradeTooHighException::what(void) const throw(){
-	return ("GradeTooHighException : the grade can't go above grade 1");
+	return ("Bureaucrat GradeTooHighException : the grade can't go above grade 1");
 }
 
 
