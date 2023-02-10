@@ -27,6 +27,8 @@ class Form
 				virtual const char *	what(void) const throw();
 		};
 
+		void	beSigned(const	Bureaucrat & ted);
+
 		//accessors
 		const std::string &	get_name() const;
 		bool			get_signed_status() const;

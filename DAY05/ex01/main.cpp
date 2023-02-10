@@ -7,14 +7,26 @@ int	main(void)
 {
 	try {
 
-	Form formulaire("fofo", 150, 15);
-	std::cout << formulaire << std::endl;
+	Form formulaire("fofo", 15, 15);
 
-	} catch(...) {
+	Bureaucrat	ted("tedy", 16);
 
-	std::cout << "Catched" << std::endl;
+	std::cout << formulaire << std::endl << ted << std::endl;
+
+	formulaire.beSigned(ted);
 
 	}
+	catch(Form::AlreadySignedException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Form::GradeTooLowException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(...) {
+		std::cout << "Cathed in ..." << std::endl;
+	}
+
+
 
 
 }

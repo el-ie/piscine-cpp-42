@@ -1,18 +1,19 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 Form::Form() : name("default") , signed_status(0) , grade_sign(150) , grade_execute(150)
 {
-	std::cout << "Form default constructor" << std::endl;
+	//std::cout << "Form default constructor" << std::endl;
 }
 
 Form::Form(const std::string &name) : name(name), signed_status(0) , grade_sign(150) , grade_execute(150)
 {
-	std::cout << "Form constructor" << std::endl;
+	//std::cout << "Form constructor" << std::endl;
 }
 
 Form::Form(const std::string &name, const long int grade_sign, const long int grade_execute) : name(name), signed_status(0) , grade_sign(grade_sign) , grade_execute(grade_execute)
 {
-	std::cout << "Form constructor" << std::endl;
+	//std::cout << "Form constructor" << std::endl;
 	check_form_grade();
 }
 
@@ -25,11 +26,15 @@ void	Form::check_form_grade(void) const {
 }
 
 const char * Form::GradeTooLowException::what(void) const throw() {
-	return ("Form GradeTooLowException : the grade can't go below grade 150");
+	return ("Form GradeTooLowException");
 }
 
 const char * Form::GradeTooHighException::what(void) const throw(){
-	return ("Form GradeTooHighException : the grade can't go above grade 1");
+	return ("Form GradeTooHighException");
+}
+
+const char * Form::AlreadySignedException::what(void) const throw(){
+	return ("Form AlreadySignedException : the form is already signed");
 }
 
 Form::Form(const Form &other) : name(other.name), signed_status(other.signed_status), grade_sign(other.grade_sign), grade_execute(other.grade_execute)
@@ -40,7 +45,7 @@ Form::Form(const Form &other) : name(other.name), signed_status(other.signed_sta
 
 Form::~Form()
 {
-	std::cout << "Form destructor" << std::endl;
+	//std::cout << "Form destructor" << std::endl;
 }
 
 Form&	Form::operator=(const Form &other)
@@ -57,6 +62,21 @@ std::ostream&	operator<<(std::ostream &output, const Form& formulaire) {
 	return (output);
 }
 ///////////////////////////////////////////////////////////
+
+
+void	Form::beSigned(const	Bureaucrat & ted) {
+	
+	if (signed_status == 1)
+		throw(Form::AlreadySignedException());
+	
+	if (ted.get_grade() > grade_sign)
+		throw(Form::GradeTooLowException());
+	
+	signed_status = true;
+
+	std::cout << "The form was successfully signed by bureaucrat "
+	<< ted.get_name() << "." << std::endl;
+}
 
 //accessors
 const std::string &	Form::get_name(void) const {
