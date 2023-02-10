@@ -5,12 +5,12 @@
 
 //Constructors____
 
-Form::Form() : name("default") , signed_status(0) , grade_sign(150) , grade_execute(150)
+Form::Form() : name("default") , signed_status(0) , grade_sign(1) , grade_execute(1)
 {
 	//std::cout << "Form default constructor" << std::endl;
 }
 
-Form::Form(const std::string &name) : name(name), signed_status(0) , grade_sign(150) , grade_execute(150)
+Form::Form(const std::string &name) : name(name), signed_status(0) , grade_sign(1) , grade_execute(1)
 {
 	//std::cout << "Form constructor" << std::endl;
 }
@@ -38,6 +38,7 @@ Form&	Form::operator=(const Form &other)
 {
 	std::cout << "Form assignation operator" << std::endl;
 	signed_status = other.signed_status;
+	// the rest in const
 	return *this;
 }
 
