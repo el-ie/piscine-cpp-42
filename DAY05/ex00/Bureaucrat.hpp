@@ -16,7 +16,7 @@ class Bureaucrat
 		Bureaucrat & operator=(const Bureaucrat &other); // const ???
 
 	//accessors
-		std::string	get_name() const;
+		const std::string&	get_name() const;
 		long int	get_grade() const;
 
 		void		promotion();

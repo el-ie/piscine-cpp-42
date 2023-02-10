@@ -76,7 +76,7 @@ void		Bureaucrat::regression(void) {
 	std::cout << "[REGRESSION] " << name << " has had a really unprofessionnal comportment in the working space, he is retrograded to grade " << grade << std::endl;
 }
 
-std::string	Bureaucrat::get_name(void) const {
+const std::string&	Bureaucrat::get_name(void) const {
 	return (name);
 }
 
