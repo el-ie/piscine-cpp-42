@@ -2,9 +2,9 @@
 # define BUREAUCRAT_CLASS_HPP
 
 #include <iostream>
-#include <string> //let ?
 
-#include <stdexcept>
+#include <string> //let ?
+#include <stdexcept> //?
 
 class Bureaucrat
 {
@@ -13,12 +13,10 @@ class Bureaucrat
 		Bureaucrat(const std::string &name, int grade);
 		Bureaucrat(const Bureaucrat &other);
    	   ~Bureaucrat ();
-		Bureaucrat & operator=(const Bureaucrat &other);
-
-		//std::ostream&	operator<<(std::ostream &output); //probleme
+		Bureaucrat & operator=(const Bureaucrat &other); // const ???
 
 	//accessors
-		std::string	get_name() const;	
+		std::string	get_name() const; //put back
 		int		get_grade() const;
 
 		void		promotion();
@@ -36,9 +34,12 @@ class Bureaucrat
 
 	private:
 		std::string	name;
-		int		grade;
+		int			grade;
 
 		void	check_grade(void) const;
 };
+
+//put back
+std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted);//nouveau
 
 #endif /* BUREAUCRAT_CLASS_HPP */

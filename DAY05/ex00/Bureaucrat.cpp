@@ -3,20 +3,31 @@
 
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
-	std::cout << "Bureaucrat default constructor" << std::endl;
+	//std::cout << "Bureaucrat default constructor" << std::endl;
 
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
-	std::cout << "Bureaucrat constructor" << std::endl;
+	//std::cout << "Bureaucrat constructor" << std::endl;
 	check_grade();
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &other)
+{
+	std::cout << "Bureaucrat copy constructor" << std::endl;
+	*this = other;
+}
+
+Bureaucrat::~Bureaucrat()
+{
+	//std::cout << "Bureaucrat destructor" << std::endl;
 }
 
 void	Bureaucrat::check_grade(void) const{
 
 	if (grade > 150)
-		throw (Bureaucrat::GradeTooLowException());
+		throw (Bureaucrat::GradeTooLowException()); //comprendre+
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooHighException());
 }
@@ -29,17 +40,6 @@ const char * Bureaucrat::GradeTooHighException::what(void) const throw(){
 	return ("GradeTooHighException : the grade can't go above grade 1");
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
-{
-	std::cout << "Bureaucrat copy constructor" << std::endl;
-	*this = other;
-}
-
-Bureaucrat::~Bureaucrat()
-{
-	std::cout << "Bureaucrat destructor" << std::endl;
-}
-
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Bureaucrat assignation operator" << std::endl;
@@ -47,32 +47,33 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 	this->grade = other.grade;
 	return *this;
 }
-/*	POURQUOI NE COMPILE PAS ?
-std::ostream&	Bureaucrat::operator<<(std::ostream &output) {
-	output << name << ", bureaucrat grade " << grade << std::endl;
+
+std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
+	output << ted.get_name() << ", bureaucrat grade " << ted.get_grade() << std::endl;
 	return (output);
 }
-*/
 
-
-void		Bureaucrat::promotion(void) { // use try catch ?
+void		Bureaucrat::promotion(void) {
+	
 	if (grade == 1) {
-		std::cout << name << " is already at the top of the food chain, can't get higher than that." << std::endl;
-		return;
+
+		std::cout << "[PROMOTION] " << name << " is already at the top of the food chain, can't get higher than that." << std::endl;
+		throw (Bureaucrat::GradeTooHighException());
 	}
 
 	grade--;
-	std::cout << name << " has been a great worker, he climb up the rank to reach grade " << grade << std::endl;
+	std::cout << "[PROMOTION] " << name << " has been a great worker, he climb up the rank to reach grade " << grade << std::endl;
 }
 
 void		Bureaucrat::regression(void) {
+
 	if (grade == 150) {
-		std::cout << name << " is already serving cofee and polishing shoes he can't get a lower grade" << std::endl;
-		return ;
+		std::cout << "[REGRESSION] " << name << " is already serving cofee and polishing shoes he can't get a lower grade" << std::endl;
+		throw (Bureaucrat::GradeTooLowException());
 	}
 
 	grade++;
-	std::cout << name << " has had a really unprofessionnal comportment in the working space, he is retrograded to grade " << grade << std::endl;
+	std::cout << "[REGRESSION] " << name << " has had a really unprofessionnal comportment in the working space, he is retrograded to grade " << grade << std::endl;
 }
 
 std::string	Bureaucrat::get_name(void) const {
