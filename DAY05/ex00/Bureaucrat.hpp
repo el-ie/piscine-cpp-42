@@ -16,13 +16,12 @@ class Bureaucrat
 		Bureaucrat & operator=(const Bureaucrat &other); // const ???
 
 	//accessors
-		std::string	get_name() const; //put back
-		long int		get_grade() const;
+		std::string	get_name() const;
+		long int	get_grade() const;
 
 		void		promotion();
 		void		regression();
 
-		//nested class, bonne maniere ?
 		class GradeTooHighException : public std::exception {
 			public:
 			virtual const char *	what(void) const throw();
