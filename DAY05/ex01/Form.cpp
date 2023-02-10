@@ -1,11 +1,16 @@
 #include "Form.hpp"
 
-Form::Form() : name("default") , is_signed(0)
+Form::Form() : name("default") , signed_status(0) , grade_sign(150) , grade_execute(150)
 {
 	std::cout << "Form default constructor" << std::endl;
 }
 
-Form::Form(const std::string &name) : name(name), is_signed(0)
+Form::Form(const std::string &name) : name(name), signed_status(0) , grade_sign(150) , grade_execute(150)
+{
+	std::cout << "Form constructor" << std::endl;
+}
+
+Form::Form(const std::string &name, const long int grade_sign, const long int grade_execute) : name(name), signed_status(0) , grade_sign(grade_sign) , grade_execute(grade_execute)
 {
 	std::cout << "Form constructor" << std::endl;
 }
@@ -24,13 +29,33 @@ Form::~Form()
 Form&	Form::operator=(const Form &other)
 {
 	std::cout << "Form assignation operator" << std::endl;
-	is_signed = other.is_signed;
+	signed_status = other.signed_status;
 	grade_sign = other.grade_sign;
 	grade_execute = other.grade_execute;
 	return *this;
 }
 
-//void	Form::set_()
-//void	Form::get_()
-//void	Form::()
-//void	Form::_()
+std::ostream&	operator<<(std::ostream &output, const Form& formulaire) {
+	output << "Form: " << formulaire.get_name() << ", signed status = " << formulaire.get_signed_status()
+	<< " grade_sign = " << formulaire.get_grade_sign() << " grade execute = "
+	<< formulaire.get_grade_execute() << std::endl;
+	return (output);
+}
+///////////////////////////////////////////////////////////
+
+//accessors
+const std::string &	Form::get_name(void) const {
+	return (name);	
+}
+
+bool 			Form::get_signed_status(void) const {
+	return (signed_status);
+}
+
+long int		Form::get_grade_sign(void) const {
+	return (grade_sign);
+}
+
+long int		Form::get_grade_execute(void) const {
+	return (grade_execute);
+}

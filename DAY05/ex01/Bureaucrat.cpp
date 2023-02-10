@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(const std::string &name, long int grade) : name(name), gr
 	check_grade();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name)
 {
 	std::cout << "Bureaucrat copy constructor" << std::endl;
 	*this = other;
@@ -23,6 +23,21 @@ Bureaucrat::~Bureaucrat()
 {
 	//std::cout << "Bureaucrat destructor" << std::endl;
 }
+
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
+{
+	std::cout << "Bureaucrat assignation operator" << std::endl;
+	//this->name = other.name; // impossible avec la consigne de l enonce de mettre le nom en const, comment faire
+	this->grade = other.grade;
+	return *this;
+}
+
+std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
+	output << ted.get_name() << ", bureaucrat grade " << ted.get_grade() << std::endl;
+	return (output);
+}
+
+//////////////////////////////////////////////////////////////////
 
 void	Bureaucrat::check_grade(void) const{
 
@@ -40,18 +55,6 @@ const char * Bureaucrat::GradeTooHighException::what(void) const throw(){
 	return ("GradeTooHighException : the grade can't go above grade 1");
 }
 
-Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
-{
-	std::cout << "Bureaucrat assignation operator" << std::endl;
-	//this->name = other.name; // impossible avec la consigne de l enonce de mettre le nom en const, comment faire
-	this->grade = other.grade;
-	return *this;
-}
-
-std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
-	output << ted.get_name() << ", bureaucrat grade " << ted.get_grade() << std::endl;
-	return (output);
-}
 
 void		Bureaucrat::promotion(void) {
 	

@@ -9,6 +9,7 @@ class Form
 	public:
 		Form();
 		Form(const std::string &name);
+		Form(const std::string &name, const long int grade_sign, const long int grade_execute);
 		Form(const Form &other);
    	   ~Form ();
 		Form & operator=(const Form &other);
@@ -23,16 +24,23 @@ class Form
 		};
 
 		//accessors
+		const std::string &	get_name() const;
+		bool		get_signed_status() const;
+		long int	get_grade_sign() const;
+		long int	get_grade_execute() const;
+		// (ajout de const pour pouvoir envoyer par reference)
 		
 
 	private:
 
 		const std::string	name;
-		bool			is_signed;
+		bool			signed_status;
 		long int		grade_sign;
 		long int		grade_execute;
 
 
 };
+
+std::ostream&	operator<<(std::ostream &output, const Form& formulaire);//nouveau
 
 #endif /* FORM_CLASS_HPP */

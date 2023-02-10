@@ -1,5 +1,5 @@
 
-sylvain:
+-=-----------sylvain:
 
 la classe formulaire : booleen pour savoir si elle est signee ou non et 2 grades constant pour la signature et l execution
 
@@ -13,3 +13,7 @@ Le bureaucrat ne va pas changer il y aura juste signe form a rajouter, cette fon
 dans signed form dans le bureaucrat tout se passe
 
 on ne se sert pas du grade de l execution
+
+------------- nouveau
+
+form constructor : laisser grade_sign et grade_execute a 150 a la construction ?
