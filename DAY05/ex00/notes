@@ -1,0 +1,35 @@
+
+Quand on ne catch pas un throw ca fait un iot instruction core dump blabla, du coup on peut
+appeller les constructeurs ou faire les promotions que dans des try catch, c est ok ?
+
+//Pour les exception GradeTooLow et GradeTooHigh j'ai cree des nested class dans Bureaucrat
+//est ce la bonne maniere de faire ?
+
+
+__petites questions
+faut il catch std::exception avant de catch ... /sylvain pense que non et que ca peut provoquer des erreurs
+
+__comprendre
+pourquoi mettre throw() a la fin de what dans les nested class dans hpp
+pourquoi un bureaucrat n est pas detruit quand une erreur est throw
+
+
+si on ne catch pas un throw:
+
+===============================================================================
+➜  ex00 git:(master) ✗ ./exec_name 0
+
+Bureaucrat constructor
+terminate called after throwing an instance of 'Bureaucrat::GradeTooHighException'
+  what():  GradeTooLowException : the grade can't go above grade 1
+[1]    32815 IOT instruction (core dumped)  ./exec_name 0
+================================================================================
+
+conseils abortes sylvain:
+
+name en const -> on peut pas 
+utiliser le constructeur de copie pour copier le nom avec l operateur de surcharge =
+laisser comme ca ?
+
+Je ne peux pas renvoyer name par reference dans get_name a cause du qualifier const de get_name, normal ?
+Comprendre d avantage l'appelle des exceptions dans la fonction check_grade

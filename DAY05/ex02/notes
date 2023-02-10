@@ -1,0 +1,6 @@
+
+la classe formulaire devient abstraite et il faut creer 3 sous classes qui heritent et auront chacun un grade et etc differents
+
+verifier que le fichier n existe pas deja, permissions contraignantes etc
+
+mettre srand dans le main une seule fois

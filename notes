@@ -1,0 +1,4 @@
+
+sylvain:
+ex01 du module 7
+faire une fonction template iter qui prend en parametre un pointeur -> verifier que ce pointeur n est pas null

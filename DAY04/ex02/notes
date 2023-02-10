@@ -1,0 +1,7 @@
+j ai juste remis  l exercice 1 en mettant le constructeur de la classe Animal en protected
+
+questions :
+faut il la garder protected ou la mettre en private ,
+est ce que les classes enfants doivent pouvoir l'instancier ?
+normalement elles doivent puisque le constructeur de cat et dog appelle
+le constructeur de Animal
