@@ -35,9 +35,10 @@ class Form
 
 		const std::string	name;
 		bool			signed_status;
-		long int		grade_sign;
-		long int		grade_execute;
+		const long int		grade_sign;
+		const long int		grade_execute;
 
+		//void	check_form_grade
 
 };
 

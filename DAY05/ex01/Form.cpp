@@ -15,7 +15,7 @@ Form::Form(const std::string &name, const long int grade_sign, const long int gr
 	std::cout << "Form constructor" << std::endl;
 }
 
-Form::Form(const Form &other)
+Form::Form(const Form &other) : name(other.name), signed_status(other.signed_status), grade_sign(other.grade_sign), grade_execute(other.grade_execute)
 {
 	std::cout << "Form copy constructor" << std::endl;
 	*this = other;
@@ -30,8 +30,6 @@ Form&	Form::operator=(const Form &other)
 {
 	std::cout << "Form assignation operator" << std::endl;
 	signed_status = other.signed_status;
-	grade_sign = other.grade_sign;
-	grade_execute = other.grade_execute;
 	return *this;
 }
 
