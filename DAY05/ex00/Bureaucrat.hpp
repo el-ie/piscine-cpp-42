@@ -33,7 +33,8 @@ class Bureaucrat
 		};
 
 	private:
-		std::string	name;
+
+		const std::string	name;
 		int			grade;
 
 		void	check_grade(void) const;

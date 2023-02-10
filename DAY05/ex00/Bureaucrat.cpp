@@ -43,7 +43,7 @@ const char * Bureaucrat::GradeTooHighException::what(void) const throw(){
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Bureaucrat assignation operator" << std::endl;
-	this->name = other.name;
+	//this->name = other.name; // impossible avec la consigne de l enonce de mettre le nom en const, comment faire
 	this->grade = other.grade;
 	return *this;
 }
