@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat() : name("default"), grade(150)
 
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, long int grade) : name(name), grade(grade)
 {
 	//std::cout << "Bureaucrat constructor" << std::endl;
 	check_grade();
@@ -80,6 +80,6 @@ std::string	Bureaucrat::get_name(void) const {
 	return (name);
 }
 
-int		Bureaucrat::get_grade(void) const {
+long int		Bureaucrat::get_grade(void) const {
 	return (grade);
 }

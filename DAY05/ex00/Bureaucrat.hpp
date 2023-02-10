@@ -10,14 +10,14 @@ class Bureaucrat
 {
 	public:
 		Bureaucrat();
-		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const std::string &name, long int grade);
 		Bureaucrat(const Bureaucrat &other);
    	   ~Bureaucrat ();
 		Bureaucrat & operator=(const Bureaucrat &other); // const ???
 
 	//accessors
 		std::string	get_name() const; //put back
-		int		get_grade() const;
+		long int		get_grade() const;
 
 		void		promotion();
 		void		regression();
@@ -35,7 +35,7 @@ class Bureaucrat
 	private:
 
 		const std::string	name;
-		int			grade;
+		long int		grade;
 
 		void	check_grade(void) const;
 };
