@@ -1,4 +1,5 @@
 
+
 Quand on ne catch pas un throw ca fait un iot instruction core dump blabla, du coup on peut
 appeller les constructeurs ou faire les promotions que dans des try catch, c est ok ?
 
