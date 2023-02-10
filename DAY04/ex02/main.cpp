@@ -3,11 +3,7 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-
 #include "Brain.hpp"
-
-#include <cstdio> // delete
-#include <cstdlib> // delete
 
 #define LINE std::cout << std::endl;
 
@@ -53,4 +49,8 @@ int	main(void)
 
 	LINE LINE
 	delete dingo;
+
+	// La classe Animale est une classe abstraite et ne peut pas etre instanciee,
+	// decommenter la ligne suivante provoquera donc une erreur
+	//new Animal;
 }

@@ -7,6 +7,10 @@
 class Animal
 {
 	public:
+		Animal();
+		Animal(const std::string &type);
+		Animal(const Animal &other);
+		Animal & operator=(const Animal &other);
    	    virtual	~Animal ();
 
 		virtual	void	makeSound(void) const;
@@ -14,11 +18,6 @@ class Animal
 
 	protected:
 		std::string	type;
-
-		Animal();
-		Animal(const std::string &type);
-		Animal(const Animal &other);
-		Animal & operator=(const Animal &other);
 };
 
 #endif /* ANIMAL_CLASS_HPP */

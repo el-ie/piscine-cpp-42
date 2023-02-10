@@ -12,7 +12,7 @@ class Brain
 		~Brain ();
 		Brain & operator=(const Brain &other);
 
-		std::string	get_idea(int index) const;
+		std::string	get_idea(long int index) const;
 
 	private:
 		std::string	ideas[100]; //const ?

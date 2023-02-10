@@ -19,7 +19,7 @@ class Dog : public Animal
 		void			makeSound(void) const;
 		std::string		getType(void) const ;
 
-		std::string	get_brain_idea(int index) const;
+		std::string	get_brain_idea(long int index) const;
 	
 	private:
 		Brain*	head; //private???

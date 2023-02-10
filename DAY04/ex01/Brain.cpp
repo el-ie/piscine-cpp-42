@@ -46,6 +46,11 @@ Brain&	Brain::operator=(const Brain &other)
 	return *this;
 }
 
-std::string	Brain::get_idea(int index) const {
+std::string	Brain::get_idea(long int index) const {
+
+	if (index < 0 || index > 99) { // verifier
+		std::cerr << index << " :bad index." << std::endl;
+		return ("");
+	}
 	return (ideas[index]);
 }
