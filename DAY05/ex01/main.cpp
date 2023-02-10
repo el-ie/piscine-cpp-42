@@ -7,21 +7,29 @@ int	main(void)
 {
 	try {
 
-	Form formulaire("fofo", 15, 15);
+	Form page("fofo", 34, 15);
 
-	Bureaucrat	ted("tedy", 15);
+	Bureaucrat	ted("tedy", 34);
 
-	std::cout << formulaire << std::endl << ted << std::endl;
+	std::cout << page << std::endl << ted << std::endl;
 
-	formulaire.beSigned(ted);
-	formulaire.beSigned(ted);
-	formulaire.beSigned(ted);
+	//page.beSigned(ted);
+	//ted.signForm(page);
 
 	}
 	catch(Form::AlreadySignedException & e) {
 		std::cerr << e.what() << std::endl;
 	}
 	catch(Form::GradeTooLowException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Form::GradeTooHighException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Bureaucrat::GradeTooHighException & e) {
 		std::cerr << e.what() << std::endl;
 	}
 	catch(...) {
