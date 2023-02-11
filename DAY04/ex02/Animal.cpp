@@ -27,11 +27,12 @@ Animal&	Animal::operator=(const Animal &other)
 	this->type = other.type;
 	return *this;
 }
-
+/*
 void	Animal::makeSound(void) const {
 	std::cout << "@" << type << ": Animal making sound" << std::endl;
 	return ;
 }
+*/
 
 std::string	Animal::getType(void) const {
 	return (type);
