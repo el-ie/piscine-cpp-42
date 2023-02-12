@@ -4,18 +4,24 @@
 #include <iostream>
 #include <string>
 
-class ShrubberyCreationForm
+#include "Form.hpp"
+
+class ShrubberyCreationForm : public Form
 {
 	public:
 		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string &name);
+		ShrubberyCreationForm(const std::string &target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
    	   ~ShrubberyCreationForm ();
 		ShrubberyCreationForm & operator=(const ShrubberyCreationForm &other);
 
+		//accessors
+		const std::string &	get_target() const;
+
+		void	process(void);
+
 	private:
-		std::string	_name;
-	protected:
+		const std::string	target;
 };
 
 #endif /* SHRUBBERYCREATIONFORM_CLASS_HPP */

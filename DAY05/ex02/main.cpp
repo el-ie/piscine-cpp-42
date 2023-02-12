@@ -1,8 +1,27 @@
-
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <stdexcept>
 
+
+
+
+int	main(void)
+{
+	
+	Form *	impot = new ShrubberyCreationForm("impot");
+	ShrubberyCreationForm assurance =  ShrubberyCreationForm("assurance");
+
+	//std::cout << assurance.get_target() << std::endl;
+	//std::cout << assurance.get_name() << std::endl;
+
+	assurance.process();
+	impot->process();
+
+}
+
+
+/*
 int	main(void)
 {
 	std::cout << " --------------- Signature sans probleme ---------------" << std::endl << std::endl;
@@ -94,3 +113,4 @@ int	main(void)
 	}
 	std::cout << std::endl;
 }
+*/

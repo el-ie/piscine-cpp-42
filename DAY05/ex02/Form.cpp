@@ -7,17 +7,17 @@
 
 Form::Form() : name("default") , signed_status(0) , grade_sign(1) , grade_execute(1)
 {
-	//std::cout << "Form default constructor" << std::endl;
+	std::cout << "Form default constructor" << std::endl;
 }
 
 Form::Form(const std::string &name) : name(name), signed_status(0) , grade_sign(1) , grade_execute(1)
 {
-	//std::cout << "Form constructor" << std::endl;
+	std::cout << "Form constructor" << std::endl;
 }
 
 Form::Form(const std::string &name, const long int grade_sign, const long int grade_execute) : name(name), signed_status(0) , grade_sign(grade_sign) , grade_execute(grade_execute)
 {
-	//std::cout << "Form constructor" << std::endl;
+	std::cout << "Form constructor" << std::endl;
 	check_form_grade();
 }
 
@@ -30,7 +30,7 @@ Form::Form(const Form &other) : name(other.name), signed_status(other.signed_sta
 //destructor____
 Form::~Form()
 {
-	//std::cout << "Form destructor" << std::endl;
+	std::cout << "Form destructor" << std::endl;
 }
 
 //Overloads____
@@ -62,6 +62,18 @@ const char * Form::GradeTooHighException::what(void) const throw(){
 
 const char * Form::AlreadySignedException::what(void) const throw(){
 	return ("Form AlreadySignedException : the form is already signed");
+}
+
+//ex02
+
+void	Form::execute(Bureaucrat const & executor) {
+		
+	if (signed_status == false)
+		throw(Form::AlreadySignedException());
+	if (executor.get_grade() > grade_execute)
+		throw(Form::GradeTooLowException());
+
+	process();
 }
 
 //Utilities functions____

@@ -36,8 +36,10 @@ class Form
 		bool			get_signed_status() const;
 		long int		get_grade_sign() const;
 		long int		get_grade_execute() const;
-		// (ajout de const pour pouvoir envoyer par reference)
 
+		//ex02
+		void	execute(Bureaucrat const & executor); //const ?
+		virtual void	process(void) = 0;
 
 	private:
 
