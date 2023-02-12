@@ -18,6 +18,8 @@ int	main(void)
 	assurance.process();
 	impot->process();
 
+	std::cout << assurance << std::endl;
+
 }
 
 

@@ -4,14 +4,14 @@ ShrubberyCreationForm::ShrubberyCreationForm() :
 	Form("Shrubbery form", 145, 137),
 	target("default target")
 {
-	std::cout << "ShrubberyCreationForm default constructor" << std::endl;
+	//std::cout << "ShrubberyCreationForm default constructor" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
 	Form("Shrubbery form", 145, 137),
 	target(target)
 {
-	std::cout << "ShrubberyCreationForm constructor" << std::endl;
+	//std::cout << "ShrubberyCreationForm constructor" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) :
@@ -24,8 +24,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm destructor" << std::endl;
+	//std::cout << "ShrubberyCreationForm destructor" << std::endl;
 }
+
+/////////////////////// Overloads ////////////////////////////////
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
@@ -34,9 +36,15 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
+std::ostream&	operator<<(std::ostream &output, const ShrubberyCreationForm& formulaire) {
+	output << "Shrubbery Form: " << std::endl << " target = " << formulaire.get_target()
+	<< ", signed status = " << formulaire.get_signed_status() << std::endl
+	<< " grade_sign = " << formulaire.get_grade_sign() << " grade execute = "
+	<< formulaire.get_grade_execute() << std::endl;
+	return (output);
+}
 
-
-/////////////////////// Utilities /////////////////////////////////
+/////////////////////// Utilities ////////////////////////////////
 
 void	ShrubberyCreationForm::process(void) {
 	std::cout << "PROCESSING -> " << target << std::endl;

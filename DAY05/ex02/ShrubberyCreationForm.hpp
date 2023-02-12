@@ -24,4 +24,6 @@ class ShrubberyCreationForm : public Form
 		const std::string	target;
 };
 
+std::ostream&	operator<<(std::ostream &output, const ShrubberyCreationForm& formulaire);//nouveau
+
 #endif /* SHRUBBERYCREATIONFORM_CLASS_HPP */
