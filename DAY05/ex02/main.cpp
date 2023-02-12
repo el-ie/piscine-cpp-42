@@ -15,10 +15,12 @@ int	main(void)
 	//std::cout << assurance.get_target() << std::endl;
 	//std::cout << assurance.get_name() << std::endl;
 
-	assurance.process();
+	//assurance.process();
 	impot->process();
 
 	std::cout << assurance << std::endl;
+	(void)impot;
+	(void)assurance;
 
 }
 

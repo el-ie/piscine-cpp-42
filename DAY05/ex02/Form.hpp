@@ -39,7 +39,7 @@ class Form
 
 		//ex02
 		void	execute(Bureaucrat const & executor); //const ?
-		virtual void	process(void) = 0;
+		virtual void	process(void) const = 0;
 
 	private:
 

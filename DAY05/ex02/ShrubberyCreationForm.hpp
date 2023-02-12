@@ -18,10 +18,13 @@ class ShrubberyCreationForm : public Form
 		//accessors
 		const std::string &	get_target() const;
 
-		void	process(void);
+		//functions
+		void	process(void) const;
 
 	private:
+	//variables
 		const std::string	target;
+
 };
 
 std::ostream&	operator<<(std::ostream &output, const ShrubberyCreationForm& formulaire);//nouveau
