@@ -1,6 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <stdexcept>
 
 
@@ -8,7 +10,7 @@
 
 int	main(void)
 {
-	
+/*	
 	Form *	impot = new ShrubberyCreationForm("impot");
 	ShrubberyCreationForm assurance =  ShrubberyCreationForm("assurance");
 
@@ -27,7 +29,15 @@ int	main(void)
 	ted.executeForm(assurance);
 	(void)impot;
 	(void)assurance;
+	*/
 
+	Form * mkultra = new PresidentialPardonForm("kanye West");
+
+	Bureaucrat ted = Bureaucrat("tedy", 3);
+
+	ted.signForm(*mkultra);
+
+	ted.executeForm(*mkultra);
 }
 
 

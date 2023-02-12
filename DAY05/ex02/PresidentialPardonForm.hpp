@@ -4,18 +4,29 @@
 #include <iostream>
 #include <string>
 
-class PresidentialPardonForm
+#include "Form.hpp"
+
+class PresidentialPardonForm : public Form
 {
 	public:
 		PresidentialPardonForm();
-		PresidentialPardonForm(const std::string &name);
+		PresidentialPardonForm(const std::string &target);
 		PresidentialPardonForm(const PresidentialPardonForm &other);
    	   ~PresidentialPardonForm ();
 		PresidentialPardonForm & operator=(const PresidentialPardonForm &other);
 
+		//accessors
+		const std::string &	get_target() const;
+
 	private:
-		std::string	_name;
-	protected:
+	//variables
+		const std::string	target;
+
+	//functions
+	void	process(void) const;
+
 };
+
+std::ostream&	operator<<(std::ostream &output, const PresidentialPardonForm& formulaire);//nouveau
 
 #endif /* PRESIDENTIALPARDONFORM_CLASS_HPP */

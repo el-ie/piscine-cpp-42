@@ -1,25 +1,25 @@
-#include <fstream>
+#include <cstdlib>
 
 #include "RobotomyRequestForm.hpp"
 
 ///////////////////////// Constructors ////////////////////////////
 
 RobotomyRequestForm::RobotomyRequestForm() :
-	Form("Robotomy form", 145, 137),
+	Form("Robotomy request form", 72, 45),
 	target("default target")
 {
 	//std::cout << "RobotomyRequestForm default constructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
-	Form("Robotomy form", 145, 137),
+	Form("Robotomy request form", 72, 45),
 	target(target)
 {
 	//std::cout << "RobotomyRequestForm constructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) :
-	Form(other.get_name(), 145, 137),
+	Form(other.get_name(), 72, 45),
 	target(other.get_target())
 {
 	std::cout << "RobotomyRequestForm copy constructor" << std::endl;
@@ -51,7 +51,16 @@ std::ostream&	operator<<(std::ostream &output, const RobotomyRequestForm& formul
 /////////////////////// Utilities ////////////////////////////////
 
 void	RobotomyRequestForm::process(void) const {
-//here
+	std::cout << "rrrrrrrrrrrrriiiiiiiiiiiiiiii *drill noises" << std::endl;
+
+	srand((unsigned) time(NULL));
+	
+	if (rand() % 2 == 0)
+		std::cout << "The robotomy was a sucess, the subject " << target << " is now acting like a magicarp."
+		<< std::endl;
+	else
+		std::cout << "The robotomy was a failure, we lost another subject." << std::endl;
+		
 }
 
 
