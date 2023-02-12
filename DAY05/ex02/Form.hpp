@@ -28,6 +28,10 @@ class Form
 			public:
 				virtual const char *	what(void) const throw();
 		};
+		class NotSignedException : public std::exception {
+			public:
+				virtual const char *	what(void) const throw();
+		};
 
 		void	beSigned(const	Bureaucrat & ted);
 
@@ -38,7 +42,7 @@ class Form
 		long int		get_grade_execute() const;
 
 		//ex02
-		void	execute(Bureaucrat const & executor); //const ?
+		void	execute(Bureaucrat const & executor) const ; //const ?
 		virtual void	process(void) const = 0;
 
 	private:

@@ -3,6 +3,8 @@
 
 #include "Form.hpp"
 
+///////////////////////// Constructors ////////////////////////////
+
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
 	//std::cout << "Bureaucrat default constructor" << std::endl;
@@ -26,6 +28,8 @@ Bureaucrat::~Bureaucrat()
 	//std::cout << "Bureaucrat destructor" << std::endl;
 }
 
+/////////////////////// Overloads ////////////////////////////////
+
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Bureaucrat assignation operator" << std::endl;
@@ -39,9 +43,19 @@ std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
 	return (output);
 }
 
-//////////////////////////////////////////////////////////////////
+/////////////////////// Utilities ////////////////////////////////
 
-///*
+void	Bureaucrat::executeForm(Form const & form) const {
+
+	try {
+	form.execute(*this);	
+	}
+	catch (Form::AlreadySignedException & e) {
+		std::cerr << "The form was not signed" << std::endl;	
+	}
+
+}
+
 void	Bureaucrat::signForm(Form & page) const {
 
 	try  {

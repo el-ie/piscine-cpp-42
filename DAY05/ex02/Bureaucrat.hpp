@@ -36,6 +36,9 @@ class Bureaucrat
 			virtual const char *	what(void) const throw();
 		};
 
+		//functions
+		void	executeForm(Form const & form) const ;
+
 	private:
 
 		const std::string	name;

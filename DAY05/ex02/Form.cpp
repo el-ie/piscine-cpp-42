@@ -64,12 +64,16 @@ const char * Form::AlreadySignedException::what(void) const throw(){
 	return ("Form AlreadySignedException : the form is already signed");
 }
 
+const char * Form::NotSignedException::what(void) const throw(){
+	return ("Form AlreadySignedException : the form is already signed");
+}
+
 //ex02
 
-void	Form::execute(Bureaucrat const & executor) {
+void	Form::execute(Bureaucrat const & executor) const {
 		
 	if (signed_status == false)
-		throw(Form::AlreadySignedException());
+		throw(Form::NotSignedException());
 	if (executor.get_grade() > grade_execute)
 		throw(Form::GradeTooLowException());
 
