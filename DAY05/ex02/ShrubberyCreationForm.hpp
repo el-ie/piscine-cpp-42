@@ -18,12 +18,12 @@ class ShrubberyCreationForm : public Form
 		//accessors
 		const std::string &	get_target() const;
 
-		//functions
-		void	process(void) const;
-
 	private:
 	//variables
 		const std::string	target;
+
+	//functions
+	void	process(void) const;
 
 };
 

@@ -16,9 +16,15 @@ int	main(void)
 	//std::cout << assurance.get_name() << std::endl;
 
 	//assurance.process();
-	impot->process();
 
 	std::cout << assurance << std::endl;
+
+	Bureaucrat	ted = Bureaucrat("tedy", 139);
+
+	std::cout << ted << std::endl;
+
+	ted.signForm(assurance);
+	ted.executeForm(assurance);
 	(void)impot;
 	(void)assurance;
 

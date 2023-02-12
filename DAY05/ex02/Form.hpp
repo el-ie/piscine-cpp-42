@@ -52,6 +52,7 @@ class Form
 		const long int		grade_sign;
 		const long int		grade_execute;
 
+		//functions
 		void	check_form_grade() const;
 
 };

@@ -48,10 +48,17 @@ std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
 void	Bureaucrat::executeForm(Form const & form) const {
 
 	try {
-	form.execute(*this);	
+		form.execute(*this);	
+		std::cout << name << " executed " << form.get_name() << std::endl;
 	}
-	catch (Form::AlreadySignedException & e) {
-		std::cerr << "The form was not signed" << std::endl;	
+	catch (Form::GradeTooLowException & e) {
+		std::cerr << name << " couldn't execute " << form.get_name() << " because he doesn't have a high enough grade." << std::endl;
+	}
+	catch (Form::NotSignedException & e) {
+		std::cerr << name << " couldn't execute " << form.get_name() << " because the form wasn't signed." << std::endl;
+	}
+	catch (...) {
+		std::cerr << name << " couldn't execute " << form.get_name() << std::endl;
 	}
 
 }

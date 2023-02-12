@@ -72,10 +72,10 @@ const char * Form::NotSignedException::what(void) const throw(){
 
 void	Form::execute(Bureaucrat const & executor) const {
 		
-	if (signed_status == false)
-		throw(Form::NotSignedException());
 	if (executor.get_grade() > grade_execute)
 		throw(Form::GradeTooLowException());
+	if (signed_status == false)
+		throw(Form::NotSignedException());
 
 	process();
 }

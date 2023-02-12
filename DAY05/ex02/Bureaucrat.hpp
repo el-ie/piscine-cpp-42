@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include <string> //let ?
-#include <stdexcept> //?
+#include <stdexcept>
 
 class Form;
 
@@ -19,14 +19,11 @@ class Bureaucrat
 
 		void	signForm(Form & page) const ;
 
-	//accessors
+		//accessors
 		const std::string&	get_name() const; //put back
-		long int	get_grade() const;
+		long int		get_grade() const;
 
-		void		promotion();
-		void		regression();
-
-		//nested class, bonne maniere ?
+		//exceptions
 		class GradeTooHighException : public std::exception {
 			public:
 			virtual const char *	what(void) const throw();
@@ -37,7 +34,10 @@ class Bureaucrat
 		};
 
 		//functions
-		void	executeForm(Form const & form) const ;
+		void		promotion();
+		void		regression();
+
+		void		executeForm(Form const & form) const ;
 
 	private:
 
