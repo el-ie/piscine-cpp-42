@@ -4,18 +4,29 @@
 #include <iostream>
 #include <string>
 
-class RobotomyRequestForm
+#include "Form.hpp"
+
+class RobotomyRequestForm : public Form
 {
 	public:
 		RobotomyRequestForm();
-		RobotomyRequestForm(const std::string &name);
+		RobotomyRequestForm(const std::string &target);
 		RobotomyRequestForm(const RobotomyRequestForm &other);
    	   ~RobotomyRequestForm ();
 		RobotomyRequestForm & operator=(const RobotomyRequestForm &other);
 
+		//accessors
+		const std::string &	get_target() const;
+
 	private:
-		std::string	_name;
-	protected:
+	//variables
+		const std::string	target;
+
+	//functions
+	void	process(void) const;
+
 };
+
+std::ostream&	operator<<(std::ostream &output, const RobotomyRequestForm& formulaire);//nouveau
 
 #endif /* ROBOTOMYREQUESTFORM_CLASS_HPP */
