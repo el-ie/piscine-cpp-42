@@ -35,19 +35,23 @@ Literal&	Literal::operator=(const Literal &other)
 /////////////////////////// Utilities ////////////////////////////////
 
 void	Literal::char_convert(void) {
-	
+
+	std::cout << "CHAR" << std::endl;	
 }
 
 void	Literal::int_convert(void) {
 	
+	std::cout << "INT" << std::endl;	
 }
 
 void	Literal::double_convert(void) {
 	
+	std::cout << "DOUBLE" << std::endl;	
 }
 
 void	Literal::float_convert(void) {
 	
+	std::cout << "FLOAT" << std::endl;	
 }
 
 
@@ -56,31 +60,31 @@ void	Literal::convert_value(void) {
 	//char ou int
 	if (_value.size() == 1) {
 		if (std::isdigit(_value[0]))
-			int_convert();
+			return (int_convert());
 		else
-			char_convert();
+			return (char_convert());
 	}
 
 	//pseudos litteraux
 	if (_value == "inf" || _value == "+inf" || _value == "-inf" || _value == "nan" )
-		double_convert();
+		return (double_convert());
 	if (_value == "inff" || _value == "+inff" || _value == "-inff" || _value == "nanf" )
-		float_convert();
+		return (float_convert());
 
 	//float avec partie decimale
 	if (_value.find('.') != std::string::npos && _value.find('f') != std::string::npos)
-		float_convert();
+		return (float_convert());
 	
 	//float sans partie decimale
 	if (_value.find('f') != std::string::npos)
-		float_convert();
+		return (float_convert());
 
 	//double
 	if (_value.find('.') != std::string::npos)
-		double_convert();
+		return (double_convert());
 	
 	//pas de '.' ou 'f' donc c'est un int
-	int_convert();
+	return (int_convert());
 }
 
 bool	Literal::check_format(void) {
