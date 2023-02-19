@@ -34,12 +34,64 @@ Literal&	Literal::operator=(const Literal &other)
 
 /////////////////////////// Utilities ////////////////////////////////
 
-void	Literal::convert_value(void) {
+void	Literal::char_convert(void) {
 	
+}
+
+void	Literal::int_convert(void) {
+	
+}
+
+void	Literal::double_convert(void) {
+	
+}
+
+void	Literal::float_convert(void) {
+	
+}
+
+
+void	Literal::convert_value(void) {
+
+	//char ou int
+	if (_value.size() == 1) {
+		if (std::isdigit(_value[0]))
+			int_convert();
+		else
+			char_convert();
+	}
+
+	//pseudos litteraux
+	if (_value == "inf" || _value == "+inf" || _value == "-inf" || _value == "nan" )
+		double_convert();
+	if (_value == "inff" || _value == "+inff" || _value == "-inff" || _value == "nanf" )
+		float_convert();
+
+	//float avec partie decimale
+	if (_value.find('.') != std::string::npos && _value.find('f') != std::string::npos)
+		float_convert();
+	
+	//float sans partie decimale
+	if (_value.find('f') != std::string::npos)
+		float_convert();
+
+	//double
+	if (_value.find('.') != std::string::npos)
+		double_convert();
+	
+	//pas de '.' ou 'f' donc c'est un int
+	int_convert();
 }
 
 bool	Literal::check_format(void) {
 	
+
+	// "pseudo litteraux"
+	if (_value == "inf" || _value == "+inf" || _value == "-inf" || _value == "nan" )
+		return 0;
+	if (_value == "inff" || _value == "+inff" || _value == "-inff" || _value == "nanf" )
+		return 0;
+
 	//verification string vide
 	if (_value.empty()) {
 		std::cerr << "Error empty argument" << std::endl;
@@ -58,9 +110,13 @@ bool	Literal::check_format(void) {
 	if (_value.size() == 1)
 		return 0;
 
-	//___verification format float ou double
+	//___verification format int float ou double
 
 	std::string::iterator i = _value.begin();
+
+	//nombre negatif
+	if (*i == '-')
+		i++;
 
 	//avance sur les nombres
 	while (i != _value.end() && std::isdigit(*i))
@@ -81,14 +137,9 @@ bool	Literal::check_format(void) {
 		}
 	}
 
-	if (*i == '.') {
+	//passe le point
+	if (*i == '.')
 		i++;
-		//on ne veut pas finir par un point :
-		if (i == _value.end()) {
-			std::cerr << "Error bad syntax" << std::endl;
-			return 1;
-		}
-	}
 	
 	//avance sur les nombres
 	while (i != _value.end() && std::isdigit(*i))

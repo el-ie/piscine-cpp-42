@@ -28,5 +28,5 @@ int	main(int argc, char **argv)
 	std::cout << a << " type= " << typeid(a).name() << std::endl;
 */
 
-	return 42;
+	return 0;
 }

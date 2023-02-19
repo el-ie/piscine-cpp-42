@@ -18,6 +18,13 @@ class Literal
 
 	private:
 		std::string	_value;
+
+
+	//conversion fcts
+	void	char_convert(void);
+	void	int_convert(void);
+	void	double_convert(void);
+	void	float_convert(void);
 };
 
 #endif /* LITERAL_CLASS_HPP */
