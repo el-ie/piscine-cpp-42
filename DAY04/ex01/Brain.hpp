@@ -15,8 +15,11 @@ class Brain
 		std::string	get_idea(long int index) const;
 
 	private:
+		//var
 		std::string	ideas[100]; //const ?
-		void	createIdeas(void);
+
+		//func
+		void		createIdeas(void);
 };
 
 #endif /* BRAIN_CLASS_HPP */

@@ -8,7 +8,30 @@
 
 #define LINE std::cout << std::endl;
 
-int	main(void)
+int	main(void) {
+
+	Brain *tete = new Brain();
+
+	for (int i = 0; i < 10; i++)
+		std::cout << tete->get_idea(i) << std::endl;
+	std::cout << std::endl << "-------------" << std::endl;
+	
+	//Brain *tete2 = new Brain();
+
+	Brain *tete2 = tete;
+
+	*tete = *tete2;
+	//delete tete;
+
+	for (int i = 0; i < 10; i++)
+		std::cout << tete2->get_idea(i) << std::endl;
+	
+	delete tete2;
+
+	return 3;
+}
+
+int	mainn(void)
 {
 	std::cout << "------------------------" << std::endl;
 	LINE
@@ -50,4 +73,6 @@ int	main(void)
 
 	LINE LINE
 	delete dingo;
+
+	return 0;
 }
