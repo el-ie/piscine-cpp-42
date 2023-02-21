@@ -19,4 +19,4 @@ class WrongCat : public WrongAnimal
 		std::string		getType(void) const ;
 };
 
-#endif /* CAT_CLASS_HPP */
+#endif /* WRONG_CAT_CLASS_HPP */
