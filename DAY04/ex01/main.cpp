@@ -8,30 +8,7 @@
 
 #define LINE std::cout << std::endl;
 
-int	main(void) {
-
-	Brain *tete = new Brain();
-
-	for (int i = 0; i < 10; i++)
-		std::cout << tete->get_idea(i) << std::endl;
-	std::cout << std::endl << "-------------" << std::endl;
-	
-	//Brain *tete2 = new Brain();
-
-	Brain *tete2 = tete;
-
-	*tete = *tete2;
-	//delete tete;
-
-	for (int i = 0; i < 10; i++)
-		std::cout << tete2->get_idea(i) << std::endl;
-	
-	delete tete2;
-
-	return 3;
-}
-
-int	mainn(void)
+int	main(void)
 {
 	std::cout << "------------------------" << std::endl;
 	LINE
@@ -47,6 +24,10 @@ int	mainn(void)
 			tab[i] = new Cat();
 		}
 		
+	//affichage premiere idee de chaque Dog ou Cat
+	for (int i = 0; i < 10; i++)
+		std::cout << tab[i]->get_brain_idea(i) << std::endl;
+
 	//deletion du tableau
 	for (int i = 0; i < 10; i++)
 		delete tab[i];

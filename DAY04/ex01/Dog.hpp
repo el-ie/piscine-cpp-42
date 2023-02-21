@@ -22,7 +22,7 @@ class Dog : public Animal
 		std::string	get_brain_idea(long int index) const;
 	
 	private:
-		Brain*	head; //private???
+		Brain*	head;
 
 };
 

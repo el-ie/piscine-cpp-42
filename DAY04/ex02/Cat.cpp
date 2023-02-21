@@ -42,7 +42,10 @@ Cat::~Cat()
 }
 
 std::string	Cat::get_brain_idea(int index) const {
-	return (head->get_idea(index));
+	if (index >= 0 && index < 100)
+		return (head->get_idea(index));
+	else
+		return ("Bad index.");
 	}
 
 void	Cat::makeSound(void) const {

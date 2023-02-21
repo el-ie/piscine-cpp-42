@@ -16,6 +16,8 @@ class Animal
 		virtual	void	makeSound(void) const;
 		std::string		getType(void) const ;
 
+		virtual std::string	get_brain_idea(long int index) const = 0;
+
 	protected:
 		std::string	type;
 };

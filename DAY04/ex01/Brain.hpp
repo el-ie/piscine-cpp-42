@@ -16,7 +16,7 @@ class Brain
 
 	private:
 		//var
-		std::string	ideas[100]; //const ?
+		std::string	ideas[100];
 
 		//func
 		void		createIdeas(void);

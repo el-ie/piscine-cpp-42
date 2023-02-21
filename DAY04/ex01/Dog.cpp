@@ -40,8 +40,11 @@ Dog::~Dog()
 }
 
 std::string	Dog::get_brain_idea(long int index) const {
-	return (head->get_idea(index));
-	}
+	if (index >= 0 && index < 100)
+		return (head->get_idea(index));
+	else
+		return ("Bad index.");
+}
 
 void	Dog::makeSound(void) const {
 	std::cout << type << ": Wouf wouf im a fuging dog" << std::endl;
