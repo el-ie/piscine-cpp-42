@@ -26,9 +26,10 @@ Cat::~Cat()
 
 Cat&	Cat::operator=(const Cat &other)
 {
-	this->type = other.type;
-
 	std::cout << "C[ASSIGNATION] Cat assignated." << std::endl;
+	if (this == &other)
+		return *this;
+	this->type = other.type;
 	return *this;
 }
 
