@@ -24,6 +24,10 @@ WrongAnimal::~WrongAnimal()
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &other)
 {
 	std::cout << "@WrongAnimal assignation operator" << std::endl;
+
+	if (this == &other)
+		return *this;
+
 	this->type = other.type;
 	return *this;
 }

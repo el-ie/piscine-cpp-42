@@ -26,6 +26,9 @@ Cat&	Cat::operator=(const Cat &other)
 {
 	std::cout << "C[=] Cat assignated." << std::endl;
 
+	if (this == &other)
+		return *this;
+
 	type = other.type;
 	*head = *(other.head);
 
