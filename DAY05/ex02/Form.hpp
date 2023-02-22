@@ -43,7 +43,7 @@ class Form
 		long int		get_grade_execute() const;
 
 		//ex02
-		void		execute(Bureaucrat const & executor) const ; //const ?
+		void		execute(Bureaucrat const & executor) const ;
 		virtual void	process(void) const = 0;
 
 	private:
@@ -58,6 +58,5 @@ class Form
 
 };
 
-std::ostream&	operator<<(std::ostream &output, const Form& formulaire);//nouveau
-
+std::ostream&	operator<<(std::ostream &output, const Form& formulaire);
 #endif /* FORM_CLASS_HPP */

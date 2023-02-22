@@ -59,7 +59,7 @@ void	RobotomyRequestForm::process(void) const {
 	srand((unsigned) time(NULL));
 	
 	if (rand() % 2 == 0)
-		std::cout << "The robotomy was a sucess, the subject " << target << " is now acting like a magicarp."
+		std::cout << "The robotomy was a sucess, the subject " << target << " is now updated to latest version 23.6.2 distributed by MomCorp ."
 		<< std::endl;
 	else
 		std::cout << "The robotomy was a failure, we lost another subject." << std::endl;
