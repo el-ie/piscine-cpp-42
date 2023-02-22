@@ -35,7 +35,7 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	catch(...) {
-		std::cout << "Cathed in ..." << std::endl;
+		std::cout << "Other Exception." << std::endl;
 	}
 
 	/////////////////////////// CANT SIGN ////////////////////////////
@@ -65,7 +65,7 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	catch(...) {
-		std::cout << "Cathed in ..." << std::endl;
+		std::cout << "Other Exception." << std::endl;
 	}
 
 	/////////////////////////// ALREADY SIGNED DOC ////////////////////////////
@@ -97,7 +97,7 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	catch(...) {
-		std::cout << "Cathed in ..." << std::endl;
+		std::cout << "Other Exception." << std::endl;
 	}
 	std::cout << std::endl;
 
