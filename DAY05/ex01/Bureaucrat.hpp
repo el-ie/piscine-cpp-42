@@ -1,10 +1,9 @@
 #ifndef BUREAUCRAT_CLASS_HPP
 # define BUREAUCRAT_CLASS_HPP
 
+#include <string>
+#include <stdexcept>
 #include <iostream>
-
-#include <string> //let ?
-#include <stdexcept> //?
 
 class Form;
 
@@ -17,16 +16,18 @@ class Bureaucrat
    	   ~Bureaucrat ();
 		Bureaucrat & operator=(const Bureaucrat &other); // const ???
 
-		void	signForm(Form & page) const ;
+		//exercice fct
+		void		signForm(Form & page) const ;
 
-	//accessors
+		//accessors
 		const std::string&	get_name() const; //put back
-		long int	get_grade() const;
+		long int		get_grade() const;
 
+		//grade change
 		void		promotion();
 		void		regression();
 
-		//nested class, bonne maniere ?
+		//exception
 		class GradeTooHighException : public std::exception {
 			public:
 			virtual const char *	what(void) const throw();
@@ -38,13 +39,14 @@ class Bureaucrat
 
 	private:
 
+		//var
 		const std::string	name;
 		long int		grade;
 
+		//fct
 		void	check_grade(void) const;
 };
 
-//put back
-std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted);//nouveau
+std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted);
 
 #endif /* BUREAUCRAT_CLASS_HPP */

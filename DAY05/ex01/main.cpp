@@ -2,9 +2,14 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include <stdexcept>
+#include <iostream>
+#include <string>
 
 int	main(void)
 {
+
+	//////////////////// correct signature ///////////////////
+	
 	std::cout << " --------------- Signature sans probleme ---------------" << std::endl << std::endl;
 
 	try {
@@ -33,7 +38,8 @@ int	main(void)
 		std::cout << "Cathed in ..." << std::endl;
 	}
 
-	/////////////////////////////////////////////////////////////////////
+	/////////////////////////// CANT SIGN ////////////////////////////
+
 	std::cout << std::endl << " --------------- Signature grade insuffisant --------------" << std::endl << std::endl;
 
 	try {
@@ -62,7 +68,8 @@ int	main(void)
 		std::cout << "Cathed in ..." << std::endl;
 	}
 
-	/////////////////////////////////////////////////////////////////////
+	/////////////////////////// ALREADY SIGNED DOC ////////////////////////////
+
 	std::cout << std::endl << " --------------- Signature document deja signe ---------------" << std::endl << std::endl;
 
 	try {
@@ -93,4 +100,6 @@ int	main(void)
 		std::cout << "Cathed in ..." << std::endl;
 	}
 	std::cout << std::endl;
+
+	return 0;
 }

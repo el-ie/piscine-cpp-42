@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <iostream>
+#include <string>
 
 ///////////////////////// main utilities //////////////////////////
 
@@ -37,6 +39,8 @@ Form::~Form()
 Form&	Form::operator=(const Form &other)
 {
 	std::cout << "Form assignation operator" << std::endl;
+	if (this == &other)
+		return *this;
 	signed_status = other.signed_status;
 	// the rest in const
 	return *this;
