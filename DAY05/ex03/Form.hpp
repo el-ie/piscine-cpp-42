@@ -13,7 +13,7 @@ class Form
 		Form(const std::string &name);
 		Form(const std::string &name, const long int grade_sign, const long int grade_execute);
 		Form(const Form &other);
-		~Form ();
+		virtual ~Form ();
 		Form & operator=(const Form &other);
 
 		class GradeTooHighException : public std::exception {

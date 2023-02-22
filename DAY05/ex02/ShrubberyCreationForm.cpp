@@ -1,4 +1,7 @@
 #include <fstream>
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 #include "ShrubberyCreationForm.hpp"
 

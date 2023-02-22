@@ -4,9 +4,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <stdexcept>
-
-
-
+#include <iostream>
+#include <string>
 
 int	main(void)
 {

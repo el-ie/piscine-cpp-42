@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 class Bureaucrat;
 
@@ -13,7 +14,7 @@ class Form
 		Form(const std::string &name);
 		Form(const std::string &name, const long int grade_sign, const long int grade_execute);
 		Form(const Form &other);
-		~Form ();
+		virtual ~Form ();
 		Form & operator=(const Form &other);
 
 		class GradeTooHighException : public std::exception {
@@ -42,7 +43,7 @@ class Form
 		long int		get_grade_execute() const;
 
 		//ex02
-		void	execute(Bureaucrat const & executor) const ; //const ?
+		void		execute(Bureaucrat const & executor) const ; //const ?
 		virtual void	process(void) const = 0;
 
 	private:
