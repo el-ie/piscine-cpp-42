@@ -1,5 +1,8 @@
 #include "Intern.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
@@ -33,10 +36,6 @@ Intern&	Intern::operator=(const Intern &other)
 
 ///////////////////////// Utilities //////////////////////////////
 
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-
 Form *	Intern::makeShrubbery(std::string target) const {
 	return (new ShrubberyCreationForm(target));
 }
@@ -50,15 +49,17 @@ Form *	Intern::makePresidential(std::string target) const {
 Form *	Intern::makeForm(std::string name, std::string target) const {
 
 	t_papers	types[3] = {
-	        {"ShrubberyCreationForm", &Intern::makeShrubbery},
-		{"RobotomyRequestForm", &Intern::makeRobotomy},
-		{"PresidentialPardonForm", &Intern::makePresidential}
+	        {"shrubbery creation", &Intern::makeShrubbery},
+		{"robotomy request", &Intern::makeRobotomy},
+		{"presidential pardon", &Intern::makePresidential}
 	};
 
 
 	for (int i = 0; i < 3; i++) {
-		if (name == types[i].name)
+		if (name == types[i].name) {
+			std::cout << "Intern creates " << types[i].name << " form." << std::endl;
 			return (this->*types[i].fct)(target);
+		}
 	}
 	std::cerr << "Can't create " << name << " not a valid form." << std::endl;
 

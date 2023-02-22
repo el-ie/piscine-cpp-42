@@ -34,7 +34,6 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Bureaucrat assignation operator" << std::endl;
-	//this->name = other.name; // impossible avec la consigne de l enonce de mettre le nom en const, comment faire
 	this->grade = other.grade;
 	return *this;
 }
@@ -82,7 +81,7 @@ void	Bureaucrat::signForm(Form & page) const {
 void	Bureaucrat::check_grade(void) const{
 
 	if (grade > 150)
-		throw (Bureaucrat::GradeTooLowException()); //comprendre+
+		throw (Bureaucrat::GradeTooLowException());
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooHighException());
 }
