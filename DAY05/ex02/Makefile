@@ -1,4 +1,4 @@
-#-mkup-auto-sources-###############################################341318120223#
+#-mkup-auto-sources-###############################################022027301222#
 SRC_DIR		=	.
 
 EXTENSION	=	".cpp"
@@ -11,16 +11,16 @@ SRC_LIST	=	$(addsuffix $(EXTENSION), \
 				Form \
 				)
 SRC			=	$(addprefix $(SRC_DIR)/, $(SRC_LIST))
-#-mkup-auto-sources-###############################################341318120223#
+#-mkup-auto-sources-###############################################022027301222#
 
 INC_DIR		= 	.
 OBJ_DIR		=	obj
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC_LIST:$(EXTENSION)=.o))
 
 CC			=	@c++
-CFLAGS		= 	-Wall -Werror -Wextra -std=c++98 -MMD -I $(INC_DIR)
+CFLAGS		= 	-Wall -Werror -Wextra -std=c++98 -I $(INC_DIR)
 
-RM			= 	@rm -rf 2>/dev/null
+RM			= 	@rm -rf
 NOPR		= 	--no-print-directory
 
 #colors
@@ -30,7 +30,7 @@ cg			=	"\033[32m"
 cb			=	"\033[34m"
 cp			=	"\033[35m"
 
-NAME		= 	ex02	
+NAME		= 	ex02
 
 ######################################################################
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp
@@ -48,7 +48,6 @@ all:		$(NAME)
 
 clean:
 			$(RM) $(OBJ_DIR)
-			$(RM) $(NAME).d a.d
 			@echo -n $(cr)
 			@echo $(OBJ) | tr ' ' '\n'
 			@echo -n $(cw)
