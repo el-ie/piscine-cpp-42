@@ -39,7 +39,7 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	catch(...) {
-		std::cout << "Cathed in ..." << std::endl;
+		std::cout << "Other exception." << std::endl;
 	}
 
 	std::cout << std::endl << "-------------- Signature ok, execution grade trop faible -----------------" << std::endl << std::endl;
@@ -69,18 +69,18 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	catch(...) {
-		std::cout << "Cathed in ..." << std::endl;
+		std::cout << "Other exception." << std::endl;
 	}
 
-	std::cout << std::endl << "-------------- Bon grade execution -----------------" << std::endl << std::endl;
+	std::cout << std::endl << "-------------- Bon grade execution pour la robotomie -----------------" << std::endl << std::endl;
 
 	///////////////// Bon grade execution (deja signe)  ////////////
 
+	Bureaucrat      barney("bernie", 1);
+
+	std::cout << barney << std::endl;
+
 	try {
-
-		Bureaucrat      barney("barneyy", 1);
-
-		std::cout << barney << std::endl;
 
 		barney.executeForm(intervention);
 	}
@@ -97,140 +97,59 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	catch(...) {
-		std::cout << "Cathed in ..." << std::endl;
+		std::cout << "Other exception." << std::endl;
 	}
 
+	std::cout << std::endl << "-------------- Execution de la grace presidentielle  -----------------" << std::endl << std::endl;
+
+	try {
+
+		PresidentialPardonForm pardon("Tom Cruise");
+		std::cout << pardon << std::endl;
+		barney.signForm(pardon);
+		barney.executeForm(pardon);
+	}
+	catch(Form::AlreadySignedException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Form::GradeTooLowException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Form::GradeTooHighException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(...) {
+		std::cout << "Other exception." << std::endl;
+	}
+
+	std::cout << std::endl << "-------------- Execution du Shrubbery Creation Form  -----------------" << std::endl << std::endl;
+
+	try {
+
+		ShrubberyCreationForm trees("foret");
+		std::cout << trees << std::endl;
+		barney.signForm(trees);
+		barney.executeForm(trees);
+	}
+	catch(Form::AlreadySignedException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Form::GradeTooLowException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Form::GradeTooHighException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch(...) {
+		std::cout << "Other exception." << std::endl;
+	}
+	std::cout << std::endl;
 
 	return 0;
 }
-
-int	mainn(void)
-{
-	/*	
-		Form *	impot = new ShrubberyCreationForm("impot");
-		ShrubberyCreationForm assurance =  ShrubberyCreationForm("assurance");
-
-	//std::cout << assurance.get_target() << std::endl;
-	//std::cout << assurance.get_name() << std::endl;
-
-	//assurance.process();
-
-	std::cout << assurance << std::endl;
-
-	Bureaucrat	ted = Bureaucrat("tedy", 139);
-
-	std::cout << ted << std::endl;
-
-	ted.signForm(assurance);
-	ted.executeForm(assurance);
-	(void)impot;
-	(void)assurance;
-	 */
-
-	Form * mkultra = new PresidentialPardonForm("kanye West");
-
-	Bureaucrat ted = Bureaucrat("tedy", 3);
-
-	ted.signForm(*mkultra);
-
-	ted.executeForm(*mkultra);
-
-	delete mkultra;
-	
-	return 0;
-}
-
-
-/*
-   int	main(void)
-   {
-   std::cout << " --------------- Signature sans probleme ---------------" << std::endl << std::endl;
-
-   try {
-
-   Form page("avis d'imposition", 10, 100);
-
-   Bureaucrat	ted("tedy", 5);
-
-   std::cout << page << std::endl << ted << std::endl;
-
-   ted.signForm(page);
-   }
-   catch(Form::AlreadySignedException & e) {
-   std::cerr << e.what() << std::endl;
-   }
-   catch(Form::GradeTooLowException & e) {
-   std::cerr << e.what() << std::endl;
-   }
-   catch(Form::GradeTooHighException & e) {
-   std::cerr << e.what() << std::endl;
-   }
-   catch(Bureaucrat::GradeTooLowException & e) {
-   std::cerr << e.what() << std::endl;
-   }
-   catch(...) {
-   std::cout << "Cathed in ..." << std::endl;
-   }
-
-/////////////////////////////////////////////////////////////////////
-std::cout << std::endl << " --------------- Signature grade insuffisant --------------" << std::endl << std::endl;
-
-try {
-
-Form page("avis d'imposition", 10, 100);
-
-Bureaucrat	ted("tedy", 15);
-
-std::cout << page << std::endl << ted << std::endl;
-
-ted.signForm(page);
-}
-catch(Form::AlreadySignedException & e) {
-std::cerr << e.what() << std::endl;
-}
-catch(Form::GradeTooLowException & e) {
-std::cerr << e.what() << std::endl;
-}
-catch(Form::GradeTooHighException & e) {
-std::cerr << e.what() << std::endl;
-}
-catch(Bureaucrat::GradeTooLowException & e) {
-std::cerr << e.what() << std::endl;
-}
-catch(...) {
-std::cout << "Cathed in ..." << std::endl;
-}
-
-/////////////////////////////////////////////////////////////////////
-std::cout << std::endl << " --------------- Signature document deja signe ---------------" << std::endl << std::endl;
-
-try {
-
-Form page("avis d'imposition", 10, 100);
-
-Bureaucrat	ted("tedy", 5);
-
-std::cout << page << std::endl << ted << std::endl;
-
-ted.signForm(page);
-std::cout << "deuxieme tentative de signature : " << std::endl;
-ted.signForm(page);
-}
-catch(Form::AlreadySignedException & e) {
-	std::cerr << e.what() << std::endl;
-}
-catch(Form::GradeTooLowException & e) {
-	std::cerr << e.what() << std::endl;
-}
-catch(Form::GradeTooHighException & e) {
-	std::cerr << e.what() << std::endl;
-}
-catch(Bureaucrat::GradeTooLowException & e) {
-	std::cerr << e.what() << std::endl;
-}
-catch(...) {
-	std::cout << "Cathed in ..." << std::endl;
-}
-std::cout << std::endl;
-}
-*/
