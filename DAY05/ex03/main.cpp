@@ -32,30 +32,39 @@ int	main(void)
 		ted.signForm(*form);
 		ted.executeForm(*form);
 	}
+	delete form;
+
+	Form *form2;	
 
 	std::cout << std::endl << "----------- Robotomy Request form creation -------------" << std::endl << std::endl;
 
-	form = toby.makeForm("robotomy request", "bender");
+	form2 = toby.makeForm("robotomy request", "bender");
 
 	std::cout << std::endl << "----------- Signing and execution -------------" << std::endl << std::endl;
 
-	if (form)
+	if (form2)
 	{
-		ted.signForm(*form);
-		ted.executeForm(*form);
+		ted.signForm(*form2);
+		ted.executeForm(*form2);
 	}
+
+	delete form2;
+
+	Form *form3;
 
 	std::cout << std::endl << "----------- Shrubbery Creation form creation -------------" << std::endl << std::endl;
 
-	form = toby.makeForm("shrubbery creation", "TREES");
+	form3 = toby.makeForm("shrubbery creation", "TREES");
 
 	std::cout << std::endl << "----------- Signing and execution -------------" << std::endl << std::endl;
 
-	if (form)
+	if (form3)
 	{
-		ted.signForm(*form);
-		ted.executeForm(*form);
+		ted.signForm(*form3);
+		ted.executeForm(*form3);
 	}
+	
+	delete form3;
 
 	return 0;
 }
