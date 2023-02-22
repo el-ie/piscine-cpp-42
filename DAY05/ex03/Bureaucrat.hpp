@@ -2,8 +2,7 @@
 # define BUREAUCRAT_CLASS_HPP
 
 #include <iostream>
-
-#include <string> //let ?
+#include <string>
 #include <stdexcept>
 
 class Form;

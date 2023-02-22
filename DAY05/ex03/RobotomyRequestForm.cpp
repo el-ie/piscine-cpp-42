@@ -1,4 +1,7 @@
 #include <cstdlib>
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 #include "RobotomyRequestForm.hpp"
 

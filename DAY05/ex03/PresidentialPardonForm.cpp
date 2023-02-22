@@ -1,4 +1,7 @@
 #include "PresidentialPardonForm.hpp"
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 ///////////////////////// Constructors ////////////////////////////
 

@@ -1,5 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <stdexcept>
+#include <iostream>
+#include <string>
 
 ///////////////////////// Constructors ////////////////////////////
 
