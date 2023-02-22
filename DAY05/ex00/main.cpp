@@ -1,6 +1,7 @@
-
 #include "Bureaucrat.hpp"
 #include <stdexcept>
+#include <iostream>
+#include <string>
 
 int	main(void)
 {
@@ -133,6 +134,7 @@ int	main(void)
 	catch (...) {
 		std::cerr << "Other error catched" << std::endl;
 	}
+	std::cout << std::endl;
 
-	std::cout << std::endl << std::endl;
+	return 0;
 }
