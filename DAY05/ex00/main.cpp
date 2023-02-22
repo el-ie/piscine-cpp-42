@@ -20,7 +20,6 @@ int	main(void)
 	catch (Bureaucrat::GradeTooLowException& ex) {
 		std::cerr << ex.what() << std::endl;
 	}
-	// faut il catch std::exception avant ...?
 	catch (...) {
 		std::cerr << "Other error." << std::endl;
 	}

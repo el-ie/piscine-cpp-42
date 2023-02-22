@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
-#include <stdexcept> //
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
@@ -27,13 +29,14 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Bureaucrat assignation operator" << std::endl;
-	//this->name = other.name; // impossible avec la consigne de l enonce de mettre le nom en const, comment faire
+	if (this == &other)
+		return *this;
 	this->grade = other.grade;
 	return *this;
 }
 
 std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
-	output << ted.get_name() << ", bureaucrat grade " << ted.get_grade() << std::endl;
+	output << ted.get_name() << ", bureaucrat grade " << ted.get_grade() << "." << std::endl;
 	return (output);
 }
 
@@ -42,7 +45,7 @@ std::ostream&	operator<<(std::ostream &output, const Bureaucrat& ted) {
 void	Bureaucrat::check_grade(void) const{
 
 	if (grade > 150)
-		throw (Bureaucrat::GradeTooLowException()); //comprendre+
+		throw (Bureaucrat::GradeTooLowException());
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooHighException());
 }
