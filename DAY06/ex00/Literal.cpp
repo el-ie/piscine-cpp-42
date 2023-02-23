@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <string>
+#include <bits/stdc++.h>
 
 /////////////////////////// Constructors //////////////////////////
 
@@ -48,7 +49,10 @@ void	Literal::display(const char c) const {
 
 void	Literal::display(const int nb) const {
 
-	std::cout << "int: " << nb << " (DI)" << std::endl;
+	if (check_int_overflow() == true)
+		std::cout << "int: impossible (outside limits)" << std::endl;
+	else
+		std::cout << "int: " << nb << " (DI)" << std::endl;
 }
 
 void	Literal::display(const float nb) const {
@@ -64,9 +68,13 @@ void	Literal::display(const double nb) const {
 	std::cout << "double: " << nb << " (DD)" << std::endl;
 }
 
+//char convert et int convert : non displayable -> impossible
+
 void	Literal::char_convert(void) const {
 
 	std::cout << "CHAR" << std::endl;
+
+	//if (check_char_
 
 	char c = _value[0];
 
@@ -76,9 +84,25 @@ void	Literal::char_convert(void) const {
 	display(static_cast<double>(c));
 }
 
+
+bool	Literal::check_int_overflow(void) const {
+
+	double test = std::atof(_value.c_str());
+
+	if (test < INT_MIN || test > INT_MAX)
+		return true;
+
+	return false;
+}
+
 void	Literal::int_convert(void) {
 
 	std::cout << "INTTT" << std::endl;
+
+	if (check_int_overflow() == true) {
+		std::cerr << "Error int outside limits" << std::endl;
+		return ;
+	}
 
 	int	nb = std::atoi(_value.c_str());
 

@@ -35,6 +35,8 @@ class Literal
 
 	int	is_float_special(std::string str);
 	int	is_double_special(std::string str);
+	
+	bool	check_int_overflow(void) const ;
 };
 
 #endif /* LITERAL_CLASS_HPP */
