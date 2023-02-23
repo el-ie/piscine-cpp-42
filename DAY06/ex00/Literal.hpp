@@ -21,10 +21,16 @@ class Literal
 
 
 	//conversion fcts
-	void	char_convert(void);
+	void	char_convert(void)const ;
 	void	int_convert(void);
 	void	double_convert(void);
 	void	float_convert(void);
+
+	//display fcts
+	void	display(const char c) const;
+	void	display(const int nb) const ;
+	void	display(const float nb) const ;
+	void	display(const double nb) const ;
 };
 
 #endif /* LITERAL_CLASS_HPP */
