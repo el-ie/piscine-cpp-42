@@ -88,33 +88,58 @@ void	Literal::int_convert(void) {
 	display(static_cast<double>(nb));
 }
 
-void	Literal::float_convert(void) {
+void	Literal::float_convert(int special) {
 
 	std::cout << "FLOAT" << std::endl;
 
 	float nb = std::strtof(_value.c_str(), NULL);
 
-	display(static_cast<char>(nb));
-	display(static_cast<int>(nb));
+	if (!special) {
+		display(static_cast<char>(nb));
+		display(static_cast<int>(nb));
+	}
+	else {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+	}
+
 	display(nb);
 	display(static_cast<double>(nb));
 }
 
-void	Literal::double_convert(void) {
+void	Literal::double_convert(int special) {
 
 	std::cout << "DOUBLE" << std::endl;	
 
 	double nb = std::atof(_value.c_str());
 
-	
-	display(static_cast<char>(nb));
-	display(static_cast<int>(nb));
+	if (!special) {
+		display(static_cast<char>(nb));
+		display(static_cast<int>(nb));
+	}
+	else {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+	}
 	display(static_cast<float>(nb));
 	display(nb);
 }
 
-void	Literal::convert_value(void) {
+int	Literal::is_float_special(std::string str) {
 
+	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf" )
+		return 1;
+	return 0;
+}
+
+int	Literal::is_double_special(std::string str) {
+
+	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan" )
+		return 1;
+	return 0;
+}
+
+void	Literal::convert_value(void) {
 
 	//pour que les float et doubles s affichent toujours a 2 decimales
 	std::cout << std::fixed << std::setprecision(1);
@@ -128,10 +153,10 @@ void	Literal::convert_value(void) {
 	}
 
 	//pseudos litteraux
-	if (_value == "inf" || _value == "+inf" || _value == "-inf" || _value == "nan" )
-		return (double_convert());
-	if (_value == "inff" || _value == "+inff" || _value == "-inff" || _value == "nanf" )
-		return (float_convert());
+	if (is_double_special(_value))
+		return (double_convert(1));
+	if (is_float_special(_value))
+		return (float_convert(1));
 
 	//float avec partie decimale
 	//if (_value.find('.') != std::string::npos && _value.find('f') != std::string::npos)
@@ -139,11 +164,11 @@ void	Literal::convert_value(void) {
 
 	//float sans partie decimale
 	if (_value.find('f') != std::string::npos)
-		return (float_convert());
+		return (float_convert(0));
 
 	//double
 	if (_value.find('.') != std::string::npos)
-		return (double_convert());
+		return (double_convert(0));
 
 	//pas de '.' ou 'f' donc c'est un int
 	return (int_convert());
