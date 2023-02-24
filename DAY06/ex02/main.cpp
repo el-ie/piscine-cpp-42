@@ -32,6 +32,7 @@ Base *	generate(void) {
 
 void	identify(Base* p) {
 
+	std::cout << std::endl << "identify with Base * parameter :" << std::endl;
 	if (p == NULL) {
 		std::cerr << "Pointer is NULL" << std::endl;
 		return ;
@@ -48,6 +49,7 @@ void	identify(Base* p) {
 
 void	identify(Base& p) {
 
+	std::cout << std::endl << "identify with Base& parameter :" << std::endl;
 	try {
 		(void)dynamic_cast<A&>(p);
 		std::cout << "Type = A" << std::endl;
@@ -65,9 +67,24 @@ void	identify(Base& p) {
 		std::cout << "Type = C" << std::endl;
 	}
 	catch (...) { }
+
+	std::cout << std::endl;
 }
 
 int	main(void)
+{
+	Base *ptr;
+
+	ptr = generate();
+
+	identify(ptr);
+
+	identify(*ptr);
+
+	delete ptr;
+}
+
+int	mainn(void)
 {
 	//generate();
 
