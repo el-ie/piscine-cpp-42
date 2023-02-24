@@ -1,4 +1,4 @@
-#include "Literal.hpp"
+#include "ScalarConverter.hpp"
 #include <sstream>
 #include <iostream>
 #include <string>
@@ -11,10 +11,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	
-	Literal::set(argv[1]);
+	ScalarConverter::set(argv[1]);
 
-	if (Literal::check_format() == 0)
-		Literal::convert_value();
+	if (ScalarConverter::check_format() == 0)
+		ScalarConverter::convert_value();
 
 	return 0;
 }

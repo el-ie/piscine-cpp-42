@@ -1,20 +1,20 @@
-#-mkup-auto-sources-###############################################230903170223#
+#-mkup-auto-sources-###############################################561720240223#
 SRC_DIR		=	.
 
 EXTENSION	=	".cpp"
 SRC_LIST	=	$(addsuffix $(EXTENSION), \
-				Literal \
+				ScalarConverter \
 				main \
 				)
 SRC			=	$(addprefix $(SRC_DIR)/, $(SRC_LIST))
-#-mkup-auto-sources-###############################################230903170223#
+#-mkup-auto-sources-###############################################561720240223#
 
 INC_DIR		= 	.
 OBJ_DIR		=	obj
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC_LIST:$(EXTENSION)=.o))
 
 CC			=	@c++
-CFLAGS		= 	-Wall -Werror -Wextra -std=c++98 -MMD -I $(INC_DIR)
+CFLAGS		= 	-Wall -Werror -Wextra -std=c++98 -I $(INC_DIR)
 
 RM			= 	@rm -rf 2>/dev/null
 NOPR		= 	--no-print-directory
@@ -26,12 +26,12 @@ cg			=	"\033[32m"
 cb			=	"\033[34m"
 cp			=	"\033[35m"
 
-NAME		= 	convert	
+NAME		= 	convert
 
 ######################################################################
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp
 			@mkdir -p $(dir $@)
-			$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) -MMD -c $< -o $@
 #\
 
 			@echo $(cg)"(@) "$@" (<) "$< $(cw)
