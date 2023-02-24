@@ -1,7 +1,7 @@
-
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include <stdexcept>
 
 #include "Base.hpp"
 #include "A.hpp"
@@ -36,15 +36,14 @@ void	identify(Base* p) {
 		std::cerr << "Pointer is NULL" << std::endl;
 		return ;
 	}
-
-	if (dynamic_cast<A*>(p) != NULL)
+	else if (dynamic_cast<A*>(p) != NULL)
 		std::cout << "Type = A" << std::endl;
-
-	if (dynamic_cast<B*>(p) != NULL)
+	else if (dynamic_cast<B*>(p) != NULL)
 		std::cout << "Type = B" << std::endl;
-
-	if (dynamic_cast<C*>(p) != NULL)
+	else if (dynamic_cast<C*>(p) != NULL)
 		std::cout << "Type = C" << std::endl;
+	else
+		return ;
 }
 
 void	identify(Base& p) {
