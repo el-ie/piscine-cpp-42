@@ -38,13 +38,13 @@ void	identify(Base* p) {
 	}
 
 	if (dynamic_cast<A*>(p) != NULL)
-		std::cout << "Type = A*" << std::endl;
+		std::cout << "Type = A" << std::endl;
 
 	if (dynamic_cast<B*>(p) != NULL)
-		std::cout << "Type = B*" << std::endl;
+		std::cout << "Type = B" << std::endl;
 
 	if (dynamic_cast<C*>(p) != NULL)
-		std::cout << "Type = C*" << std::endl;
+		std::cout << "Type = C" << std::endl;
 }
 
 void	identify(Base& p) {
