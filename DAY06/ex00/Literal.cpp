@@ -51,9 +51,9 @@ Literal&	Literal::operator=(const Literal &other)
 
 				//// CHAR ////
 
-void	Literal::display(const char c, bool outside_limits) const {
+void	Literal::display(const char c, bool special_literal ,bool outside_limits) const {
 
-	if (outside_limits)
+	if (special_literal || outside_limits)
 		std::cout << "char: impossible" << std::endl;
 	else if (not std::isprint(c))
 		std::cout << "char: Non displayable" << std::endl;
@@ -65,10 +65,8 @@ void	Literal::display(const char c, bool outside_limits) const {
 
 void	Literal::display(const int nb, bool special_literal, bool outside_limits) const {
 
-	if (special_literal)
+	if (special_literal || outside_limits)
 		std::cout << "int: impossible" << std::endl;
-	else if (outside_limits)
-		std::cout << "int: impossible (outside limits)" << std::endl;
 	else
 		std::cout << "int: " << nb << " (DI)" << std::endl;
 }
@@ -101,12 +99,10 @@ void	Literal::char_convert(void) const {
 
 	std::cout << "CHAR" << std::endl;
 
-	//if (check_char_
-
 	char c = _value[0];
 
-	display(c, 0);
-	display(static_cast<int>(c), 0, 0);
+	display(c, false, false);
+	display(static_cast<int>(c), false, false);
 	display(static_cast<float>(c));
 	display(static_cast<double>(c));
 }
@@ -124,8 +120,8 @@ void	Literal::int_convert(void) {
 
 	int	nb = std::atoi(_value.c_str());
 
-	display(static_cast<char>(nb), (nb < 0 || nb > 127));
-	display(nb, 0, 0);
+	display(static_cast<char>(nb), false, (nb < 0 || nb > 127));
+	display(nb, false, false);
 	display(static_cast<float>(nb));
 	display(static_cast<double>(nb));
 }
@@ -153,7 +149,7 @@ void	Literal::float_convert(int special) {
 	//pour le cast
 	float nb = std::strtof(_value.c_str(), NULL);
 
-	display(static_cast<char>(nb), (nb < 0 || nb > 127));
+	display(static_cast<char>(nb), special, (nb < 0 || nb > 127));
 	display(static_cast<int>(nb), special, (secure < (double)INT_MIN || secure > (double)INT_MAX));
 	display(nb);
 	display(static_cast<double>(nb));
@@ -167,7 +163,7 @@ void	Literal::double_convert(int special) {
 
 	double nb = std::atof(_value.c_str());
 
-	display(static_cast<char>(nb), (nb < 0 || nb > 127));
+	display(static_cast<char>(nb), special, (nb < 0 || nb > 127));
 	display(static_cast<int>(nb), special, (nb < (double)INT_MIN || nb > (double)INT_MAX));
 	display(static_cast<float>(nb));
 	display(nb);
