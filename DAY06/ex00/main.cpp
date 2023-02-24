@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 	ScalarConverter::set(argv[1]);
 
 	if (ScalarConverter::check_format() == 0)
-		ScalarConverter::convert_value();
+		ScalarConverter::convert();
 
 	return 0;
 }
