@@ -7,6 +7,7 @@ struct Data {
 
 	int		a;
 	double		b;
+	char		c;
 	std::string	str;
 };
 #endif
