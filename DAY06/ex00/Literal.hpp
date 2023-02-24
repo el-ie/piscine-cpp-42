@@ -28,7 +28,7 @@ class Literal
 
 	//display fcts
 	void	display(const char c, bool outside_limits) const;
-	void	display(const int nb, bool outside_limits) const ;
+	void	display(const int nb, bool special_literal, bool outside_limits) const ;
 	void	display(const float nb) const ;
 	void	display(const double nb) const ;
 

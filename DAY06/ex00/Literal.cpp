@@ -63,10 +63,11 @@ void	Literal::display(const char c, bool outside_limits) const {
 
 				//// INT ////
 
-void	Literal::display(const int nb, bool outside_limits) const {
+void	Literal::display(const int nb, bool special_literal, bool outside_limits) const {
 
-	std::cout << "OUTSIDE LIMIT = [" << outside_limits << "] nb =" << nb << std::endl;
-	if (outside_limits)
+	if (special_literal)
+		std::cout << "int: impossible" << std::endl;
+	else if (outside_limits)
 		std::cout << "int: impossible (outside limits)" << std::endl;
 	else
 		std::cout << "int: " << nb << " (DI)" << std::endl;
@@ -105,19 +106,9 @@ void	Literal::char_convert(void) const {
 	char c = _value[0];
 
 	display(c, 0);
-	display(static_cast<int>(c), 0);
+	display(static_cast<int>(c), 0, 0);
 	display(static_cast<float>(c));
 	display(static_cast<double>(c));
-}
-
-bool	Literal::check_int_overflow(void) const {
-
-	double test = std::atof(_value.c_str());
-
-	if (test < INT_MIN || test > INT_MAX)
-		return true;
-
-	return false;
 }
 
 				//////// INT CONVERT ////////
@@ -134,9 +125,20 @@ void	Literal::int_convert(void) {
 	int	nb = std::atoi(_value.c_str());
 
 	display(static_cast<char>(nb), (nb < 0 || nb > 127));
-	display(nb, 0);
+	display(nb, 0, 0);
 	display(static_cast<float>(nb));
 	display(static_cast<double>(nb));
+}
+
+//// INT LIMITS
+bool	Literal::check_int_overflow(void) const {
+
+	double test = std::atof(_value.c_str());
+
+	if (test < INT_MIN || test > INT_MAX)
+		return true;
+
+	return false;
 }
 
 				//////// FLOAT CONVERT ////////
@@ -145,16 +147,14 @@ void	Literal::float_convert(int special) {
 
 	std::cout << "FLOAT" << std::endl;
 
+	//pour avoir une comparaison precise avec INT MIN ET MAX
+	double secure = std::atof(_value.c_str()); 
+	
+	//pour le cast
 	float nb = std::strtof(_value.c_str(), NULL);
 
 	display(static_cast<char>(nb), (nb < 0 || nb > 127));
-
-	if (!special)
-		display(static_cast<int>(nb), (nb < -2147483648.0f || nb > 2147483647.0f));
-		//display(static_cast<int>(nb), (nb < static_cast<float>(INT_MIN) || nb > static_cast<float>(INT_MAX)));
-	else
-		std::cout << "int: impossible" << std::endl;
-
+	display(static_cast<int>(nb), special, (secure < (double)INT_MIN || secure > (double)INT_MAX));
 	display(nb);
 	display(static_cast<double>(nb));
 }
@@ -168,15 +168,13 @@ void	Literal::double_convert(int special) {
 	double nb = std::atof(_value.c_str());
 
 	display(static_cast<char>(nb), (nb < 0 || nb > 127));
-
-	if (!special)
-		display(static_cast<int>(nb), (nb < (double)INT_MIN || nb > (double)INT_MAX));
-	else
-		std::cout << "int: impossible" << std::endl;
-
+	display(static_cast<int>(nb), special, (nb < (double)INT_MIN || nb > (double)INT_MAX));
 	display(static_cast<float>(nb));
 	display(nb);
 }
+
+
+				//////// TEST SPECIAL LITERALS ////////
 
 int	Literal::is_float_special(std::string str) {
 
