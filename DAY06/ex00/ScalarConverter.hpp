@@ -9,7 +9,7 @@ class ScalarConverter
 	public:
 		static bool	check_format();
 		static void	convert();
-		static void set(const std::string& value);
+		static void 	set(const std::string& value);
 	private:
 		static std::string	_value;
 
