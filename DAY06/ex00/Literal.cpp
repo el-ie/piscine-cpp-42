@@ -7,37 +7,21 @@
 #include <climits>
 #include <stdint.h>
 
+
+std::string Literal::_value = "";
+
 /////////////////////////// Constructors //////////////////////////
 
-Literal::Literal() : _value("")
-{
-	//std::cout << "Literal default constructor" << std::endl;
-}
+Literal::Literal() { }
 
-Literal::Literal(const std::string &value) : _value(value)
-{
-	//std::cout << "Literal constructor" << std::endl;
-}
+Literal::Literal(const Literal &other) { *this = other; }
 
-Literal::Literal(const Literal &other)
-{
-	std::cout << "Literal copy constructor" << std::endl;
-	*this = other;
-}
-
-Literal::~Literal()
-{
-	//std::cout << "Literal destructor" << std::endl;
-}
+Literal::~Literal() { }
 
 /////////////////////////// Overloads ////////////////////////////////
 
-Literal&	Literal::operator=(const Literal &other)
-{
-	std::cout << "Literal assignation operator" << std::endl;
-	this->_value = other._value;
-	return *this;
-}
+Literal&	Literal::operator=(const Literal &other) { void other, return *this; }
+
 ////////////////////////////////////////////////////////////////////
 
 
@@ -49,10 +33,13 @@ Literal&	Literal::operator=(const Literal &other)
 	
 ////////////////////////////////////////////// DISPLAY ///////////////////////////////////////////
 
+void Literal::set(const std::string& value) {
+	_value = value;
+}
 
 				//// CHAR ////
 
-void	Literal::display(const char c, bool special_literal ,bool outside_limits) const {
+void	Literal::display(const char c, bool special_literal ,bool outside_limits){
 
 	if (special_literal || outside_limits)
 		std::cout << "char: impossible" << std::endl;
@@ -64,7 +51,7 @@ void	Literal::display(const char c, bool special_literal ,bool outside_limits) c
 
 				//// INT ////
 
-void	Literal::display(const int nb, bool special_literal, bool outside_limits) const {
+void	Literal::display(const int nb, bool special_literal, bool outside_limits) {
 
 	if (special_literal || outside_limits)
 		std::cout << "int: impossible" << std::endl;
@@ -74,7 +61,7 @@ void	Literal::display(const int nb, bool special_literal, bool outside_limits) c
 
 				//// FLOAT ////
 
-void	Literal::display(const float nb) const {
+void	Literal::display(const float nb) {
 
 	// add focus
 	//std::cout << std::fixed << std::setprecision(2) << "float: '" << nb << "'" << std::endl;
@@ -83,7 +70,7 @@ void	Literal::display(const float nb) const {
 
 				//// DOUBLE ////
 				
-void	Literal::display(const double nb) const {
+void	Literal::display(const double nb) {
 
 	// add focus
 	std::cout << "double: " << nb << " (DD)" << std::endl;
@@ -96,7 +83,7 @@ void	Literal::display(const double nb) const {
 
 				//////// CHAR CONVERT ////////
 
-void	Literal::char_convert(void) const {
+void	Literal::char_convert(void) {
 
 	std::cout << "CHAR" << std::endl;
 
@@ -128,7 +115,7 @@ void	Literal::int_convert(void) {
 }
 
 //// INT LIMITS
-bool	Literal::check_int_overflow(void) const {
+bool	Literal::check_int_overflow(void) {
 
 	double test = std::atof(_value.c_str());
 

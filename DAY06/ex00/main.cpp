@@ -11,10 +11,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	
-	Literal	test(argv[1]);
+	Literal::set(argv[1]);
 
-	if (test.check_format() == 0)
-		test.convert_value();
+	if (Literal::check_format() == 0)
+		Literal::convert_value();
 
 	return 0;
 }
