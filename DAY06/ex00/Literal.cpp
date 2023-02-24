@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <string>
 #include <bits/stdc++.h>
+#include <climits>
+#include <stdint.h>
 
 /////////////////////////// Constructors //////////////////////////
 
@@ -39,21 +41,34 @@ Literal&	Literal::operator=(const Literal &other)
 
 /////////////////////////// Utilities ////////////////////////////////
 
-void	Literal::display(const char c) const {
+	
+		//////////////////////// DISPLAY /////////////////////////
 
-	if (std::isprint(c))
-		std::cout << "char: '" << c << "'" << " (DC)" << std::endl;
-	else
+
+				//// CHAR ////
+
+void	Literal::display(const char c, bool outside_limits) const {
+
+	if (outside_limits)
+		std::cout << "char: impossible" << std::endl;
+	else if (not std::isprint(c))
 		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << c << "'" << " (DC)" << std::endl;
 }
 
-void	Literal::display(const int nb) const {
+				//// INT ////
 
-	if (check_int_overflow() == true)
+void	Literal::display(const int nb, bool outside_limits) const {
+
+	std::cout << "OUTSIDE LIMIT = [" << outside_limits << "] nb =" << nb << std::endl;
+	if (outside_limits)
 		std::cout << "int: impossible (outside limits)" << std::endl;
 	else
 		std::cout << "int: " << nb << " (DI)" << std::endl;
 }
+
+				//// FLOAT ////
 
 void	Literal::display(const float nb) const {
 
@@ -62,13 +77,20 @@ void	Literal::display(const float nb) const {
 	std::cout << "float: " << nb << "f" << " (DF)" << std::endl;
 }
 
+				//// DOUBLE ////
+				
 void	Literal::display(const double nb) const {
 
 	// add focus
 	std::cout << "double: " << nb << " (DD)" << std::endl;
 }
 
+			//////////////////////// CONVERT /////////////////////////
+
+
 //char convert et int convert : non displayable -> impossible
+
+				//////// CHAR CONVERT ////////
 
 void	Literal::char_convert(void) const {
 
@@ -78,12 +100,11 @@ void	Literal::char_convert(void) const {
 
 	char c = _value[0];
 
-	display(c);
-	display(static_cast<int>(c));
+	display(c, 0);
+	display(static_cast<int>(c), 0);
 	display(static_cast<float>(c));
 	display(static_cast<double>(c));
 }
-
 
 bool	Literal::check_int_overflow(void) const {
 
@@ -94,6 +115,8 @@ bool	Literal::check_int_overflow(void) const {
 
 	return false;
 }
+
+				//////// INT CONVERT ////////
 
 void	Literal::int_convert(void) {
 
@@ -106,11 +129,13 @@ void	Literal::int_convert(void) {
 
 	int	nb = std::atoi(_value.c_str());
 
-	display(static_cast<char>(nb));
-	display(nb);
+	display(static_cast<char>(nb), (nb < 0 || nb > 127));
+	display(nb, 0);
 	display(static_cast<float>(nb));
 	display(static_cast<double>(nb));
 }
+
+				//////// FLOAT CONVERT ////////
 
 void	Literal::float_convert(int special) {
 
@@ -118,18 +143,19 @@ void	Literal::float_convert(int special) {
 
 	float nb = std::strtof(_value.c_str(), NULL);
 
-	if (!special) {
-		display(static_cast<char>(nb));
-		display(static_cast<int>(nb));
-	}
-	else {
-		std::cout << "char: impossible" << std::endl;
+	display(static_cast<char>(nb), (nb < 0 || nb > 127));
+
+	if (!special)
+		display(static_cast<int>(nb), (nb < -2147483648.0f || nb > 2147483647.0f));
+		//display(static_cast<int>(nb), (nb < static_cast<float>(INT_MIN) || nb > static_cast<float>(INT_MAX)));
+	else
 		std::cout << "int: impossible" << std::endl;
-	}
 
 	display(nb);
 	display(static_cast<double>(nb));
 }
+
+				//////// DOUBLE CONVERT ////////
 
 void	Literal::double_convert(int special) {
 
@@ -137,14 +163,13 @@ void	Literal::double_convert(int special) {
 
 	double nb = std::atof(_value.c_str());
 
-	if (!special) {
-		display(static_cast<char>(nb));
-		display(static_cast<int>(nb));
-	}
-	else {
-		std::cout << "char: impossible" << std::endl;
+	display(static_cast<char>(nb), (nb < 0 || nb > 127));
+
+	if (!special)
+		display(static_cast<int>(nb), (nb < (double)INT_MIN || nb > (double)INT_MAX));
+	else
 		std::cout << "int: impossible" << std::endl;
-	}
+
 	display(static_cast<float>(nb));
 	display(nb);
 }
@@ -277,3 +302,4 @@ bool	Literal::check_format(void) {
 //void	Literal::get_()
 //void	Literal::()
 //void	Literal::_()
+

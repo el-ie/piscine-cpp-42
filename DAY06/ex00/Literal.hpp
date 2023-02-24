@@ -27,8 +27,8 @@ class Literal
 	void	float_convert(int special);
 
 	//display fcts
-	void	display(const char c) const;
-	void	display(const int nb) const ;
+	void	display(const char c, bool outside_limits) const;
+	void	display(const int nb, bool outside_limits) const ;
 	void	display(const float nb) const ;
 	void	display(const double nb) const ;
 
