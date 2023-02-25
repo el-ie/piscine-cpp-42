@@ -16,7 +16,8 @@ int	main(void)
 
 	std::cout << "--> a = " << a << " b = " << b << std::endl;
 
-	swap<int>(a, b);
+	std::cout << "swap function called" << std::endl;
+	::swap<int>(a, b);
 
 	std::cout << "--> a = " << a << " b = " << b << std::endl << std::endl;
 
@@ -28,7 +29,8 @@ int	main(void)
 	
 	std::cout << "--> c = " << c << " d = " << d << std::endl;
 	
-	swap<double>(c, d);
+	std::cout << "swap function called" << std::endl;
+	::swap<double>(c, d);
 
 	std::cout << "--> c = " << c << " d = " << d << std::endl << std::endl;
 
@@ -44,7 +46,9 @@ int	main(void)
 
 	std::cout << "--> a = " << a << " b = " << b << std::endl;
 
-	int	minimum_int = min<int>(a, b);
+	std::cout << "Min function called" << std::endl;
+	int	minimum_int = ::min<int>(a, b);
+
 	std::cout << "Result = " << minimum_int << std::endl;
 
 	//with DOUBLE
@@ -52,7 +56,8 @@ int	main(void)
 
 	std::cout << "--> c = " << c << " d = " << d << std::endl;
 
-	double	minimum_double = min<double>(c, d);
+	std::cout << "Min function called" << std::endl;
+	double	minimum_double = ::min<double>(c, d);
 
 	std::cout << "Result = " << minimum_double << std::endl;
 
@@ -69,7 +74,9 @@ int	main(void)
 
 	std::cout << "--> a = " << a << " b = " << b << std::endl;
 
-	int	maximum_int = max<int>(a, b);
+	std::cout << "Max function called" << std::endl;
+	int	maximum_int = ::max<int>(a, b);
+
 	std::cout << "Result = " << maximum_int << std::endl;
 
 	//with DOUBLE
@@ -77,10 +84,27 @@ int	main(void)
 
 	std::cout << "--> c = " << c << " d = " << d << std::endl;
 
-	double	maximum_double = max<double>(c, d);
+	std::cout << "Max function called" << std::endl;
+	double	maximum_double = ::max<double>(c, d);
 
 	std::cout << "Result = " << maximum_double << std::endl;
 
+	std::cout << std::endl;
+
+	std::cout << "----------- main from subject -------------" << std::endl << std::endl;
+
+	int q = 2;
+	int r = 3;
+	::swap( q, r );
+	std::cout << "q = " << q << ", r = " << r << std::endl;
+	std::cout << "min( q, r ) = " << ::min( q, r ) << std::endl;
+	std::cout << "max( q, r ) = " << ::max( q, r ) << std::endl;
+	std::string s = "chaine1";
+	std::string t = "chaine2";
+	::swap(s, t);
+	std::cout << "s = " << s << ", t = " << t << std::endl;
+	std::cout << "min( s, t ) = " << ::min( s, t ) << std::endl;
+	std::cout << "max( s, t ) = " << ::max( s, t ) << std::endl;
 	std::cout << std::endl;
 
 	return 0;

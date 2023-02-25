@@ -7,7 +7,7 @@
 template <typename T>
 void	swap(T& a, T& b) {
 
-	std::cout << "Swap function called on " << a << " and " << b << std::endl;
+	//std::cout << "Swap function called on " << a << " and " << b << std::endl;
 
 	T tmp;
 	tmp = a;
@@ -18,7 +18,7 @@ void	swap(T& a, T& b) {
 template <typename T>
 T	min(T a, T b) {
 
-	std::cout << "Min function called on " << a << " and " << b << std::endl;
+	//std::cout << "Min function called on " << a << " and " << b << std::endl;
 
 	if (a < b)
 		return (a);
@@ -29,7 +29,7 @@ T	min(T a, T b) {
 template <typename T>
 T	max(T a, T b) {
 
-	std::cout << "Max function called on " << a << " and " << b << std::endl;
+	//std::cout << "Max function called on " << a << " and " << b << std::endl;
 
 	if (a > b)
 		return (a);
