@@ -23,10 +23,21 @@ T	min(T a, T b) {
 		return (b);
 }
 
+template <typename T>
+T	max(T a, T b) {
+
+	std::cout << "Max function called on " << a << " and " << b << std::endl;
+
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
 int	main(void)
 {
 
-		////	SWAP FUNCTION	////
+			////	SWAP FUNCTION	////
 
 	// WITH INT
 	int a = 5;
@@ -53,9 +64,7 @@ int	main(void)
 
 	std::cout << "--> c = " << c << " d = " << d << std::endl << std::endl;
 
-	std::cout << "---------------------------------------------" << std::endl << std::endl;
-
-		//// MIN FUNCTION ////
+			////	MIN FUNCTION	////
 
 	std::cout << std::endl << "---------------- MIN function ----------------" << std::endl << std::endl;
 
@@ -73,11 +82,38 @@ int	main(void)
 	//with DOUBLE
 	std::cout << std::endl << "-------- with <DOUBLE> :" << std::endl << std::endl;
 
-	std::cout << "--> c = " << c << " d = " << d << std::endl << std::endl;
+	std::cout << "--> c = " << c << " d = " << d << std::endl;
 
 	double	minimum_double = min<double>(c, d);
 
 	std::cout << "Result = " << minimum_double << std::endl;
 
 
+		////	MAX FUNCTION	////
+
+	std::cout << std::endl << "---------------- MAX function ----------------" << std::endl << std::endl;
+
+	//with INT
+	std::cout << std::endl << "-------- with <INT> :" << std::endl << std::endl;
+
+	a = 42;
+	b = 84;
+
+	std::cout << "--> a = " << a << " b = " << b << std::endl;
+
+	int	maximum_int = max<int>(a, b);
+	std::cout << "Result = " << maximum_int << std::endl;
+
+	//with DOUBLE
+	std::cout << std::endl << "-------- with <DOUBLE> :" << std::endl << std::endl;
+
+	std::cout << "--> c = " << c << " d = " << d << std::endl;
+
+	double	maximum_double = max<double>(c, d);
+
+	std::cout << "Result = " << maximum_double << std::endl;
+
+	std::cout << std::endl;
+
+	return 0;
 }
