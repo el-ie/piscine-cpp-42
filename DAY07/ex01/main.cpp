@@ -32,12 +32,12 @@ void	iter(T* array, size_t size, void (*fct)(const T&)) {
 	std::cout << "]" << std::endl << std::endl;
 }
 
-#include <stdlib.h>
 
 int	main(void)
 {
 
-	/////////////////tests avec des int
+			////////	tests avec des INT	////////
+	
 	std::cout << std::endl << "------------Tests avec des INT----------------" << std::endl << std::endl;
 
 	//creation tableau
@@ -53,7 +53,7 @@ int	main(void)
 
 
 
-	/////////////////tests avec des doubles
+			////////	tests avec des DOUBLES	////////
 	std::cout << "------------Tests avec des DOUBLES----------------" << std::endl << std::endl;
 	
 	//creation tableau
@@ -68,7 +68,9 @@ int	main(void)
 	iter<double>(double_tab, 4, &display_double);
 
 	
-	/////////////////tests avec des std::string
+
+			////////	tests avec des STD::STRING	////////
+	std::cout << "------------Tests avec des STRING ----------------" << std::endl << std::endl;
 
 	//creation du tableau
 	std::string liste[5] = {"monsieur", "banane", "mange", "des", "pommes"};
@@ -80,9 +82,6 @@ int	main(void)
 	//affichage double des valeurs
 	std::cout << "fonction iter avec to upper :" << std::endl;
 	iter<std::string>(liste, 5, &call_display_up);
+	
+	return 0;
 }
-
-
-
-
-
