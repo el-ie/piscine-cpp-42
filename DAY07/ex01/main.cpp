@@ -1,3 +1,5 @@
+#include "Iter.hpp"
+
 #include <string>
 #include <iostream>
 
@@ -21,17 +23,6 @@ template <typename T>
 void	display_double(const T& element) {
 	std::cout << (element * 2) << " ";
 }
-
-template <typename T>
-void	iter(T* array, size_t size, void (*fct)(const T&)) {
-	
-	std::cout << "iter function called" << std::endl;
-	std::cout << "[";
-	for (size_t i = 0; i < size; i++)
-		(*fct)(array[i]);
-	std::cout << "]" << std::endl << std::endl;
-}
-
 
 int	main(void)
 {
