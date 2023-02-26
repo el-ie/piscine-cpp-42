@@ -13,7 +13,7 @@ class Array
 		Array<T> () : _tab(NULL), _arr_len(0)//empty array ??
 		{ }
 
-		Array<T> (unsigned int n) : _tab(new T[n]), _arr_len(n)
+		Array<T> (unsigned int n) : _tab(new T[n]()), _arr_len(n)
 		{ }
 
 		Array(const Array<T> &other) : _tab(NULL)
@@ -40,23 +40,19 @@ class Array
 			if (_tab)
 				delete [] _tab;
 
-			_arr_len = 0;
 			_tab = NULL;
 
 			_arr_len = other._arr_len;
 
 			if (_arr_len == 0)
 				return *this;
-			else {
 
-				_tab = new T[_arr_len];
-				for (int i = 0; i < _arr_len; i++) {
-					_tab[i] = other._tab[i];
-				}
-
-				return (*this);
+			_tab = new T[_arr_len];
+			for (unsigned int i = 0; i < _arr_len; i++) {
+				_tab[i] = other._tab[i];
 			}
 
+			return (*this);
 		}
 
 		// ] //
@@ -64,10 +60,9 @@ class Array
 
 			//test limits
 
-			if (index < 0 || index >= _arr_len)
+			if (index < 0 || index >= (int)_arr_len)
 				throw(badIndex());
 
-			std::cout << "OVERLOADS MODIF called" << std::endl;
 
 			return (_tab[index]);
 		}
@@ -76,10 +71,9 @@ class Array
 
 			//test limits
 
-			if (index < 0 || index >= _arr_len)
+			if (index < 0 || index >= (int)_arr_len)
 				throw(badIndex());
 
-			std::cout << "OVERLOADS CONST called" << std::endl;
 			return (_tab[index]);
 		}
 
@@ -89,13 +83,13 @@ class Array
 
 		//// exception
 		class	badIndex : public std::exception
-		{
-			public:
-				virtual char const * what(void) const throw() {
-					return "badIndex : index is out of bounds";
-				}
-		};
-		
+	{
+		public:
+			virtual char const * what(void) const throw() {
+				return "badIndex : index is out of bounds";
+			}
+	};
+
 		//accessor
 		unsigned int	size(void) const {
 			return (_arr_len);
@@ -104,7 +98,7 @@ class Array
 	private:
 
 		T *		_tab;
-		int	_arr_len;
+		unsigned int	_arr_len;
 
 };
 
