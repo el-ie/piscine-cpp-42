@@ -18,6 +18,7 @@ class Array
 
 		Array(const Array<T> &other) : _tab(NULL)
 		{
+			std::cout << "Copy constructor called" << std::endl;
 			*this = other;
 		}
 
@@ -32,7 +33,7 @@ class Array
 		// = //
 		Array & operator=(const Array<T> &other)
 		{
-			//une reference peut elle etre NULL
+			std::cout << "Assignment operator called" << std::endl;
 
 			if (this == &other)
 				return (*this);
@@ -90,10 +91,20 @@ class Array
 			}
 	};
 
+		//display
+		void		display_all() {
+
+			for (unsigned int i = 0; i < _arr_len; i++)
+				std::cout << (*this)[i] << " - ";
+
+			std::cout << std::endl;
+		}
+
 		//accessor
 		unsigned int	size(void) const {
 			return (_arr_len);
 		}
+
 
 	private:
 
