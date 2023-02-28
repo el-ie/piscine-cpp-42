@@ -26,7 +26,6 @@ void	display_double(const T& element) {
 
 int	main(void)
 {
-
 			////////	tests avec des INT	////////
 	
 	std::cout << std::endl << "------------Tests avec des INT----------------" << std::endl << std::endl;
@@ -41,7 +40,6 @@ int	main(void)
 	// affichage du double des valeurs
 	std::cout << "fonction iter avec display double :" << std::endl;
 	iter<int>(int_tab, 4, &display_double);
-
 
 
 			////////	tests avec des DOUBLES	////////
