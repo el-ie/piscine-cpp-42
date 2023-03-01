@@ -131,7 +131,8 @@ void	Span::fill_container(void) {
 
 	if (_maxsize == 0)
 		return ;
-
+	
+	std::cout << std::endl << "fill_container called" << std::endl << std::endl;
 	
 	_container.erase(_container.begin(), _container.end());
 

@@ -65,12 +65,26 @@ int	main(void)
 	
 	//longest span
 	std::cout << "Test de la fonction longestSpan :" << std::endl << "resultat = ";
-	std::cout << basic_span.longestSpan() << std::endl;
+
+	try {
+		std::cout << basic_span.longestSpan() << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
 	std::cout << "C'est le plus grand ecart existant dans le span, soit l'ecart entre le nombre le plus petit et le nombre le plus grand du span." << std::endl << std::endl;
 
 	//shortest span
 	std::cout << "Test de la fonction shortestSpan :" << std::endl << "resultat = ";
-	std::cout << basic_span.shortestSpan() << std::endl;
+
+	try {
+		std::cout << basic_span.shortestSpan() << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
 	std::cout << "Soit l'ecart le plus petit entre 2 nombres existant dans le span." << std::endl << std::endl;
 
 	//Exception des ces fonctions :
@@ -93,6 +107,41 @@ int	main(void)
 	catch (std::exception const &e) {
 		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
 	}
+
+		////	Tests grands spans	////
+
+	std::cout << std::endl << "---------- Tests avec des span plus grands :" << std::endl << std::endl;
+
+	//creation d'un span de 100 nombres
+	std::cout << "On cree un span de 100 nombres :" << std::endl;
+
+	Span	span_100(100);
+
+	//remplissage avec des nombres aleatoires
+	std::cout << "On rempli le span avec des nombres aleatoires:" << std::endl;
+	span_100.fill_container();
+
+	//utilisation des fonctions :
+	std::cout << "On utilise nos fonctions longestSpan et shortestSpan sur le nouveau span :" << std::endl << std::endl;
+
+	std::cout << "LongestSpan :" << std::endl;
+	try {
+		std::cout << "longestSpan result = " << span_100.longestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+
+	//shortestSpan :
+	std::cout << "shortestSpan :" << std::endl;
+	try {
+		std::cout << "shortestSpan result = " << span_100.shortestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
 
 	return 0;
 }
