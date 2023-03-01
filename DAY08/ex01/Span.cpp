@@ -97,14 +97,29 @@ int	Span::shortestSpan(void) const {
 	std::vector<int> temp = _container;
 	std::sort(temp.begin(), temp.end());
 
-	display_list(temp);
+	//display_list(temp);
 
 	//temporary list to save the differences between each number of the sorted list
-	std::vector<int> differences;
+	
 
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); it++)
+	int shortest = temp[1] - temp[0];
+	int diff;
 
-	return 3;
+	
+	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); it++) {
+
+		if (it != temp.begin()) {
+
+			//diff = temp[i] - temp[i - 1];
+			diff = *it - *(it - 1);
+
+			if (diff < shortest)
+				shortest = diff;
+		}
+	}
+
+
+	return (shortest);
 }
 
 

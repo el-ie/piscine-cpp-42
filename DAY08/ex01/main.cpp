@@ -6,7 +6,7 @@ int	main(void)
 	Span elem(30);
 	try {
 
-	elem.addNumber(3);
+	elem.addNumber(5);
 	elem.addNumber(45);
 	elem.addNumber(789);
 	elem.addNumber(2);
@@ -15,7 +15,7 @@ int	main(void)
 
 	//std::cout << elem.longestSpan() << std::endl;
 
-	elem.shortestSpan();
+	std::cout << "shortest = " << elem.shortestSpan() << std::endl;
 
 	}
 	catch (...) {
