@@ -48,15 +48,51 @@ int	main(void)
 
 	//Ajout d'un nombre dans un span vide
 	std::cout << "Test de l'ajout d'un nombre dans un span vide :" << std::endl;
-	Span	test_empty;
+	Span	empty_span;
 	try {
-		test_empty.addNumber(42000);
+		empty_span.addNumber(42000);
 	}
 	catch (std::exception const &e) {
 		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
 	}
 
+	
+		////	Fonctions demandees	////
 
+	std::cout << "---------- Fonctions demandees :" << std::endl << std::endl;
+
+	basic_span.display_span();
+	
+	//longest span
+	std::cout << "Test de la fonction longestSpan :" << std::endl << "resultat = ";
+	std::cout << basic_span.longestSpan() << std::endl;
+	std::cout << "C'est le plus grand ecart existant dans le span, soit l'ecart entre le nombre le plus petit et le nombre le plus grand du span." << std::endl << std::endl;
+
+	//shortest span
+	std::cout << "Test de la fonction shortestSpan :" << std::endl << "resultat = ";
+	std::cout << basic_span.shortestSpan() << std::endl;
+	std::cout << "Soit l'ecart le plus petit entre 2 nombres existant dans le span." << std::endl << std::endl;
+
+	//Exception des ces fonctions :
+	std::cout << "Exceptions des fonctions longestSpan et shortestSpan :" << std::endl << std::endl;
+
+	//LongestSpan :
+	std::cout << "LongestSpan :" << std::endl;
+	try {
+		empty_span.longestSpan();
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+	//shortestSpan :
+	std::cout << "shortestSpan :" << std::endl;
+	try {
+		empty_span.shortestSpan();
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
 
 	return 0;
 }
