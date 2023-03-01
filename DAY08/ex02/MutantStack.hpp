@@ -4,8 +4,10 @@
 #include <iostream>
 #include <string>
 
-#include <stack>
 #include <deque>
+#include <list>
+#include <vector>
+#include <stack>
 
 template < class T, class C = std::deque<T> >
 //template < class T, class C >
