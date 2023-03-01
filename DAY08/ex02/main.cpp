@@ -1,4 +1,3 @@
-
 #include "MutantStack.hpp"
 
 #include <iostream>
@@ -9,10 +8,11 @@
 #include <vector>
 #include <stack>
 
-//add all
-
 int	main(void)
 {
+			/////////////// main personnel ////////////////
+
+			std::cout << std::endl << "/////////////// Main Personnel ///////////////" << std::endl;
 	{
 		////	Creation MutantStack type vector<int>	////
 
@@ -80,40 +80,12 @@ int	main(void)
 		std::cout << *begin << " - " << *(begin + 1) << " - " << *(begin + 2) << std::endl << std::endl;
 	}
 
-	/*
-
-	   MutantStack< int, std::vector<int> > deux(un);
-
-	   it = deux.begin();
-
-	   std::cout << "*it = " << *it  << " , " << *(it + 1) << std::endl;
-
-	//MutantStack< int, std::vector<int> >::const_iterator itt = un.begin();
-	//std::cout << "*itt = " << *itt  << " , " << *(itt + 1) << std::endl;
-
-	MutantStack< int, std::vector<int> > trois;
-
-	trois = deux;
-
-	std::cout << " TROIS = " << *trois.begin() << std::endl;
-
-
-	//liste.push(78);
-
-	//std::cout << liste.test[0] << std::endl;
-	 */
-
-	return 0;
-}
-
-int maine()
-{
-	//MutantStack<int, std::list<int> > mstack;
+			/////////////// main sujet ////////////////
 
 	{
-		MutantStack<int>  mstack;
-
-
+			std::cout << std::endl << "/////////////// Main du sujet ///////////////" << std::endl << std::endl;
+			std::cout << "Sans preciser de conteneur : (conteneur par defaut = deque)" << std::endl << std::endl;
+		MutantStack<int> mstack;
 		mstack.push(5);
 		mstack.push(17);
 		std::cout << mstack.top() << std::endl;
@@ -124,15 +96,8 @@ int maine()
 		mstack.push(737);
 		//[...]
 		mstack.push(0);
-
 		MutantStack<int>::iterator it = mstack.begin();
-		//MutantStack< int, std::list<int> >::iterator it = mstack.begin();
-
-
 		MutantStack<int>::iterator ite = mstack.end();
-		//MutantStack< int, std::list<int> >::iterator ite = mstack.end();
-
-
 		++it;
 		--it;
 		while (it != ite)
@@ -141,43 +106,59 @@ int maine()
 			++it;
 		}
 		std::stack<int> s(mstack);
-		/*
-		 */
-
 	}
-	MutantStack<int, std::vector<int> >  test;
-
-	test.push(5);
-	test.push(17);
-	std::cout << test.top() << std::endl;
-	test.pop();
-	std::cout << test.size() << std::endl;
-	test.push(3);
-	test.push(5);
-	test.push(737);
-	//[...]
-	test.push(0);
-
-	MutantStack< int, std::vector<int> >::iterator it = test.begin();
-	//MutantStack< int, std::list<int> >::iterator it = test.begin();
-
-
-	MutantStack< int, std::vector<int> >::iterator ite = test.end();
-	//MutantStack< int, std::list<int> >::iterator ite = test.end();
-
-	++it;
-	--it;
-	while (it != ite)
+		std::cout << std::endl << "Avec le conteneur vector :" << std::endl << std::endl;
 	{
-		std::cout << *it << std::endl;
+		MutantStack< int , std::vector<int> > mstack;
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << mstack.top() << std::endl;
+		mstack.pop();
+		std::cout << mstack.size() << std::endl;
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		//[...]
+		mstack.push(0);
+		MutantStack< int, std::vector<int> >::iterator it = mstack.begin();
+		MutantStack< int, std::vector<int> >::iterator ite = mstack.end();
 		++it;
+		--it;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::stack< int, std::vector<int> > s(mstack);
+			
 	}
 
-
-	typedef std::stack<int, std::vector<int> > Mystack;
-	Mystack sss(test);
-
-	std::stack<int, std::vector<int> > s(test);
+		std::cout << std::endl << "Avec le conteneur list :" << std::endl << std::endl;
+	{
+		MutantStack< int , std::list<int> > mstack;
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << mstack.top() << std::endl;
+		mstack.pop();
+		std::cout << mstack.size() << std::endl;
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		//[...]
+		mstack.push(0);
+		MutantStack< int, std::list<int> >::iterator it = mstack.begin();
+		MutantStack< int, std::list<int> >::iterator ite = mstack.end();
+		++it;
+		--it;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::stack< int, std::list<int> > s(mstack);
+			
+	}
 
 	return 0;
 }
+

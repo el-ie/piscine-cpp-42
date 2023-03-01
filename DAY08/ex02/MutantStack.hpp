@@ -10,7 +10,6 @@
 #include <stack>
 
 template < class T, class C = std::deque<T> >
-//template < class T, class C >
 
 class MutantStack : public std::stack<T, C>
 {
@@ -20,16 +19,10 @@ class MutantStack : public std::stack<T, C>
 		typedef typename std::stack<T, C>::container_type::const_iterator const_iterator;
 		typedef typename std::stack<T, C>::container_type::reverse_iterator reverse_iterator;
 		typedef typename std::stack<T, C>::container_type::const_reverse_iterator const_reverse_iterator;
-		//typedef typename C::iterator iterator;
 
-		MutantStack()
-		{
-			std::stack<T, C>::c.begin();
-			//this->c.begin();
-		};
+		MutantStack()	{};
 
-		MutantStack(const MutantStack &other) : std::stack<T, C>(other)	{ 
-		};
+		MutantStack(const MutantStack &other) : std::stack<T, C>(other)	{};
 
 		~MutantStack () {};
 
@@ -48,7 +41,6 @@ class MutantStack : public std::stack<T, C>
 		}
 
 		const_iterator	begin(void) const {
-		//mauvais appel ?? //////////////////////////////////////
 			return (this->c.begin());
 		}
 
