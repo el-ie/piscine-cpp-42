@@ -1,7 +1,14 @@
+#include <string>
+#include <iostream>
+
 #include "Span.hpp"
+
+#include <cstdlib>
 
 int	main(void)
 {
+
+	std::srand(time(NULL));
 
 	Span elem(30);
 	try {

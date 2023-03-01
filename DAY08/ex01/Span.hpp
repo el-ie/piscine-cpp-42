@@ -32,6 +32,8 @@ class Span
 
 		int	longestSpan(void) const;
 		int	shortestSpan(void) const;
+		void	fill_container(void);
+	//	int	generate_number(void);
 
 
 	private:

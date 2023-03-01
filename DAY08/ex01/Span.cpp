@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include <vector>
 #include <algorithm>
 
@@ -115,5 +117,22 @@ int	Span::shortestSpan(void) const {
 	return (shortest);
 }
 
+//ici ?
+int	generate_number(void) {
+	
+	return (std::rand() % 1000);
+}
 
+void	Span::fill_container(void) {
 
+	if (_maxsize == 0)
+		return ;
+
+	
+	_container.erase(_container.begin(), _container.end());
+
+	//maxsize - 1 ou pas
+	_container.insert(_container.begin(), _maxsize , 0);
+
+	std::generate(_container.begin(), _container.end(), &generate_number);
+}
