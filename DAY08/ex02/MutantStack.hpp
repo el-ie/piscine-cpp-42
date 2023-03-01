@@ -46,6 +46,7 @@ class MutantStack : public std::stack<T, C>
 		}
 
 		const_iterator	begin(void) const {
+		//mauvais appel ?? //////////////////////////////////////
 			return (this->c.begin());
 		}
 
