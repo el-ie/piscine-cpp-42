@@ -19,18 +19,18 @@ int	main(void)
 
 	//initiatisation de la liste avec une taille de 5
 	std::cout << std::endl << "Creation d'une span d'une taille de 5 :" << std::endl;
-	Span elem(5);
+	Span basic_span(5);
 
 	//ajout des valeurs dans le span
 	std::cout << "Ajout de valeurs dans le span :" << std::endl << std::endl;
-	elem.addNumber(42);
-	elem.addNumber(84);
-	elem.addNumber(168);
-	elem.addNumber(336);
-	elem.addNumber(672);
+	basic_span.addNumber(42);
+	basic_span.addNumber(84);
+	basic_span.addNumber(168);
+	basic_span.addNumber(336);
+	basic_span.addNumber(672);
 
 	//affichage des valeurs
-	elem.display_span();
+	basic_span.display_span();
 	
 
 		////	Exceptions	////
@@ -39,7 +39,7 @@ int	main(void)
 	//test de l'ajout d'un nombre alors que le span est full
 	std::cout << "Test de l'ajout d'un nombre quand le span est plein :" << std::endl;
 	try {
-	elem.addNumber(42000);
+	basic_span.addNumber(42000);
 	}
 	catch (std::exception const &e) {
 		std::cerr << std::endl << "Exception: " << e.what() << std::endl << std::endl;
@@ -48,13 +48,14 @@ int	main(void)
 
 	//Ajout d'un nombre dans un span vide
 	std::cout << "Test de l'ajout d'un nombre dans un span vide :" << std::endl;
-	Span	test;
+	Span	test_empty;
 	try {
-		test.addNumber(42000);
+		test_empty.addNumber(42000);
 	}
 	catch (std::exception const &e) {
 		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
 	}
+
 
 
 	return 0;
