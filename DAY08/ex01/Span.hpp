@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 #include <vector>
 
@@ -33,6 +34,7 @@ class Span
 		int	longestSpan(void) const;
 		int	shortestSpan(void) const;
 		void	fill_container(void);
+		void	display_span(void);
 	//	int	generate_number(void);
 
 

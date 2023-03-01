@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <stdexcept>
 
 #include "Span.hpp"
 
@@ -10,12 +11,12 @@
 //Span::Span() : _container() //pourquoi faire ca
 Span::Span() : _maxsize(0)
 {
-	std::cout << "Span default constructor" << std::endl;
+	std::cout << std::endl << "Span default constructor (size = 0)" << std::endl << std::endl;
 }
 
 Span::Span(unsigned int N) : _container(), _maxsize(N)
 {
-	std::cout << "Span constructor" << std::endl;
+	std::cout << std::endl << "Span constructor size = " << N << std::endl << std::endl;
 }
 
 Span::Span(const Span &other)
@@ -70,13 +71,16 @@ void	Span::addNumber(const int nb) {
 	return ;
 }
 
-/* attention
-void	display_list(std::vector<int> liste) {
+///* ////////attention
+//*/
+
+void	Span::display_span() {
 	
-	for (std::vector<int>::iterator it = liste.begin(); it != liste.end(); it++)
+	std::cout << std::endl << "Valeurs contenues :" << std::endl;
+	for (std::vector<int>::iterator it = _container.begin(); it != _container.end(); it++)
 		std::cout << *it << " " ;
+	std::cout << std::endl << std::endl;
 }
-*/
 
 	////	Shortest Longest Span	////
 
