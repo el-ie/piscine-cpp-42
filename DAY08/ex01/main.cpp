@@ -59,7 +59,7 @@ int	main(void)
 	
 		////	Fonctions demandees	////
 
-	std::cout << "---------- Fonctions demandees :" << std::endl << std::endl;
+	std::cout << std::endl << "---------- Fonctions demandees :" << std::endl << std::endl;
 
 	basic_span.display_span();
 	
@@ -88,8 +88,9 @@ int	main(void)
 	std::cout << "Soit l'ecart le plus petit entre 2 nombres existant dans le span." << std::endl << std::endl;
 
 	//Exception des ces fonctions :
-	std::cout << "Exceptions des fonctions longestSpan et shortestSpan :" << std::endl << std::endl;
+	std::cout << "---------- Exceptions des fonctions longestSpan et shortestSpan" << std::endl << std::endl;
 
+	std::cout << "On utilise les fonction avec le span vide empty_span :" << std::endl << std::endl;
 	//LongestSpan :
 	std::cout << "LongestSpan :" << std::endl;
 	try {
@@ -108,18 +109,58 @@ int	main(void)
 		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
 	}
 
-		////	Tests grands spans	////
+		////////	Tests grands spans	////////	////////
 
 	std::cout << std::endl << "---------- Tests avec des span plus grands :" << std::endl << std::endl;
 
-	//creation d'un span de 100 nombres
-	std::cout << "On cree un span de 100 nombres :" << std::endl;
 
-	Span	span_100(100);
+			/////	10 nombres	////
+
+	std::cout << "		_____ 10 nombres _____" << std::endl;
+
+	Span	span_10(10);
+
 
 	//remplissage avec des nombres aleatoires
 	std::cout << "On rempli le span avec des nombres aleatoires:" << std::endl;
+	span_10.fill_container();
+
+	span_10.display_span();
+
+	//utilisation des fonctions :
+	std::cout << "On utilise nos fonctions longestSpan et shortestSpan sur le nouveau span :" << std::endl << std::endl;
+
+	std::cout << "LongestSpan :" << std::endl;
+	try {
+		std::cout << "longestSpan result = " << span_10.longestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+	//shortestSpan :
+	std::cout << "shortestSpan :" << std::endl;
+	try {
+		std::cout << "shortestSpan result = " << span_10.shortestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+
+
+
+			/////	100 nombres	////
+			
+	std::cout << "		_____ 100 nombres _____" << std::endl;
+
+	Span	span_100(100);
+
+
+	//remplissage avec des nombres aleatoires
 	span_100.fill_container();
+
+	span_100.display_span();
 
 	//utilisation des fonctions :
 	std::cout << "On utilise nos fonctions longestSpan et shortestSpan sur le nouveau span :" << std::endl << std::endl;
@@ -137,6 +178,69 @@ int	main(void)
 	std::cout << "shortestSpan :" << std::endl;
 	try {
 		std::cout << "shortestSpan result = " << span_100.shortestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+			/////	10000 nombres	////
+			
+	std::cout << "		_____ 10000 nombres _____" << std::endl;
+
+	Span	span_10000(10000);
+
+	//remplissage avec des nombres aleatoires
+	span_10000.fill_container();
+
+	//utilisation des fonctions :
+	std::cout << "On utilise nos fonctions longestSpan et shortestSpan sur le nouveau span :" << std::endl << std::endl;
+
+	std::cout << "LongestSpan :" << std::endl;
+	try {
+		std::cout << "longestSpan result = " << span_10000.longestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+
+	//shortestSpan :
+	std::cout << "shortestSpan :" << std::endl;
+	try {
+		std::cout << "shortestSpan result = " << span_10000.shortestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+
+
+			/////	1000000 nombres	////
+			
+	std::cout << "		_____ 1000000 nombres _____" << std::endl;
+
+	Span	span_1000000(1000000);
+
+
+	//remplissage avec des nombres aleatoires
+	span_1000000.fill_container();
+
+	//utilisation des fonctions :
+	std::cout << "On utilise nos fonctions longestSpan et shortestSpan sur le nouveau span :" << std::endl << std::endl;
+
+	std::cout << "LongestSpan :" << std::endl;
+	try {
+		std::cout << "longestSpan result = " << span_1000000.longestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
+	}
+
+
+	//shortestSpan :
+	std::cout << "shortestSpan :" << std::endl;
+	try {
+		std::cout << "shortestSpan result = " << span_1000000.shortestSpan() << std::endl << std::endl;
 	}
 	catch (std::exception const &e) {
 		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
