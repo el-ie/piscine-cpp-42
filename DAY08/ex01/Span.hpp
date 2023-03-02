@@ -35,8 +35,15 @@ class Span
 		int	shortestSpan(void) const;
 		void	fill_container(void);
 		void	display_span(void);
-	//	int	generate_number(void);
 
+		template <typename T>
+		void	iterator_fill(T it, T end, int nb) {
+
+			while (it != end) {
+				addNumber(nb);
+				++it;
+			}
+		}
 
 	private:
 		std::vector<int>	_container;

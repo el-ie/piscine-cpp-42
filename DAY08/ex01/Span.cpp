@@ -27,7 +27,7 @@ Span::Span(const Span &other)
 
 Span::~Span()
 {
-	std::cout << "Span destructor" << std::endl;
+	//std::cout << "Span destructor" << std::endl;
 }
 
 	////	Overloads	////
@@ -70,9 +70,6 @@ void	Span::addNumber(const int nb) {
 	_container.push_back(nb);
 	return ;
 }
-
-///* ////////attention
-//*/
 
 void	Span::display_span() {
 	
@@ -121,7 +118,6 @@ int	Span::shortestSpan(void) const {
 	return (shortest);
 }
 
-//ici ?
 int	generate_number(void) {
 	
 	return (std::rand() % 1000);
@@ -136,7 +132,6 @@ void	Span::fill_container(void) {
 	
 	_container.erase(_container.begin(), _container.end());
 
-	//maxsize - 1 ou pas
 	_container.insert(_container.begin(), _maxsize , 0);
 
 	std::generate(_container.begin(), _container.end(), &generate_number);

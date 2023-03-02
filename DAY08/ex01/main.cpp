@@ -4,9 +4,7 @@
 #include "Span.hpp"
 
 #include <cstdlib>
-
 #include <stdexcept>
-
 
 int	main(void)
 {
@@ -246,6 +244,22 @@ int	main(void)
 		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
 	}
 
+		////	Copy constructor && operator=	////
+
+	std::cout << "---------- constructeur par copie et operateur= :" << std::endl << std::endl;
+
+	std::cout << "Creation du Span alpha de taille 10" << std::endl;
+	Span	alpha(10);
+
+	alpha.fill_container();
+
+	alpha.display_span();
+
+	std::cout << "Creation du Span omega par copie de alpha et affichage des valeurs copiees :" << std::endl;
+
+	Span	omega(alpha);
+
+	omega.display_span();
 
 	return 0;
 }
