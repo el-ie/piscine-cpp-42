@@ -1,19 +1,13 @@
-
 #include "easyfind.hpp"
 
 #include <string>
 #include <iostream>
 
-// CHCKER
 #include <iterator>
 #include <algorithm>
 #include <vector>
 #include <list>
 #include <deque>
-
-
-//for (std::vector<int>::iterator it = liste.begin(); it != liste.end(); ++it)
-//	std::cout << *it << " ";
 
 int	main(void)
 {
